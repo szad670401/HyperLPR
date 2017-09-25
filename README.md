@@ -54,4 +54,4 @@ image,res  = pp.SimpleRecognizePlate(image)
 ![image](./cache/demo3.png)
 
 ### 获取帮助
-HyperLPR讨论QQ群：673071218 加前请备注HyperLPR交流。
++ HyperLPR讨论QQ群：673071218, 加前请备注HyperLPR交流。
