@@ -1,4 +1,4 @@
-# High Accuracy Chinese Plate Recognition Framework (HyperLPR)
+# High Accuracy Chinese Plate Recognition Framework
 
 ### 介绍
 This research aims at simply developping plate recognition project on deep learning methods, with low complexity and high speed. This 
@@ -52,3 +52,6 @@ image,res  = pp.SimpleRecognizePlate(image)
 ![image](./cache/demo1.png)
 ![image](./cache/demo2.png)
 ![image](./cache/demo3.png)
+
+### 获取帮助
+HyperLPR讨论QQ群：673071218 加前请备注HyperLPR交流。
