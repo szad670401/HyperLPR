@@ -3,6 +3,7 @@
 ### 介绍
 This research aims at simply developping plate recognition project on deep learning methods, with low complexity and high speed. This 
 project has been by some commercial corporations. Free and open source, deploying by Zeusee. 
+
 HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的实现，与开源的[EasyPR](https://github.com/liuruoze/EasyPR)相比，它的检测速度和鲁棒性和多场景的适应性都要好于EasyPR。
 
 
