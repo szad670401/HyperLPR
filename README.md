@@ -9,9 +9,9 @@ HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的
 
 ### 特性
 
-+ 单张720p 识别时间在单核Intel 2.2G CPU(MBP2015 15inch)不低于 140ms。比EasyPR单核识别速度快近10倍左右的时间。
++ 单张720p图像，单核Intel 2.2G CPU 识别时间140ms左右，比EasyPR单核识别速度快近10倍的时间。
 + 识别率在EasyPR数据集上0-error达到70.2% 1-error识别率达到 89.6%
-+ 单线程平均检测时间在EasyPR数据集在保持在160ms以下。基于adaboost检测方法在实时性、召回率、准确率上都不逊于MSER方法。检测recall和easyPR持平。
++ 检测方法在实时性、召回率、准确率上都优于MSER方法，检测recall和easyPR持平。
 + 代码框架轻量，总代码不到1k行。
 
 ### 依赖
@@ -23,15 +23,15 @@ HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的
 + OpenCV
 + scikit-image
 
-### Pipeline
+### 设计流程
 
-> step1. 使用opencv 的 HAAR cascade 检测车牌大致位置 
+> step1. 使用opencv 的 HAAR Cascade 检测车牌大致位置 
 
 > step2. Extend 检测到的大致位置的矩形区域
 
-> step3. 使用类似于mser的方式的多级二值化+ransac拟合车牌的上下边界
+> step3. 使用类似于MSER的方式的 多级二值化 + RANSAC 拟合车牌的上下边界
 
-> step4. 使用CNN regression回归车牌左右边界
+> step4. 使用CNN Regression回归车牌左右边界
 
 > step5. 使用基于纹理场的算法进行车牌校正倾斜
 
