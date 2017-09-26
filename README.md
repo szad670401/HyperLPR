@@ -16,7 +16,7 @@ HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的
 
 ### 依赖
 
-+ Keras + Theano backend (Tensorflow data order)
++ Keras + Theano backend (Tensorflow data order) 请使用theano作为backend , tensorflow backend虽然权重可以载入但是识别结果是乱的
 + Theano
 + Numpy
 + Scipy
