@@ -16,27 +16,27 @@ HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的
 
 ### 依赖
 
-+ Keras + Theano backend (Tensorflow data order) 请使用theano作为backend , tensorflow backend虽然权重可以载入但是识别结果是乱的
-+ Theano
-+ Numpy
-+ Scipy
-+ OpenCV
-+ scikit-image
++ Keras (>2.0.0)
++ Theano(>0.9) or Tensorflow(>1.1.x)
++ Numpy (>1.10)
++ Scipy (0.19.1)
++ OpenCV(>3.0)
++ scikit-image (0.13.0)
 
 ### 设计流程
 
 > step1. 使用opencv 的 HAAR Cascade 检测车牌大致位置 
-
+>
 > step2. Extend 检测到的大致位置的矩形区域
-
+>
 > step3. 使用类似于MSER的方式的 多级二值化 + RANSAC 拟合车牌的上下边界
-
+>
 > step4. 使用CNN Regression回归车牌左右边界
-
+>
 > step5. 使用基于纹理场的算法进行车牌校正倾斜
-
+>
 > step6. 使用CNN滑动窗切割字符
-
+>
 > step7. 使用CNN识别字符
 
 ### 简单使用方式
@@ -47,11 +47,28 @@ import cv2
 image = cv2.imread("filename")
 image,res  = pp.SimpleRecognizePlate(image)
 ```
+### 可识别和待支持的车牌的类型
+
+- [x] 标准单行蓝牌
+- [x] 标准单行黄牌
+- [ ] 新能源车牌
+- [ ] 双层黄牌
+- [ ] 警用车牌
+- [ ] 武警车牌
+- [ ] 使馆车牌
+
+
+
 ### 测试样例
 
 ![image](./cache/demo1.png)
 ![image](./cache/demo2.png)
 ![image](./cache/demo3.png)
 
+### 数据分享
+
+车牌识别框架开发时使用的数据并不是很多，有意着可以为我们提供相关车牌数据。联系邮箱 455501914@qq.com。
+
 ### 获取帮助
+
 + HyperLPR讨论QQ群：673071218, 加前请备注HyperLPR交流。
