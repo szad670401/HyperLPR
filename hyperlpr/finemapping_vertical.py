@@ -23,7 +23,7 @@ def getModel():
     return model
 
 model = getModel()
-# model.load_weights("./model/model12.h5")
+model.load_weights("./model/model12.h5")
 
 
 def finemappingVertical(image):

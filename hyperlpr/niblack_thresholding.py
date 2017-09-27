@@ -1,8 +1,6 @@
 import cv2
 import numpy as np
 
-from skimage.filters import (threshold_otsu, threshold_niblack,
-                             threshold_sauvola)
 
 
 def niBlackThreshold(  src,  blockSize,  k,  binarizationMethod= 0 ):
