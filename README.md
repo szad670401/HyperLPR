@@ -61,9 +61,9 @@ image,res  = pp.SimpleRecognizePlate(image)
 
 ### 测试样例
 
-![image](./cache/demo1.png)
-![image](./cache/demo2.png)
-![image](./cache/demo3.png)
+![image](./demo_images/demo1.png)
+![image](./demo_images/demo2.png)
+![image](./demo_images/demo3.png)
 
 ### 数据分享
 
