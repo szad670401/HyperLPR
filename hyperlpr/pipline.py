@@ -221,7 +221,7 @@ def SimpleRecognizePlate(image):
         if len(val)==3:
             blocks, res, confidence = val
             if confidence/7>0.7:
-                image =  drawRectBox(image,rect,res)
+                # image =  drawRectBox(image,rect,res)
                 res_set.append(res)
                 for i,block in enumerate(blocks):
 

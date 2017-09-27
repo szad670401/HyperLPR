@@ -8,8 +8,6 @@ import numpy as np
 import cv2
 
 def getModel():
-
-
     input = Input(shape=[12, 50, 3])  # change this shape to [None,None,3] to enable arbitraty shape input
     x = Conv2D(10, (3, 3), strides=1, padding='valid', name='conv1')(input)
     x = PReLU(shared_axes=[1, 2], name='prelu1')(x)
@@ -25,7 +23,7 @@ def getModel():
     return model
 
 model = getModel()
-model.load_weights("./model/model12.h5")
+# model.load_weights("./model/model12.h5")
 
 
 def finemappingVertical(image):

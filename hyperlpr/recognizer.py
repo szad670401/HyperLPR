@@ -1,7 +1,7 @@
 #coding=utf-8
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D,MaxPool2D
 from keras.optimizers import SGD
 from keras import backend as K
 
@@ -46,17 +46,15 @@ def Getmodel_tensorflow(nb_classes):
     # weight = dict(zip(range(3063), weight / weight.mean()))  # 调整权重，高频字优先
 
     model = Sequential()
-    model.add(Convolution2D(32, 5, 5,
-                            border_mode='valid',
-                            input_shape=(img_rows, img_cols,1)))
+    model.add(Conv2D(32, (5, 5),input_shape=(img_rows, img_cols,1)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Dropout(0.25))
-    model.add(Convolution2D(32, 3, 3))
+    model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Dropout(0.25))
-    model.add(Convolution2D(512, 3, 3))
+    model.add(Conv2D(512, (3, 3)))
     # model.add(Activation('relu'))
     # model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
     # model.add(Dropout(0.25))
@@ -91,17 +89,15 @@ def Getmodel_ch(nb_classes):
     # weight = dict(zip(range(3063), weight / weight.mean()))  # 调整权重，高频字优先
 
     model = Sequential()
-    model.add(Convolution2D(32, 5, 5,
-                            border_mode='valid',
-                            input_shape=(img_rows, img_cols,1)))
+    model.add(Conv2D(32, (5, 5),input_shape=(img_rows, img_cols,1)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Dropout(0.25))
-    model.add(Convolution2D(32, 3, 3))
+    model.add(Conv2D(32, (3, 3)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Dropout(0.25))
-    model.add(Convolution2D(512, 3, 3))
+    model.add(Conv2D(512, (3, 3)))
     # model.add(Activation('relu'))
     # model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
     # model.add(Dropout(0.25))
@@ -124,7 +120,9 @@ model  = Getmodel_tensorflow(65)
 model_ch = Getmodel_ch(31)
 
 model_ch.load_weights("./model/char_chi_sim.h5")
+# model_ch.save_weights("./model/char_chi_sim.h5")
 model.load_weights("./model/char_rec.h5")
+# model.save("./model/char_rec.h5")
 
 
 def SimplePredict(image,pos):
