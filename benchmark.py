@@ -25,6 +25,11 @@ def comparestring(a,b):
                 g+=1
     return g
 
+#
+# A = "赣FJ0368".decode("utf-8")
+# B = "琼WJ0368".decode("utf-8")
+
+# print "对比",comparestring(A,B)
 
 count = 0 ;
 
@@ -62,21 +67,23 @@ for filename in os.listdir(parent):
         for one in dataset:
 
             # p = sm.StringMatcher(seq1=one.encode("utf-8"),seq2=name.encode("utf-8"))
-            A = one.encode("utf-8")
-            B = name.encode("utf-8")
-            print one.encode("utf-8"),"<->",name.encode("utf-8"),"编辑距离:",comparestring(A,B)
-            if  comparestring(A,B)<2:
+            A = one.decode("utf-8")
+            B = name.decode("utf-8")
+            print one.decode("utf-8"),"<->",name.decode("utf-8"),"编辑距离:",comparestring(A,B)
+            if  comparestring(A,B)<3:
                 count_lev+=1
-            if one.encode("utf-8") == name.encode("utf-8"):
+            else:
+                cv2.imwrite("./cache/bad2/"+B+"->"+A+".png",image)
+
+            if one.decode("utf-8") == name.decode("utf-8"):
                 count_p+=1
                 break
             else:
-                print "error",one.encode("utf-8"), name.encode("utf-8")
+                print "error",one.decode("utf-8"), name.decode("utf-8")
                 count_d+=1
                 # cv2.imshow("image",image)
                 # cv2.waitKey(0)
-                cv2.imwrite("./cache/bad2/"+name+".png",image)
-                break
+                # break
 
 
 
@@ -87,7 +94,7 @@ for filename in os.listdir(parent):
 
         if count_p+count_d+count_undetected!=count:
             print dataset,len(dataset)
-            exit(0)
+            # exit(0)
 
 
         #

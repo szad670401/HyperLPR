@@ -1,7 +1,7 @@
 #coding=utf-8
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPool2D
 from keras.optimizers import SGD
 from keras import backend as K
 
@@ -30,11 +30,9 @@ def Getmodel_tensorflow(nb_classes):
     # weight = dict(zip(range(3063), weight / weight.mean()))  # 调整权重，高频字优先
 
     model = Sequential()
-    model.add(Convolution2D(16, 5, 5,
-                            border_mode='valid',
-                            input_shape=(img_rows, img_cols,3)))
+    model.add(Conv2D(16, (5, 5),input_shape=(img_rows, img_cols,3)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Flatten())
     model.add(Dense(64))
     model.add(Activation('relu'))
@@ -48,6 +46,7 @@ def Getmodel_tensorflow(nb_classes):
 
 model = Getmodel_tensorflow(5)
 model.load_weights("./model/plate_type.h5")
+model.save("./model/plate_type.h5")
 def SimplePredict(image):
     image = cv2.resize(image, (34, 9))
     image = image.astype(np.float) / 255

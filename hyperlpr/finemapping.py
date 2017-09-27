@@ -66,7 +66,7 @@ def findContoursAndDrawBoundingBox(image_rgb):
     pts_map2 = np.float32([[136,36],[0,36],[136,0],[0,0]])
     mat = cv2.getPerspectiveTransform(pts_map1,pts_map2)
     image = cv2.warpPerspective(rgb,mat,(136,36),flags=cv2.INTER_CUBIC)
-    image = deskew.fastDeskew(image)
+    image,M = deskew.fastDeskew(image)
 
     return image
 
@@ -125,6 +125,7 @@ def findContoursAndDrawBoundingBox2(image_rgb):
     pts_map2 = np.float32([[136,36],[0,36],[136,0],[0,0]])
     mat = cv2.getPerspectiveTransform(pts_map1,pts_map2)
     image = cv2.warpPerspective(rgb,mat,(136,36),flags=cv2.INTER_CUBIC)
-    image = deskew.fastDeskew(image)
+    image,M= deskew.fastDeskew(image)
+
 
     return image

@@ -48,7 +48,7 @@ def v_rot(img,angel,shape,max_angel):
 
     M  = cv2.getPerspectiveTransform(pts1,pts2);
     dst = cv2.warpPerspective(img,M,size);
-    return dst;
+    return dst,M;
 
 def skew_detection(image_gray):
     h, w = image_gray.shape[:2]
@@ -90,8 +90,8 @@ def fastDeskew(image):
 
     print "校正角度 h ",skew_h,"v",skew_v
 
-    deskew = v_rot(image,int((90-skew_v)*1.5),image.shape,60)
-    return deskew
+    deskew,M = v_rot(image,int((90-skew_v)*1.5),image.shape,60)
+    return deskew,M
 
 
 

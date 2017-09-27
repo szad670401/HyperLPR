@@ -15,7 +15,7 @@ import scipy.signal as l
 
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation, Flatten
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPool2D
 from keras.optimizers import SGD
 from keras import backend as K
 
@@ -37,14 +37,12 @@ def Getmodel_tensorflow(nb_classes):
     # weight = dict(zip(range(3063), weight / weight.mean()))  # 调整权重，高频字优先
 
     model = Sequential()
-    model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
-                            border_mode='valid',
-                            input_shape=(img_rows, img_cols,1)))
+    model.add(Conv2D(nb_filters, (nb_conv, nb_conv),input_shape=(img_rows, img_cols,1)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-    model.add(Convolution2D(nb_filters, nb_conv, nb_conv))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
+    model.add(Conv2D(nb_filters, (nb_conv, nb_conv)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Flatten())
     model.add(Dense(256))
     model.add(Dropout(0.5))
@@ -74,14 +72,12 @@ def Getmodel_tensorflow_light(nb_classes):
     # weight = dict(zip(range(3063), weight / weight.mean()))  # 调整权重，高频字优先
 
     model = Sequential()
-    model.add(Convolution2D(nb_filters, nb_conv, nb_conv,
-                            border_mode='valid',
-                            input_shape=(img_rows, img_cols, 1)))
+    model.add(Conv2D(nb_filters, (nb_conv, nb_conv),input_shape=(img_rows, img_cols, 1)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
-    model.add(Convolution2D(nb_filters, nb_conv * 2, nb_conv * 2))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
+    model.add(Conv2D(nb_filters, (nb_conv * 2, nb_conv * 2)))
     model.add(Activation('relu'))
-    model.add(MaxPooling2D(pool_size=(nb_pool, nb_pool)))
+    model.add(MaxPool2D(pool_size=(nb_pool, nb_pool)))
     model.add(Flatten())
     model.add(Dense(32))
     # model.add(Dropout(0.25))
@@ -102,7 +98,9 @@ model2  = Getmodel_tensorflow(3)
 
 import os
 model.load_weights("./model/char_judgement1.h5")
+# model.save("./model/char_judgement1.h5")
 model2.load_weights("./model/char_judgement.h5")
+# model2.save("./model/char_judgement.h5")
 
 
 model = model2
@@ -119,6 +117,7 @@ def get_median(data):
     data[0] = median
    return data[0]
 import time
+
 def searchOptimalCuttingPoint(rgb,res_map,start,width_boundingbox,interval_range):
     t0  = time.time()
     #
