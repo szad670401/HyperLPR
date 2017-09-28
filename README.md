@@ -58,7 +58,7 @@ image,res  = pp.SimpleRecognizePlate(image)
 - [ ] 农用车牌
 - [ ] 白色警用车牌
 - [ ] 使馆/港澳车牌
-- [ ] 明航车牌
+- [ ] 民航车牌
 - [ ] 个性化车牌
 
 
