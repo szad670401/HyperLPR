@@ -67,10 +67,6 @@ image,res  = pp.SimpleRecognizePlate(image)
 
 hyperlpr_test文件夹下
 
-![image](./cache/demo1.png)
-![image](./cache/demo2.png)
-![image](./cache/demo3.png)
-
 ![image](./demo_images/test.png)
 
 
