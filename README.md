@@ -49,13 +49,17 @@ image,res  = pp.SimpleRecognizePlate(image)
 ```
 ### 可识别和待支持的车牌的类型
 
-- [x] 标准单行蓝牌
-- [x] 标准单行黄牌
+- [x] 单行蓝牌
+- [x] 单行黄牌
 - [ ] 新能源车牌
 - [ ] 双层黄牌
-- [ ] 警用车牌
-- [ ] 武警车牌
-- [ ] 使馆车牌
+- [ ] 双层武警
+- [ ] 双层军牌
+- [ ] 农用车牌
+- [ ] 白色警用车牌
+- [ ] 使馆/港澳车牌
+- [ ] 民航车牌
+- [ ] 个性化车牌
 
 
 
@@ -66,6 +70,9 @@ hyperlpr_test文件夹下
 ![image](./cache/demo1.png)
 ![image](./cache/demo2.png)
 ![image](./cache/demo3.png)
+
+![image](./demo_images/test.png)
+
 
 ### 数据分享
 
