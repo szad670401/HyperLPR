@@ -2,8 +2,7 @@
 import cv2
 import numpy as np
 
-from skimage.filters import (threshold_otsu, threshold_niblack,
-                             threshold_sauvola)
+
 import niblack_thresholding as nt
 
 import deskew
