@@ -165,8 +165,6 @@ import sys
 
 sys.path.append('../')
 import recognizer as cRP
-from skimage.filters import (threshold_otsu, threshold_niblack,
-                             threshold_sauvola)
 import niblack_thresholding as nt
 
 def refineCrop(sections,width=16):
@@ -257,7 +255,7 @@ def slidingWindowsEval(image):
         data=  np.expand_dims(data,3)
         data_sets.append(data)
 
-    res = model.predict(np.array(data_sets))
+    res = model2.predict(np.array(data_sets))
     print "分割",time.time() - t0
 
     pin = res
