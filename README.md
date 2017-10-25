@@ -1,5 +1,3 @@
-## Android Demo Has been Realased ! ##
-
 # High Accuracy Chinese Plate Recognition Framework
 
 ### 介绍
