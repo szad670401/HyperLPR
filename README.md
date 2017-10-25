@@ -1,3 +1,5 @@
+## Android Demo Has been Realased ! ##
+
 # High Accuracy Chinese Plate Recognition Framework
 
 ### 介绍
@@ -69,6 +71,9 @@ hyperlpr_test文件夹下
 
 ![image](./demo_images/test.png)
 
+### 最新版本下载
+
+- Android 测试版：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
 
 ### 数据分享
 
