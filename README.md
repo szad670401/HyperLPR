@@ -6,6 +6,10 @@ project has been used by some commercial corporations. Free and open source, dep
 
 HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的实现，与开源的[EasyPR](https://github.com/liuruoze/EasyPR)相比，它的检测速度和鲁棒性和多场景的适应性都要好于EasyPR。
 
+### 更新
+
++ 增加cpp版本,目前仅支持标准蓝牌
++ 添加了简单的Android实现 (骁龙835 (*720*x*1280*)  200ms).
 
 ### 特性
 
@@ -65,13 +69,17 @@ image,res  = pp.SimpleRecognizePlate(image)
 
 ### 测试样例
 
-hyperlpr_test文件夹下
-
 ![image](./demo_images/test.png)
+
+![image](./demo_images/15.jpg)
+
+#### Android示例
+
+![android](/Users/yujinke/me/zeusees/HyperLPR/demo_images/android.png)
 
 ### 最新版本下载
 
-- Android 测试版：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
+- 体验 Android 测试版：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
 
 ### 数据分享
 
