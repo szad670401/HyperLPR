@@ -75,7 +75,7 @@ image,res  = pp.SimpleRecognizePlate(image)
 
 #### Android示例
 
-![android](/Users/yujinke/me/zeusees/HyperLPR/demo_images/android.png)
+![android](./demo_images/android.png)
 
 ### 最新版本下载
 
