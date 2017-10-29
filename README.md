@@ -51,6 +51,18 @@ import cv2
 image = cv2.imread("filename")
 image,res  = pp.SimpleRecognizePlate(image)
 ```
+### CPP编译
+
++ 仅需要的依赖OpenCV 3.3 (需要DNN框架)
+
+```bash
+cd cpp_implementation
+mkdir build 
+cd build
+cmake ../
+sudo make -j8
+```
+
 ### 可识别和待支持的车牌的类型
 
 - [x] 单行蓝牌
