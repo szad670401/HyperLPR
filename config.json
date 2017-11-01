@@ -11,5 +11,8 @@
   "detectTest":{
     "detectPath":"/Users/universe/Documents/work/data/Plate/boundingbox",
     "outputPath":"/Users/universe/ProgramUniverse/python/Forked/HyperLPR/out/detect_test"
+  },
+  "colorTest":{
+    "colorPath":"/Users/universe/Documents/work/data/Plate/colour/u"
   }
 }
