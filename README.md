@@ -4,28 +4,44 @@
 This research aims at simply developping plate recognition project based on deep learning methods, with low complexity and high speed. This 
 project has been used by some commercial corporations. Free and open source, deploying by Zeusee. 
 
-HyperLPR是一个基于Python的使用深度学习针对对中文车牌识别的实现，与开源的[EasyPR](https://github.com/liuruoze/EasyPR)相比，它的检测速度和鲁棒性和多场景的适应性都要好于EasyPR。
+HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较为流行的开源的[EasyPR](https://github.com/liuruoze/EasyPR)相比，它的检测速度和鲁棒性和多场景的适应性都要好于目前开源的EasyPR。
 
 ### 更新
 
-+ 增加cpp版本,目前仅支持标准蓝牌
-+ 添加了简单的Android实现 (骁龙835 (*720*x*1280*)  200ms).
++ 添加端到端的序列识别模型识别率大幅度提升
++ 添加的端到端模型可以识别 新能源车牌，教练车牌，白色警用车牌
++ 更新Windows版本的Visual Studio工程。（2017.11.15）
+
+
++ 增加cpp版本,目前仅支持标准蓝牌(需要依赖OpenCV 3.3)
++ 添加了简单的Android实现 (骁龙835 (*720*x*1280*)  200ms)
 
 ### 特性
 
-+ 单张720p图像，单核Intel 2.2G CPU 识别时间140ms左右，比EasyPR单核识别速度快近10倍的时间。
-+ 识别率在EasyPR数据集上0-error达到 81.75%, 1-error识别率达到 94.1%
-+ 检测方法在实时性、召回率、准确率上都优于MSER方法，检测recall和easyPR持平。
-+ 代码框架轻量，总代码不到1k行。
++ 速度快 720p ，单核 Intel 2.2G CPU (macbook Pro 2015)识别时间 <=140ms 。
++ 基于端到端的车牌识别无需进行字符分割。
++ 识别率高  EasyPR数据集上0-error达到 81.75%, 1-error识别率达到 94.1%。
++ 轻量 总代码量不超1k行。
 
-### 依赖
+### 注意事项:
+
++ Win工程中若需要使用静态库，需单独编译。
++ 本项目的C++实现和Python实现无任何关联，都为单独实现。
++ 在编译C++工程的时候必须要使用OpenCV 3.3(DNN 库)，否则无法编译。
+
+### Python 依赖
 
 + Keras (>2.0.0)
 + Theano(>0.9) or Tensorflow(>1.1.x)
 + Numpy (>1.10)
 + Scipy (0.19.1)
 + OpenCV(>3.0)
-+ scikit-image (0.13.0)
++ Scikit-image (0.13.0)
++ PIL
+
+### CPP 依赖
+
++ Opencv 3.3
 
 ### 设计流程
 
@@ -50,8 +66,9 @@ from hyperlpr import  pipline as  pp
 import cv2
 image = cv2.imread("filename")
 image,res  = pp.SimpleRecognizePlate(image)
+print(res)
 ```
-### CPP编译
+### Linux/Mac 编译
 
 + 仅需要的依赖OpenCV 3.3 (需要DNN框架)
 
@@ -60,20 +77,21 @@ cd cpp_implementation
 mkdir build 
 cd build
 cmake ../
-sudo make -j8
+sudo make -j 
 ```
 
 ### 可识别和待支持的车牌的类型
 
 - [x] 单行蓝牌
 - [x] 单行黄牌
-- [ ] 新能源车牌
+- [x] 新能源车牌
+- [x] 白色警用车牌
+- [x] 使馆/港澳车牌
+- [x] 教练车牌
 - [ ] 双层黄牌
 - [ ] 双层武警
 - [ ] 双层军牌
 - [ ] 农用车牌
-- [ ] 白色警用车牌
-- [ ] 使馆/港澳车牌
 - [ ] 民航车牌
 - [ ] 个性化车牌
 
@@ -89,9 +107,9 @@ sudo make -j8
 
 ![android](./demo_images/android.png)
 
-### 最新版本下载
+### 识别测试APP
 
-- 体验 Android 测试版：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
+- 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
 
 ### 数据分享
 
