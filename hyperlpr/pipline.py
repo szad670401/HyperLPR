@@ -118,7 +118,8 @@ def RecognizePlateJson(image):
 
 
         plate,rect,origin_plate =plate
-
+        res, confidence = e2e.recognizeOne(origin_plate)
+        print "res",res
 
         cv2.imwrite("./"+str(j)+"_rough.jpg",plate)
 
@@ -146,37 +147,17 @@ def RecognizePlateJson(image):
 
 
         t2 = time.time()
-        val = segmentation.slidingWindowsEval(image_gray)
-        if len(val)==3:
-            blocks, res, confidence = val
-            if confidence/7>0.0:
-                image =  drawRectBox(image,rect,res)
-            for i,block in enumerate(blocks):
-
-                block_ = cv2.resize(block,(25,25))
-                block_ = cv2.cvtColor(block_,cv2.COLOR_GRAY2BGR)
-                image[j * 25:(j * 25) + 25, i * 25:(i * 25) + 25] = block_
-                if image[j*25:(j*25)+25,i*25:(i*25)+25].shape == block_.shape:
-                    pass
-
-            plate_name =  res
-            res_json = {}
-            if confidence/7>0.0:
-                res_json["Name"] = plate_name.decode()
-                res_json["Type"] = td.plateType[ptype]
-                res_json["Confidence"] = confidence/7;
-                res_json["x"] = int(rect[0])
-                res_json["y"] = int(rect[1])
-                res_json["w"] = int(rect[2])
-                res_json["h"] = int(rect[3])
-                # print "车牌:",res,"置信度:",confidence/7
-                jsons.append(res_json)
-
-
-            else:
-                pass
-                # print "不确定的车牌:", res, "置信度:", confidence
-    print jsons
+        res, confidence = e2e.recognizeOne(image_rgb)
+        res_json = {}
+        if confidence  > 0.6:
+            res_json["Name"] = res
+            res_json["Type"] = td.plateType[ptype]
+            res_json["Confidence"] = confidence;
+            res_json["x"] = int(rect[0])
+            res_json["y"] = int(rect[1])
+            res_json["w"] = int(rect[2])
+            res_json["h"] = int(rect[3])
+            jsons.append(res_json)
     print json.dumps(jsons,ensure_ascii=False,encoding="gb2312")
 
     return json.dumps(jsons,ensure_ascii=False,encoding="gb2312")
