@@ -109,6 +109,7 @@ sudo make -j
 ### 识别测试APP
 
 - 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
+- 感谢 sundyCoder [Android 版本完善](https://github.com/sundyCoder/hyperlpr4Android) 
 
 ### 数据分享
 
