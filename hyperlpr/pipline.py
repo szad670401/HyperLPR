@@ -22,7 +22,7 @@ sys.setdefaultencoding("utf-8")
 
 fontC = ImageFont.truetype("./Font/platech.ttf", 14, 0);
 
-
+import e2e
 #寻找车牌左右边界
 
 def find_edge(image):
@@ -91,7 +91,7 @@ def horizontalSegmentation(image):
 #打上boundingbox和标签
 def drawRectBox(image,rect,addText):
     cv2.rectangle(image, (int(rect[0]), int(rect[1])), (int(rect[0] + rect[2]), int(rect[1] + rect[3])), (0,0, 255), 2,cv2.LINE_AA)
-    cv2.rectangle(image, (int(rect[0]-1), int(rect[1])-16), (int(rect[0] + 80), int(rect[1])), (0, 0, 255), -1,
+    cv2.rectangle(image, (int(rect[0]-1), int(rect[1])-16), (int(rect[0] + 115), int(rect[1])), (0, 0, 255), -1,
                   cv2.LINE_AA)
 
     img = Image.fromarray(image)
@@ -118,7 +118,8 @@ def RecognizePlateJson(image):
 
 
         plate,rect,origin_plate =plate
-
+        res, confidence = e2e.recognizeOne(origin_plate)
+        print "res",res
 
         cv2.imwrite("./"+str(j)+"_rough.jpg",plate)
 
@@ -129,7 +130,7 @@ def RecognizePlateJson(image):
 
 
         ptype = td.SimplePredict(plate)
-        if ptype>0 and ptype<5:
+        if ptype>0 and ptype<4:
             plate = cv2.bitwise_not(plate)
         # demo = verticalEdgeDetection(plate)
 
@@ -137,7 +138,7 @@ def RecognizePlateJson(image):
         image_rgb = fv.finemappingVertical(image_rgb)
         cache.verticalMappingToFolder(image_rgb)
         # print time.time() - t1,"校正"
-
+        print "e2e:",e2e.recognizeOne(image_rgb)[0]
         image_gray = cv2.cvtColor(image_rgb,cv2.COLOR_BGR2GRAY)
 
 
@@ -146,40 +147,54 @@ def RecognizePlateJson(image):
 
 
         t2 = time.time()
-        val = segmentation.slidingWindowsEval(image_gray)
-        if len(val)==3:
-            blocks, res, confidence = val
-            if confidence/7>0.0:
-                image =  drawRectBox(image,rect,res)
-            for i,block in enumerate(blocks):
-
-                block_ = cv2.resize(block,(25,25))
-                block_ = cv2.cvtColor(block_,cv2.COLOR_GRAY2BGR)
-                image[j * 25:(j * 25) + 25, i * 25:(i * 25) + 25] = block_
-                if image[j*25:(j*25)+25,i*25:(i*25)+25].shape == block_.shape:
-                    pass
-
-            plate_name =  res
-            res_json = {}
-            if confidence/7>0.0:
-                res_json["Name"] = plate_name.decode()
-                res_json["Type"] = td.plateType[ptype]
-                res_json["Confidence"] = confidence/7;
-                res_json["x"] = int(rect[0])
-                res_json["y"] = int(rect[1])
-                res_json["w"] = int(rect[2])
-                res_json["h"] = int(rect[3])
-                # print "车牌:",res,"置信度:",confidence/7
-                jsons.append(res_json)
-
-
-            else:
-                pass
-                # print "不确定的车牌:", res, "置信度:", confidence
-    print jsons
+        res, confidence = e2e.recognizeOne(image_rgb)
+        res_json = {}
+        if confidence  > 0.6:
+            res_json["Name"] = res
+            res_json["Type"] = td.plateType[ptype]
+            res_json["Confidence"] = confidence;
+            res_json["x"] = int(rect[0])
+            res_json["y"] = int(rect[1])
+            res_json["w"] = int(rect[2])
+            res_json["h"] = int(rect[3])
+            jsons.append(res_json)
     print json.dumps(jsons,ensure_ascii=False,encoding="gb2312")
 
     return json.dumps(jsons,ensure_ascii=False,encoding="gb2312")
+
+
+
+
+def SimpleRecognizePlateByE2E(image):
+    t0 = time.time()
+    images = detect.detectPlateRough(image,image.shape[0],top_bottom_padding_rate=0.1)
+    res_set = []
+    for j,plate in enumerate(images):
+        plate, rect, origin_plate  =plate
+        # plate = cv2.cvtColor(plate, cv2.COLOR_RGB2GRAY)
+        plate  =cv2.resize(plate,(136,36*2))
+        res,confidence = e2e.recognizeOne(origin_plate)
+        print "res",res
+
+        t1 = time.time()
+        ptype = td.SimplePredict(plate)
+        if ptype>0 and ptype<5:
+            # pass
+            plate = cv2.bitwise_not(plate)
+        image_rgb = fm.findContoursAndDrawBoundingBox(plate)
+        image_rgb = fv.finemappingVertical(image_rgb)
+        image_rgb = fv.finemappingVertical(image_rgb)
+        cache.verticalMappingToFolder(image_rgb)
+        cv2.imwrite("./"+str(j)+".jpg",image_rgb)
+        res,confidence = e2e.recognizeOne(image_rgb)
+        print res,confidence
+        res_set.append([[],res,confidence])
+
+        if confidence>0.7:
+            image = drawRectBox(image, rect, res+" "+str(round(confidence,3)))
+    return image,res_set
+
+
 
 
 
@@ -200,8 +215,10 @@ def SimpleRecognizePlate(image):
             plate = cv2.bitwise_not(plate)
 
         image_rgb = fm.findContoursAndDrawBoundingBox(plate)
+
         image_rgb = fv.finemappingVertical(image_rgb)
         cache.verticalMappingToFolder(image_rgb)
+        print "e2e:", e2e.recognizeOne(image_rgb)
         image_gray = cv2.cvtColor(image_rgb,cv2.COLOR_RGB2GRAY)
 
         # image_gray = horizontalSegmentation(image_gray)
