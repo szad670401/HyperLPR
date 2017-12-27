@@ -103,7 +103,7 @@ sudo make -j
 
 ### 识别测试APP
 
-- 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR)
+- 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
 - 感谢 sundyCoder [Android 版本完善](https://github.com/sundyCoder/hyperlpr4Android) 
 
 ### 数据分享
