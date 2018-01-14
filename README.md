@@ -9,7 +9,7 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较
 #### 相关资源 
 
 + [在线测试地址](http://sftera.vicp.io:8000/uploader)(已失效)。
-+ [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。+ 
++ [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
 + [编译好的带UI界面的可执行文件](https://pan.baidu.com/s/1qZGXScc)(感谢群内小伙伴的工作)。
 
 ### 更新
