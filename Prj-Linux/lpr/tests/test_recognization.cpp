@@ -16,6 +16,7 @@ void getMaxClass(cv::Mat &probBlob, int *classId, double *classProb)
     cv::Point classNumber;
 
     cv::minMaxLoc(probBlob, NULL, classProb, NULL, &classNumber);
+
     *classId = classNumber.x;
 }
 

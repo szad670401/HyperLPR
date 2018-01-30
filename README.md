@@ -16,7 +16,10 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较
 
 ### 更新
 
-+ 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)
++ 增加了端到端模型的cpp实现(Linux)(2018.1.31)
+
+
++ 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)(2018.1.)
 + 更新了Android实现，大幅提高准确率和速度 (骁龙835 (*720*x*1280*)  ~50ms )(2017.12.27)
 + 添加了IOS版本的实现（感谢[xiaojun123456](https://github.com/xiaojun123456)的工作）
 + 添加端到端的序列识别模型识别率大幅度提升,使得无需分割字符即可识别,识别速度提高20% (2017.11.17)
