@@ -44,7 +44,7 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较
 
 + Win工程中若需要使用静态库，需单独编译
 + 本项目的C++实现和Python实现无任何关联，都为单独实现
-+ 在编译C++工程的时候必须要使用OpenCV 3.3(DNN 库)，否则无法编译
++ 在编译C++工程的时候必须要使用OpenCV 3.3(DNN 库)，否则无法编译 
 
 ### Python 依赖
 
@@ -80,6 +80,43 @@ cd build
 cmake ../
 sudo make -j 
 ```
+
+### CPP demo
+
+```cpp
+#include "../include/Pipeline.h"
+int main(){
+    pr::PipelinePR prc("model/cascade.xml",
+                      "model/HorizonalFinemapping.prototxt","model/HorizonalFinemapping.caffemodel",
+                      "model/Segmentation.prototxt","model/Segmentation.caffemodel",
+                      "model/CharacterRecognization.prototxt","model/CharacterRecognization.caffemodel",
+                       "model/SegmentationFree.prototxt","model/SegmentationFree.caffemodel"
+                    );
+  //定义模型文件
+
+    cv::Mat image = cv::imread("/Users/yujinke/ClionProjects/cpp_ocr_demo/test.png");
+    std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(image,pr::SEGMENTATION_FREE_METHOD);
+  //使用端到端模型模型进行识别 识别结果将会保存在res里面
+ 
+    for(auto st:res) {
+        if(st.confidence>0.75) {
+            std::cout << st.getPlateName() << " " << st.confidence << std::endl;
+          //输出识别结果 、识别置信度
+            cv::Rect region = st.getPlateRect();
+          //获取车牌位置
+ cv::rectangle(image,cv::Point(region.x,region.y),cv::Point(region.x+region.width,region.y+region.height),cv::Scalar(255,255,0),2);
+          //画出车牌位置
+          
+        }
+    }
+
+    cv::imshow("image",image);
+    cv::waitKey(0);
+    return 0 ;
+}
+```
+
+### 
 
 ### 可识别和待支持的车牌的类型
 
@@ -129,4 +166,5 @@ sudo make -j
 #### 获取帮助
 
 + HyperLPR讨论QQ群：673071218, 加前请备注HyperLPR交流。
+
 
