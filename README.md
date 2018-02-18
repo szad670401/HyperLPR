@@ -14,7 +14,7 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与其
 + [端到端(CTC)训练代码](https://github.com/armaab/hyperlpr-train)(感谢群内小伙伴工作)。
 + [训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)。
 + [IOS版本 xiaojun123456贡献](https://github.com/xiaojun123456)。
-+ [编译好的OpenCV_VS2013_Win64 版本](https://pan.baidu.com/s/1c3cgGyk)。
++ [编译好的OpenCV_3.3.1_VS2013_Win64 版本](https://pan.baidu.com/s/1c3cgGyk);(采用VS2015可以使用opencv_3.3以上官方提供的Release版本)。
 
 ### 更新
 + 增加了端到端模型的cpp实现,识别速度比分割快30%(Linux)(2018.1.31)
