@@ -7,14 +7,14 @@ project has been used by some commercial corporations. Free and open source, dep
 HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与其他开源的中文车牌识别框架相比，它的检测速度和鲁棒性和多场景的适应性都要好于其他的开源框架。
 
 #### 相关资源 
-+ [在线测试地址](http://sftera.vicp.io:8000/uploader)(已失效).
-+ [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新).
-+ [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作).
-+ [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作).
-+ [端到端(CTC)训练代码](https://github.com/armaab/hyperlpr-train)(感谢群内小伙伴工作).
-+ [训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training).
-+ [IOS版本 xiaojun123456贡献](https://github.com/xiaojun123456).
-+ [编译好的OpenCV_VS2013_Win64 版本] (https://pan.baidu.com/s/1c3cgGyk).
++ [在线测试地址](http://sftera.vicp.io:8000/uploader)(已失效)。
++ [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
++ [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
++ [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
++ [端到端(CTC)训练代码](https://github.com/armaab/hyperlpr-train)(感谢群内小伙伴工作)。
++ [训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)。
++ [IOS版本 xiaojun123456贡献](https://github.com/xiaojun123456)。
++ [编译好的OpenCV_VS2013_Win64 版本](https://pan.baidu.com/s/1c3cgGyk)。
 
 ### 更新
 + 增加了端到端模型的cpp实现,识别速度比分割快30%(Linux)(2018.1.31)
