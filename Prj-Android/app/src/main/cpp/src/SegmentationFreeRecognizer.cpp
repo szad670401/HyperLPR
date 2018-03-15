@@ -55,7 +55,7 @@ namespace pr {
 
         int  i = 0;
 
-        if(judgeCharRange(seq_decode_res[0].first) && judgeCharRange(seq_decode_res[1].first))
+        if(seq_decode_res.size()>1&&judgeCharRange(seq_decode_res[0].first) && judgeCharRange(seq_decode_res[1].first))
         {
             i=2;
             int c = seq_decode_res[0].second<seq_decode_res[1].second;
