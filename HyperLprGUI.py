@@ -28,10 +28,12 @@ from PyQt5.QtWidgets import (
     QGraphicsRectItem,
     QCheckBox,
     QMessageBox,
+    QGroupBox,
     QGraphicsSimpleTextItem,
     qApp,
+    QAction,
     QApplication)
-from PyQt5.QtGui import QIcon, QColor, QPainter, QImage, QPixmap, QPen, QBrush, QFont, QPalette
+from PyQt5.QtGui import QIcon, QColor, QPainter, QImage, QPixmap, QPen, QBrush, QFont, QPalette, QKeySequence
 from PyQt5.QtCore import Qt, QDir, QSize, QEventLoop, QThread, pyqtSignal
 
 from hyperlpr_py3 import pipline as pp
@@ -42,6 +44,12 @@ import numpy as np
 
 import time
 
+import shutil
+
+draw_plate_in_image_enable = 1
+
+plateTypeName = ["蓝", "黄", "绿", "白", "黑 "]
+
 
 def SimpleRecognizePlateWithGui(image):
     t0 = time.time()
@@ -50,25 +58,46 @@ def SimpleRecognizePlateWithGui(image):
         image, image.shape[0], top_bottom_padding_rate=0.1)
 
     res_set = []
+    y_offset = 32
     for j, plate in enumerate(images):
         plate, rect, origin_plate = plate
+
         plate = cv2.resize(plate, (136, 36 * 2))
         t1 = time.time()
 
-        plate_color = "蓝"
         plate_type = pp.td.SimplePredict(plate)
+        plate_color = plateTypeName[plate_type]
 
         if (plate_type > 0) and (plate_type < 5):
             plate = cv2.bitwise_not(plate)
-            plate_color = "黄"
+
+        if draw_plate_in_image_enable == 1:
+            image[y_offset:y_offset + plate.shape[0], 0:plate.shape[1]] = plate
+            y_offset = y_offset + plate.shape[0] + 4
 
         image_rgb = pp.fm.findContoursAndDrawBoundingBox(plate)
 
+        if draw_plate_in_image_enable == 1:
+            image[y_offset:y_offset + image_rgb.shape[0],
+                  0:image_rgb.shape[1]] = image_rgb
+            y_offset = y_offset + image_rgb.shape[0] + 4
+
         image_rgb = pp.fv.finemappingVertical(image_rgb)
+
+        if draw_plate_in_image_enable == 1:
+            image[y_offset:y_offset + image_rgb.shape[0],
+                  0:image_rgb.shape[1]] = image_rgb
+            y_offset = y_offset + image_rgb.shape[0] + 4
+
         pp.cache.verticalMappingToFolder(image_rgb)
 
+        if draw_plate_in_image_enable == 1:
+            image[y_offset:y_offset + image_rgb.shape[0],
+                  0:image_rgb.shape[1]] = image_rgb
+            y_offset = y_offset + image_rgb.shape[0] + 4
+
         e2e_plate, e2e_confidence = pp.e2e.recognizeOne(image_rgb)
-        #print("e2e:", e2e_plate, e2e_confidence)
+        print("e2e:", e2e_plate, e2e_confidence)
 
         image_gray = cv2.cvtColor(image_rgb, cv2.COLOR_RGB2GRAY)
 
@@ -79,28 +108,34 @@ def SimpleRecognizePlateWithGui(image):
         # print val
         #print("分割和识别", time.time() - t2, "s")
 
+        res=""
+        confidence = 0
         if len(val) == 3:
             blocks, res, confidence = val
             if confidence / 7 > 0.7:
 
-                for i, block in enumerate(blocks):
+                if draw_plate_in_image_enable == 1:
+                    image = pp.drawRectBox(image, rect, res)
+                    for i, block in enumerate(blocks):
+                        block_ = cv2.resize(block, (24, 24))
+                        block_ = cv2.cvtColor(block_, cv2.COLOR_GRAY2BGR)
+                        image[j * 24:(j * 24) + 24, i *
+                              24:(i * 24) + 24] = block_
+                        if image[j * 24:(j * 24) + 24,
+                                 i * 24:(i * 24) + 24].shape == block_.shape:
+                            pass
 
-                    block_ = cv2.resize(block, (24, 24))
-                    block_ = cv2.cvtColor(block_, cv2.COLOR_GRAY2BGR)
-                    image[j * 24:(j * 24) + 24, i * 24:(i * 24) + 24] = block_
-                    if image[j * 24:(j * 24) + 24,
-                             i * 24:(i * 24) + 24].shape == block_.shape:
-                        pass
-
-                res_set.append([res,
-                                confidence / 7,
-                                rect,
-                                plate_color,
-                                e2e_plate,
-                                e2e_confidence,
-                                len(blocks)])
+        res_set.append([res,
+                        confidence / 7,
+                        rect,
+                        plate_color,
+                        e2e_plate,
+                        e2e_confidence,
+                        len(blocks)])
+        print("seg:",res,confidence/7)
     #print(time.time() - t0, "s")
 
+    print("---------------------------------")
     return image, res_set
 
 
@@ -168,7 +203,7 @@ class HyperLprImageView(QGraphicsView):
             text_item.setBrush(QBrush(Qt.red))
             text_item.setZValue(20.0)
             text_item.setPos(10, 50)
-            text_item.setFont(QFont("黑体", 32))
+            text_item.setFont(QFont("黑体", 24))
             text_item.setVisible(False)
             scene.addItem(text_item)
             self.text_item_array.append(text_item)
@@ -193,7 +228,7 @@ class HyperLprImageView(QGraphicsView):
                 self.rect_item_array[i].setVisible(True)
 
                 self.text_item_array[i].setText(
-                    res_set[i][0] + "  " + res_set[i][3])
+                    res_set[i][4] + " " + res_set[i][3])
                 self.text_item_array[i].setPos(
                     int(curr_rect[0]), int(curr_rect[1]) - 48)
                 self.text_item_array[i].setVisible(True)
@@ -231,6 +266,26 @@ class HyperLprWindow(QMainWindow):
 
         self.statusBar().showMessage('Ready')
 
+        self.left_action = QAction('上一个', self)
+        self.left_action.setShortcut(QKeySequence.MoveToPreviousChar)
+        self.left_action.triggered.connect(self.analyze_last_one_image)
+
+        self.right_action = QAction('下一个', self)
+        self.right_action.setShortcut(QKeySequence.MoveToNextChar)
+        self.right_action.triggered.connect(self.analyze_next_one_image)
+
+        self.rename_image_action = QAction('保存e2e文件名', self)
+        self.rename_image_action.setShortcut(QKeySequence.MoveToPreviousLine)
+        self.rename_image_action.triggered.connect(self.rename_current_image_with_info)
+
+        self.statusBar()
+
+        menubar = self.menuBar()
+        fileMenu = menubar.addMenu('&Function')
+        fileMenu.addAction(self.left_action)
+        fileMenu.addAction(self.right_action)
+        fileMenu.addAction(self.rename_image_action)
+
         self.image_window_view = HyperLprImageView()
 
         table_widget_header_labels = [
@@ -260,10 +315,25 @@ class HyperLprWindow(QMainWindow):
         self.hyperlpr_tableview.cellClicked.connect(
             self.recognize_one_license_plate)
 
+        self.left_button = QPushButton("<")
+        self.left_button.setFixedWidth(60)
+        self.right_button = QPushButton(">")
+        self.right_button.setFixedWidth(60)
+        self.left_button.setEnabled(False)
+        self.right_button.setEnabled(False)
+        self.left_button.clicked.connect(self.analyze_last_one_image)
+        self.right_button.clicked.connect(self.analyze_next_one_image)
+        left_right_layout = QHBoxLayout()
+        left_right_layout.addStretch()
+        left_right_layout.addWidget(self.left_button)
+        left_right_layout.addStretch()
+        left_right_layout.addWidget(self.right_button)
+        left_right_layout.addStretch()
+
         self.location_label = QLabel("车牌目录", self)
         self.location_text = QLineEdit(self)
         self.location_text.setEnabled(False)
-        self.location_text.setFixedWidth(300)
+        #self.location_text.setFixedWidth(300)
         self.location_button = QPushButton("...")
         self.location_button.clicked.connect(self.select_new_dir)
 
@@ -285,13 +355,23 @@ class HyperLprWindow(QMainWindow):
         self.update_file_path_layout.addWidget(self.update_file_path_button)
         self.update_file_path_layout.addStretch()
 
-        self.bottom_layout = QVBoxLayout()
-        self.bottom_layout.addLayout(self.location_layout)
-        self.bottom_layout.addLayout(self.update_file_path_layout)
-        bottom_widget = QWidget()
-        bottom_widget.setLayout(self.bottom_layout)
+        self.save_as_e2e_filename_button = QPushButton("保存e2e文件名")
+        self.save_as_e2e_filename_button.setEnabled(False)
+        self.save_as_e2e_filename_button.clicked.connect(self.rename_current_image_with_info)
+        self.save_layout = QHBoxLayout()
+        self.save_layout.addWidget(self.save_as_e2e_filename_button)
+        self.save_layout.addStretch()
 
-        license_plate_iamge_label = QLabel("车牌图")
+        self.top_layout = QVBoxLayout()
+        self.top_layout.addLayout(left_right_layout)
+        self.top_layout.addLayout(self.location_layout)
+        self.top_layout.addLayout(self.update_file_path_layout)
+        self.top_layout.addLayout(self.save_layout)
+
+        function_groupbox = QGroupBox("功能区")
+        function_groupbox.setLayout(self.top_layout)
+
+        license_plate_image_label = QLabel("车牌图")
         self.license_plate_widget = QLabel("")
 
         block_image_label = QLabel("分割图")
@@ -303,56 +383,66 @@ class HyperLprWindow(QMainWindow):
         segmentation_recognition_label = QLabel("分割识别：")
         self.segmentation_recognition_edit = QLineEdit()
         self.segmentation_recognition_edit.setFont(QFont("黑体", 24, QFont.Bold))
-        self.segmentation_recognition_edit.setStyleSheet("color:red")
+        # self.segmentation_recognition_edit.setStyleSheet("color:red")
 
-        confidence_label = QLabel("置信度")
+        confidence_label = QLabel("分割识别\n置信度")
         self.confidence_edit = QLineEdit()
-        self.confidence_edit.setFont(QFont("黑体", 24, QFont.Bold))
-        self.confidence_edit.setStyleSheet("color:red")
+        #self.confidence_edit.setFont(QFont("黑体", 24, QFont.Bold))
+        # self.confidence_edit.setStyleSheet("color:red")
 
         plate_color_label = QLabel("车牌颜色")
         self.plate_color_edit = QLineEdit()
         self.plate_color_edit.setFont(QFont("黑体", 24, QFont.Bold))
-        self.plate_color_edit.setStyleSheet("color:red")
+        # self.plate_color_edit.setStyleSheet("color:red")
 
         e2e_recognization_label = QLabel("e2e识别：")
         self.e2e_recognization_edit = QLineEdit()
         self.e2e_recognization_edit.setFont(QFont("黑体", 24, QFont.Bold))
-        self.e2e_recognization_edit.setStyleSheet("color:red")
+        # self.e2e_recognization_edit.setStyleSheet("color:red")
 
         e2e_confidence_label = QLabel("e2e置信度")
         self.e2e_confidence_edit = QLineEdit()
-        self.e2e_confidence_edit.setFont(QFont("黑体", 24, QFont.Bold))
-        self.e2e_confidence_edit.setStyleSheet("color:red")
+        #self.e2e_confidence_edit.setFont(QFont("黑体", 24, QFont.Bold))
+        # self.e2e_confidence_edit.setStyleSheet("color:red")
 
         info_gridlayout = QGridLayout()
-        info_gridlayout.addWidget(filename_label, 0, 0)
-        info_gridlayout.addWidget(self.filename_edit, 0, 1)
-        info_gridlayout.addWidget(license_plate_iamge_label, 1, 0)
-        info_gridlayout.addWidget(self.license_plate_widget, 1, 1)
-        info_gridlayout.addWidget(block_image_label, 2, 0)
-        info_gridlayout.addWidget(self.block_plate_widget, 2, 1)
-        info_gridlayout.addWidget(segmentation_recognition_label, 3, 0)
-        info_gridlayout.addWidget(self.segmentation_recognition_edit, 3, 1)
-        info_gridlayout.addWidget(confidence_label, 4, 0)
-        info_gridlayout.addWidget(self.confidence_edit, 4, 1)
-        info_gridlayout.addWidget(plate_color_label, 5, 0)
-        info_gridlayout.addWidget(self.plate_color_edit, 5, 1)
-        info_gridlayout.addWidget(e2e_recognization_label, 6, 0)
-        info_gridlayout.addWidget(self.e2e_recognization_edit, 6, 1)
-        info_gridlayout.addWidget(e2e_confidence_label, 7, 0)
-        info_gridlayout.addWidget(self. e2e_confidence_edit, 7, 1)
+        line_index = 0
+        info_gridlayout.addWidget(filename_label, line_index, 0)
+        info_gridlayout.addWidget(self.filename_edit, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(license_plate_image_label, line_index, 0)
+        info_gridlayout.addWidget(self.license_plate_widget, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(e2e_recognization_label, line_index, 0)
+        info_gridlayout.addWidget(self.e2e_recognization_edit, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(
+            segmentation_recognition_label, line_index, 0)
+        info_gridlayout.addWidget(
+            self.segmentation_recognition_edit, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(plate_color_label, line_index, 0)
+        info_gridlayout.addWidget(self.plate_color_edit, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(block_image_label, line_index, 0)
+        info_gridlayout.addWidget(self.block_plate_widget, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(confidence_label, line_index, 0)
+        info_gridlayout.addWidget(self.confidence_edit, line_index, 1)
+        line_index += 1
+        info_gridlayout.addWidget(e2e_confidence_label, line_index, 0)
+        info_gridlayout.addWidget(self.e2e_confidence_edit, line_index, 1)
 
-        info_widget = QWidget()
+        info_widget = QGroupBox("分割识别&e2e")
 
         info_widget.setLayout(info_gridlayout)
 
         right_splitter = QSplitter(Qt.Vertical)
-        right_splitter.addWidget(bottom_widget)
         right_splitter.addWidget(self.hyperlpr_tableview)
+        right_splitter.addWidget(function_groupbox)
         right_splitter.addWidget(info_widget)
-        right_splitter.setStretchFactor(1, 3)
-        right_splitter.setStretchFactor(2, 2)
+        right_splitter.setStretchFactor(0, 2)
+        right_splitter.setStretchFactor(2, 1)
 
         main_splitter = QSplitter(Qt.Horizontal)
         main_splitter.addWidget(self.image_window_view)
@@ -364,6 +454,7 @@ class HyperLprWindow(QMainWindow):
         self.segmentation_recognition_correct_number = 0
         self.color_correct_number = 0
         self.e2e_recognization_correct_number = 0
+        self.current_row = 0
 
         self.batch_recognization_thread = LicenseRecognizationThread()
         self.batch_recognization_thread.recognization_done_signal.connect(
@@ -401,6 +492,16 @@ class HyperLprWindow(QMainWindow):
             with open(hyperlpr_dir_info_filepath, 'w') as f:
                 f.write(self.hyperlpr_dir_path)
             self.reset_info_gui()
+
+    def rename_current_image_with_info(self):
+        if len(self.hyperlpr_dir_path) > 0:
+            target_dir_path = self.hyperlpr_dir_path + "/result"
+            if not os.path.exists(target_dir_path):
+                os.makedirs(target_dir_path)
+            if len(self.plate_color_edit.text())>0 and len(self.e2e_recognization_edit.text())>0:
+                orign_path = os.path.join(self.hyperlpr_dir_path, self.filename_edit.text())
+                target_path = os.path.join(target_dir_path,self.plate_color_edit.text()+"-"+self.e2e_recognization_edit.text()+".jpg")
+                shutil.copyfile(orign_path, target_path)
 
     def reset_info_gui(self):
 
@@ -454,8 +555,22 @@ class HyperLprWindow(QMainWindow):
             item5.setTextAlignment(Qt.AlignCenter)
             self.hyperlpr_tableview.setItem(row, 5, item5)
 
+        if len(self.image_filename_list) > 0:
+            self.left_button.setEnabled(True)
+            self.right_button.setEnabled(True)
+            self.save_as_e2e_filename_button.setEnabled(True)
+
+    def analyze_last_one_image(self):
+        if self.current_row > 0:
+            self.recognize_one_license_plate(self.current_row-1, 0)
+
+    def analyze_next_one_image(self):
+        if self.current_row < (len(self.image_filename_list)-1):
+            self.recognize_one_license_plate(self.current_row + 1, 0)
+
     def recognize_one_license_plate(self, row, col):
         if col == 0 and row < len(self.image_filename_list):
+            self.current_row = row
             self.recognize_and_show_one_image(
                 self.image_filename_list[row], row)
 
@@ -463,6 +578,7 @@ class HyperLprWindow(QMainWindow):
 
         if image_filename_text.endswith(".jpg"):
 
+            print(image_filename_text)
             path = os.path.join(self.hyperlpr_dir_path, image_filename_text)
             image = cv2.imdecode(np.fromfile(path, dtype=np.uint8), -1)
             image, res_set = SimpleRecognizePlateWithGui(image)
@@ -479,7 +595,7 @@ class HyperLprWindow(QMainWindow):
                 curr_rect = res_set[0][2]
                 image_crop = image[int(curr_rect[1]):int(
                     curr_rect[1] + curr_rect[3]), int(curr_rect[0]):int(curr_rect[0] + curr_rect[2])]
-                curr_plate = cv2.resize(image_crop, (136, 72))
+                curr_plate = cv2.resize(image_crop, (204, 108))
                 plate_img = QImage(
                     curr_plate.data,
                     curr_plate.shape[1],
@@ -505,18 +621,34 @@ class HyperLprWindow(QMainWindow):
                     QPixmap.fromImage(block_image.rgbSwapped()))
 
                 self.segmentation_recognition_edit.setText(res_set[0][0])
+                if res_set[0][0] in image_filename_text:
+                    self.segmentation_recognition_edit.setStyleSheet("color:black")
+                else:
+                    self.segmentation_recognition_edit.setStyleSheet("color:red")
+
 
                 self.filename_edit.setText(image_filename_text)
                 self.confidence_edit.setText("%.3f" % (float(res_set[0][1])))
+
                 self.plate_color_edit.setText(res_set[0][3])
+                if res_set[0][3] in image_filename_text:
+                    self.plate_color_edit.setStyleSheet("color:black")
+                else:
+                    self.plate_color_edit.setStyleSheet("color:red")
+
                 self.e2e_recognization_edit.setText(res_set[0][4])
+                if res_set[0][4] in image_filename_text:
+                    self.e2e_recognization_edit.setStyleSheet("color:black")
+                else:
+                    self.e2e_recognization_edit.setStyleSheet("color:red")
+
                 self.e2e_confidence_edit.setText(
                     "%.3f" % (float(res_set[0][5])))
             else:
                 self.license_plate_widget.clear()
                 self.block_plate_widget.clear()
                 self.segmentation_recognition_edit.setText("")
-                self.filename_edit.setText("")
+                self.filename_edit.setText(image_filename_text)
                 self.confidence_edit.setText("")
                 self.plate_color_edit.setText("")
                 self.e2e_recognization_edit.setText("")
@@ -556,8 +688,13 @@ class HyperLprWindow(QMainWindow):
             item1.setTextAlignment(Qt.AlignCenter)
             self.hyperlpr_tableview.setItem(total_number, 1, item1)
             self.hyperlpr_tableview.item(
-                total_number, 1).setText(
-                "{0} / {1} = {2: .3f}".format(self.segmentation_recognition_correct_number,total_number,self.segmentation_recognition_correct_number/total_number))
+                total_number,
+                1).setText(
+                "{0} / {1} = {2: .3f}".format(
+                    self.segmentation_recognition_correct_number,
+                    total_number,
+                    self.segmentation_recognition_correct_number /
+                    total_number))
 
             item2 = QTableWidgetItem()
             item2.setTextAlignment(Qt.AlignCenter)
