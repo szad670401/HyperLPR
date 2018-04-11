@@ -86,7 +86,7 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较
 
 ### 简单使用方式
 
-新更新的HyperLPR Lite
+推荐使用新更新的HyperLPR Lite，仅需一单独文件。
 
 ```python
 import HyperLPRLite as pr
