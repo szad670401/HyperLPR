@@ -1,24 +1,36 @@
-# High Accuracy Chinese License Plate Recognition Framework
+# High Accuracy Chinese Plate Recognition Framework
 
 ### 介绍
 This research aims at simply developping plate recognition project based on deep learning methods, with low complexity and high speed. This 
-project has been used by some commercial corporations. Free and open source, deploying by Zeusee. this pipline also can apply to other countries license plate by training
+project has been used by some commercial corporations. Free and open source, deploying by Zeusee. 
 
-HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与其他开源的中文车牌识别框架相比，它的检测速度和鲁棒性和多场景的适应性都要好于其他的开源框架。
+HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与较为流行的开源的[EasyPR](https://github.com/liuruoze/EasyPR)相比，它的检测速度和鲁棒性和多场景的适应性都要好于目前开源的EasyPR。
+
+##### 更新热点:
+
+- 添加的新的Python 序列模型-识别率大幅提高(尤其汉字)(2018.3.12)
+- 新添加了HyperLPR Lite 只需要一个文件 160行代码即可完全整个车牌识别流程.
+- 提供精确定位的车牌矩形框(2018.3.12)	
 
 #### 相关资源 
+
 + [在线测试地址](http://sftera.vicp.io:8000/uploader)(已失效)。
 + [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
 + [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
 + [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
 + [端到端(CTC)训练代码](https://github.com/armaab/hyperlpr-train)(感谢群内小伙伴工作)。
-+ [训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)。
-+ [IOS版本 xiaojun123456贡献](https://github.com/xiaojun123456)。
-+ [编译好的OpenCV_3.3.1_VS2013_Win64 版本](https://pan.baidu.com/s/1c3cgGyk);(采用VS2015可以使用opencv_3.3以上官方提供的Release版本)。
 
 ### 更新
-+ 增加了端到端模型的cpp实现,识别速度比分割快30%(Linux)(2018.1.31)
-+ 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)(2018.1)
+
++ 添加的新的Python 序列模型-识别率大幅提高(尤其汉字)(2018.3.12)
++ 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
++ 提供精确定位的车牌矩形框(2018.3.12)
+
+
++ 增加了端到端模型的cpp实现(Linux)(2018.1.31)
+
+
++ 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)(2018.1.)
 + 更新了Android实现，大幅提高准确率和速度 (骁龙835 (*720*x*1280*)  ~50ms )(2017.12.27)
 + 添加了IOS版本的实现（感谢[xiaojun123456](https://github.com/xiaojun123456)的工作）
 + 添加端到端的序列识别模型识别率大幅度提升,使得无需分割字符即可识别,识别速度提高20% (2017.11.17)
@@ -38,6 +50,19 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与其
 + 基于端到端的车牌识别无需进行字符分割
 + 识别率高,仅仅针对车牌ROI在EasyPR数据集上，0-error达到 95.2%, 1-error识别率达到 97.4% (指在定位成功后的车牌识别率)
 + 轻量 总代码量不超1k行
+
+### 模型资源说明
+
++ cascade.xml  检测模型 - 目前效果最好的cascade检测模型
++ cascade_lbp.xml  召回率效果较好，但其错检太多
++ char_chi_sim.h5 Keras模型-可识别34类数字和大写英文字  使用14W样本训练 
++ char_rec.h5 Keras模型-可识别34类数字和大写英文字  使用7W样本训练 
++ ocr_plate_all_w_rnn_2.h5 基于CNN的序列模型
++ ocr_plate_all_gru.h5 基于GRU的序列模型从OCR模型修改，效果目前最好但速度较慢，需要20ms。
++ plate_type.h5 用于车牌颜色判断的模型
++ model12.h5 左右边界回归模型
+
+
 
 ### 注意事项:
 
@@ -61,12 +86,25 @@ HyperLPR是一个使用深度学习针对对中文车牌识别的实现，与其
 
 ### 简单使用方式
 
+新更新的HyperLPR Lite
+
 ```python
-from hyperlpr import  pipline as  pp
+import HyperLPRLite as pr
 import cv2
-image = cv2.imread("filename")
-image,res  = pp.SimpleRecognizePlate(image)
-print(res)
+import numpy as np
+grr = cv2.imread("images_rec/demo1.jpg")
+model = pr.LPR("model/cascade.xml","model/model12.h5","model/ocr_plate_all_gru.h5")
+
+for pstr,confidence,rect in model.SimpleRecognizePlateByE2E(grr):
+        if confidence>0.7:
+            image = drawRectBox(grr, rect, pstr+" "+str(round(confidence,3)))
+            print("plate_str",pstr)
+            print("plate_confidence",confidence)
+
+
+cv2.imshow("image",image)
+cv2.waitKey(0)
+
 ```
 ### Linux/Mac 编译
 
