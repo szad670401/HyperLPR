@@ -59,7 +59,6 @@ class LPR():
             y -= h * 0.15
             h += h * 0.3
             cropped = self.cropImage(image_color_cropped, (int(x), int(y), int(w), int(h)))
-
             cropped_images.append([cropped,[x, y+padding, w, h]])
         return cropped_images
 
@@ -131,12 +130,9 @@ class LPR():
         T+=2;
         if T>= image.shape[1]-1:
             T= image.shape[1]-1
-
         rect[2] -=  rect[2]*(1-res_raw[1] + res_raw[0])
         rect[0]+=res[0]
-
         image = image[:,H:T+2]
-
         image = cv2.resize(image, (int(136), int(36)))
         return image,rect
 
@@ -157,8 +153,3 @@ class LPR():
             res,confidence = self.recognizeOne(image_rgb)
             res_set.append([res,confidence,rect_refine])
         return res_set
-
-
-
-
-
