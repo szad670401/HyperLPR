@@ -2,13 +2,10 @@ import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
 
-from PIL import ImageFont
-from PIL import Image
-from PIL import ImageDraw
-fontC = ImageFont.truetype("./Font/platech.ttf", 14, 0)
+
+
+
 import time
-
-
 
 def SpeedTest(image_path):
     grr = cv2.imread(image_path)
@@ -20,9 +17,12 @@ def SpeedTest(image_path):
     t = (time.time() - t0)/20.0
     print "Image size :" + str(grr.shape[1])+"x"+str(grr.shape[0]) +  " need " + str(round(t*1000,2))+"ms"
 
+    
 
-
-
+from PIL import ImageFont
+from PIL import Image
+from PIL import ImageDraw
+fontC = ImageFont.truetype("./Font/platech.ttf", 14, 0)
 
 def drawRectBox(image,rect,addText):
     cv2.rectangle(image, (int(rect[0]), int(rect[1])), (int(rect[0] + rect[2]), int(rect[1] + rect[3])), (0,0, 255), 2,cv2.LINE_AA)
@@ -35,10 +35,12 @@ def drawRectBox(image,rect,addText):
     return imagex
 
 
+
+
+
 import HyperLPRLite as pr
 import cv2
 import numpy as np
-
 grr = cv2.imread("images_rec/2_.jpg")
 model = pr.LPR("model/cascade.xml","model/model12.h5","model/ocr_plate_all_gru.h5")
 for pstr,confidence,rect in model.SimpleRecognizePlateByE2E(grr):
@@ -48,8 +50,7 @@ for pstr,confidence,rect in model.SimpleRecognizePlateByE2E(grr):
             print pstr
             print "plate_confidence"
             print confidence
-
-
+            
 cv2.imshow("image",image)
 cv2.waitKey(0)
 
