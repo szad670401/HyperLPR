@@ -1,5 +1,5 @@
 //
-// Created by 庾金科 on 22/10/2017.
+// Created by Jack Yu on 22/10/2017.
 //
 
 #include "../include/Recognizer.h"
