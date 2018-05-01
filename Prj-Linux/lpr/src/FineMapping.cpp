@@ -65,33 +65,21 @@ namespace pr{
     }
 
     cv::Mat FineMapping::FineMappingVertical(cv::Mat InputProposal,int sliceNum,int upper,int lower,int windows_size){
-
-
         cv::Mat PreInputProposal;
         cv::Mat proposal;
-
         cv::resize(InputProposal,PreInputProposal,cv::Size(FINEMAPPING_W,FINEMAPPING_H));
-//        cv::imwrite("res/cache/finemapping.jpg",PreInputProposal);
-
         if(InputProposal.channels() == 3)
             cv::cvtColor(PreInputProposal,proposal,cv::COLOR_BGR2GRAY);
         else
             PreInputProposal.copyTo(proposal);
-
-//            proposal = PreInputProposal;
-
         // this will improve some sen
         cv::Mat kernal = cv::getStructuringElement(cv::MORPH_ELLIPSE,cv::Size(1,3));
-//        cv::erode(proposal,proposal,kernal);
-
-
         float diff = static_cast<float>(upper-lower);
         diff/=static_cast<float>(sliceNum-1);
         cv::Mat binary_adaptive;
         std::vector<cv::Point> line_upper;
         std::vector<cv::Point> line_lower;
         int contours_nums=0;
-
         for(int i = 0 ; i < sliceNum ; i++)
         {
             std::vector<std::vector<cv::Point> > contours;
@@ -116,8 +104,6 @@ namespace pr{
                 }
             }
         }
-
-
         if(contours_nums<41)
         {
             cv::bitwise_not(InputProposal,InputProposal);
@@ -130,14 +116,11 @@ namespace pr{
             else
                 proposal = bak;
             int contours_nums=0;
-
             for(int i = 0 ; i < sliceNum ; i++)
             {
                 std::vector<std::vector<cv::Point> > contours;
                 float k =lower + i*diff;
                 cv::adaptiveThreshold(proposal,binary_adaptive,255,cv::ADAPTIVE_THRESH_MEAN_C,cv::THRESH_BINARY,windows_size,k);
-//                cv::imshow("image",binary_adaptive);
-//            cv::waitKey(0);
                 cv::Mat draw;
                 binary_adaptive.copyTo(draw);
                 cv::findContours(binary_adaptive,contours,cv::RETR_EXTERNAL,cv::CHAIN_APPROX_SIMPLE);
@@ -158,16 +141,9 @@ namespace pr{
                     }
                 }
             }
-//            std:: cout<<"contours_nums "<<contours_nums<<std::endl;
         }
-
             cv::Mat rgb;
             cv::copyMakeBorder(PreInputProposal, rgb, PADDING_UP_DOWN, PADDING_UP_DOWN, 0, 0, cv::BORDER_REPLICATE);
-//        cv::imshow("rgb",rgb);
-//        cv::waitKey(0);
-//
-
-
             std::pair<int, int> A;
             std::pair<int, int> B;
             A = FitLineRansac(line_upper, -1);
@@ -178,10 +154,6 @@ namespace pr{
             int rightyA = B.second;
             int cols = rgb.cols;
             int rows = rgb.rows;
-//        pts_map1  = np.float32([[cols - 1, rightyA], [0, leftyA],[cols - 1, rightyB], [0, leftyB]])
-//        pts_map2 = np.float32([[136,36],[0,36],[136,0],[0,0]])
-//        mat = cv2.getPerspectiveTransform(pts_map1,pts_map2)
-//        image = cv2.warpPerspective(rgb,mat,(136,36),flags=cv2.INTER_CUBIC)
             std::vector<cv::Point2f> corners(4);
             corners[0] = cv::Point2f(cols - 1, rightyA);
             corners[1] = cv::Point2f(0, leftyA);
@@ -196,10 +168,7 @@ namespace pr{
             cv::Mat quad = cv::Mat::zeros(36, 136, CV_8UC3);
             cv::warpPerspective(rgb, quad, transform, quad.size());
         return quad;
-
     }
-
-
 }
 
 
