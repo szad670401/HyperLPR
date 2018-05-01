@@ -7,13 +7,11 @@
 #include <../include/FastDeskew.h>
 
 namespace pr{
-
-
-    const int  ANGLE_MIN = 30 ;
+    const int ANGLE_MIN = 30 ;
     const int ANGLE_MAX = 150 ;
     const int PLATE_H = 36;
     const int PLATE_W = 136;
-
+    
     int angle(float x,float y)
     {
         return atan2(x,y)*180/3.1415;
