@@ -17,13 +17,7 @@ namespace pr{
             } else{
                 res.first = INVALID;
                 plateinfo.appendPlateCoding(res);
-
             }
-
-
         }
-
-
-
     }
 }
