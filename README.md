@@ -196,6 +196,6 @@ int main(){
 
 #### 获取帮助
 
-+ HyperLPR讨论QQ群：673071218, 加前请备注HyperLPR交流。
++ HyperLPR讨论QQ群1:673071218, 群2: 746123554 ,加前请备注HyperLPR交流。
 
 
