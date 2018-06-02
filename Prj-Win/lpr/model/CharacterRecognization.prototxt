@@ -1,0 +1,123 @@
+input: "data"
+input_dim: 1
+input_dim: 1
+input_dim: 30
+input_dim: 14
+layer {
+  name: "conv2d_1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv2d_1"
+  convolution_param {
+    num_output: 32
+    bias_term: true
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "activation_1"
+  type: "ReLU"
+  bottom: "conv2d_1"
+  top: "activation_1"
+}
+layer {
+  name: "max_pooling2d_1"
+  type: "Pooling"
+  bottom: "activation_1"
+  top: "max_pooling2d_1"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+    pad: 0
+  }
+}
+layer {
+  name: "conv2d_2"
+  type: "Convolution"
+  bottom: "max_pooling2d_1"
+  top: "conv2d_2"
+  convolution_param {
+    num_output: 64
+    bias_term: true
+    pad: 0
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "activation_2"
+  type: "ReLU"
+  bottom: "conv2d_2"
+  top: "activation_2"
+}
+layer {
+  name: "max_pooling2d_2"
+  type: "Pooling"
+  bottom: "activation_2"
+  top: "max_pooling2d_2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 2
+    stride: 2
+    pad: 0
+  }
+}
+layer {
+  name: "conv2d_3"
+  type: "Convolution"
+  bottom: "max_pooling2d_2"
+  top: "conv2d_3"
+  convolution_param {
+    num_output: 128
+    bias_term: true
+    pad: 0
+    kernel_size: 2
+    stride: 1
+  }
+}
+layer {
+  name: "activation_3"
+  type: "ReLU"
+  bottom: "conv2d_3"
+  top: "activation_3"
+}
+layer {
+  name: "flatten_1"
+  type: "Flatten"
+  bottom: "activation_3"
+  top: "flatten_1"
+}
+layer {
+  name: "dense_1"
+  type: "InnerProduct"
+  bottom: "flatten_1"
+  top: "dense_1"
+  inner_product_param {
+    num_output: 256
+  }
+}
+layer {
+  name: "relu2"
+  type: "ReLU"
+  bottom: "dense_1"
+  top: "relu2"
+}
+layer {
+  name: "dense2"
+  type: "InnerProduct"
+  bottom: "relu2"
+  top: "dense2"
+  inner_product_param {
+    num_output: 65
+  }
+}
+
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "dense2"
+  top: "prob"
+}

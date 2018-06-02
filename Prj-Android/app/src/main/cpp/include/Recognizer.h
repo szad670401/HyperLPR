@@ -13,7 +13,9 @@ namespace pr{
     class GeneralRecognizer{
         public:
             virtual label recognizeCharacter(cv::Mat character) = 0;
+//            virtual cv::Mat SegmentationFreeForSinglePlate(cv::Mat plate) = 0;
             void SegmentBasedSequenceRecognition(PlateInfo &plateinfo);
+            void SegmentationFreeSequenceRecognition(PlateInfo &plateInfo);
 
     };
 

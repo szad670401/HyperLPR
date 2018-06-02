@@ -10,17 +10,14 @@ namespace pr {
     typedef std::vector<cv::Mat> Character;
 
     enum PlateColor { BLUE, YELLOW, WHITE, GREEN, BLACK,UNKNOWN};
-    enum CharType {CHINESE,LETTER,LETTER_NUMS};
+    enum CharType {CHINESE,LETTER,LETTER_NUMS,INVALID};
 
 
     class PlateInfo {
         public:
-        std::vector<std::pair<CharType,cv::Mat>> plateChars;
+            std::vector<std::pair<CharType,cv::Mat>> plateChars;
             std::vector<std::pair<CharType,cv::Mat>> plateCoding;
-
             float confidence = 0;
-
-
             PlateInfo(const cv::Mat &plateData, std::string plateName, cv::Rect plateRect, PlateColor plateType) {
                     licensePlate = plateData;
                     name = plateName;
@@ -93,16 +90,20 @@ namespace pr {
 
                     }
 
-                    if(plate.first == LETTER) {
+                    else if(plate.first == LETTER) {
                         decode += mappingTable[std::max_element(prob+41,prob+65)- prob];
                         confidence+=*std::max_element(prob+41,prob+65);
                     }
 
-                    if(plate.first == LETTER_NUMS) {
+                    else if(plate.first == LETTER_NUMS) {
                         decode += mappingTable[std::max_element(prob+31,prob+65)- prob];
                         confidence+=*std::max_element(prob+31,prob+65);
 //                        std::cout<<*std::max_element(prob+31,prob+65)<<std::endl;
 
+                    }
+                    else if(plate.first == INVALID)
+                    {
+                        decode+='*';
                     }
 
                 }
@@ -113,12 +114,10 @@ namespace pr {
                 return decode;
             }
 
-
-
     private:
         cv::Mat licensePlate;
         cv::Rect ROI;
-        std::string name;
+        std::string name ;
         PlateColor Type;
     };
 }

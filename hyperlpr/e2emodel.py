@@ -2,7 +2,6 @@
 from keras import backend as K
 from keras.models import *
 from keras.layers import *
-from captcha.image import ImageCaptcha
 import e2e
 
 

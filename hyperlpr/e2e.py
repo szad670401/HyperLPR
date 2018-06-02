@@ -2,7 +2,6 @@
 from keras import backend as K
 from keras.models import load_model
 from keras.layers import *
-from captcha.image import ImageCaptcha
 import numpy as np
 import random
 import string

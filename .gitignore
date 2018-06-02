@@ -1,6 +1,8 @@
-images_rec/*.*
-cache/*.*
-hyperlpr/*.pyc
+# Editor
+*~
+*.swp
 
-.DS_Store
-.idea
+# Build files
+Prj-Linux/lpr/TEST_*
+Prj-Linux/*build*/
+*.pyc
