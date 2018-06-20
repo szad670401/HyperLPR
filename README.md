@@ -13,7 +13,6 @@ project has been used by some commercial corporations. Free and open source, dep
 
 #### 相关资源 
 
-+ [在线测试地址](http://sftera.vicp.io:8000/uploader)(已失效)。
 + [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
 + [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
 + [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
@@ -21,6 +20,7 @@ project has been used by some commercial corporations. Free and open source, dep
 
 ### 更新
 
++ [增加PHP车牌识别工程@coleflowers](https://github.com/zeusees/HyperLPR/tree/master/Prj-PHP) (2018.06.20)
 + 添加的新的Python 序列模型-识别率大幅提高(尤其汉字)(2018.3.12)
 + 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
 + 提供精确定位的车牌矩形框(2018.3.12)
