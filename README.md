@@ -200,8 +200,7 @@ int main(){
 
 
 ### 作者和贡献者信息：
-##### 作者姓名不分前后 
-
+##### 作者昵称不分前后 
 + Jack Yu 作者(jack-yu-business@foxmail.com / https://github.com/szad670401)
 + lsy17096535 整理(https://github.com/lsy17096535)
 + xiaojun123456 IOS贡献(https://github.com/xiaojun123456)
@@ -209,4 +208,3 @@ int main(){
 + coleflowers php贡献(@coleflowers)
 + Free&Easy 资源贡献 
 + 海豚嘎嘎 LBP cascade检测器训练
-
