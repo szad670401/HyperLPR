@@ -36,7 +36,7 @@ target_link_libraries(
 execute_process(COMMAND php-config --extension-dir
         OUTPUT_VARIABLE LIBRARY_DIR)
 
-message("Test ${LIBRARY_DIR} failed.")
+message("PHP_EXTENSIONS_DIR ${LIBRARY_DIR}")
 
 add_custom_command(TARGET platescan
         POST_BUILD
