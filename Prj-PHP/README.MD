@@ -1,7 +1,7 @@
 
 # Prj-PHP
 
-HyperLPR 在PHP扩展程序中的实现，核心代码拷贝了 Prj-Linux 中庾金科大牛的代码。我做的这部分工作主要是配置编译成PHP扩展程序。
+HyperLPR 在PHP扩展程序中的实现，核心代码拷贝了 Prj-Linux 中的代码。
 
 ## CPP 依赖
 
