@@ -1,5 +1,6 @@
 //
 // Created by Coleflowers on 20/06/2018.
+// Updated by Justid on 02/07/2018.
 // 
 #include <phpcpp.h>
 #include <iostream>
@@ -10,88 +11,69 @@
 #include "PlateDetection.h"
 #include "FastDeskew.h"
 #include "FineMapping.h"
+#include "Pipeline.h"
 
-
-std::vector<std::string> chars{"京","沪","津","渝","冀","晋","蒙","辽","吉","黑","苏","浙","皖","闽","赣","鲁","豫","鄂","湘","粤","桂","琼","川","贵","云","藏","陕","甘","青","宁","新","0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z"};
+/* 关闭原opencv报错输出 */
+int handleError( int status, const char* func_name,
+            const char* err_msg, const char* file_name,
+            int line, void* userdata )
+{
+    //Do nothing -- will suppress console output
+    return 0;   //Return value is not used
+}
 
 /**
  * 车牌图片识别
- * @param  imgpath 图片的绝对路径
+ * @params  imgpath 图片的绝对路径
+ * @params  modelpath 识别模型所在文件夹路径
+ * @params  confidence 可信度要求，可选参数，默认值0.75
  * @return  车牌号 图片路径的图片不存在的话 返回空值
  */
-cv::String scan(const char *imgpath){
-    // 读取图片获取车牌的粗略部分
-    cv::Mat image = cv::imread(imgpath); 
-    if(!image.data) { 
-        printf("No img data!\n");
-        return "";
+cv::String scan(std::string imgpath, std::string modelpath, double confidence){
+    cv::redirectError(handleError);
+    try {
+        pr::PipelinePR prc(modelpath+"/cascade.xml",
+                        modelpath+"/HorizonalFinemapping.prototxt",modelpath+"/HorizonalFinemapping.caffemodel",
+                        modelpath+"/Segmentation.prototxt",modelpath+"/Segmentation.caffemodel",
+                        modelpath+"/CharacterRecognization.prototxt",modelpath+"/CharacterRecognization.caffemodel",
+                        modelpath+"/SegmentationFree.prototxt",modelpath+"/SegmentationFree.caffemodel"
+                    );
+        cv::Mat image = cv::imread(imgpath);
+        std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(image,pr::SEGMENTATION_FREE_METHOD);
+
+        cv::String platenum = "";
+        for(auto st:res) {
+            if(st.confidence>confidence) {
+                platenum = st.getPlateName();
+                break;
+            }
+        }
+
+        return platenum;
     }
-    pr::PlateDetection plateDetection("/usr/platescan/src/lpr/model/cascade.xml");
-    std::vector<pr::PlateInfo> plates;
-    plateDetection.plateDetectionRough(image,plates);
-    // todo 处理发现的每一个车牌信息
-    // 目前只处理了一组
-    cv::Mat img;
-    for(pr::PlateInfo platex:plates) {
-        // 暂时不保存了
-        //cv::imwrite("res/mmm.png",platex.getPlateImage());
-        img = platex.getPlateImage(); 
+    catch( cv::Exception& e )
+    {
+        const char* err_msg = e.what();
+        throw Php::Exception(err_msg);
     }
-   
-    // 车牌部分 
-    cv::Mat image_finemapping = pr::FineMapping::FineMappingVertical(img);
-    pr::FineMapping finemapper =  pr::FineMapping("/usr/platescan/src/lpr/model/HorizonalFinemapping.prototxt","/usr/platescan/src/lpr/model/HorizonalFinemapping.caffemodel");
-    
-    // 
-    image_finemapping = pr::fastdeskew(image_finemapping, 5);
 
-    // image_finemapping = finemapper.FineMappingHorizon(image_finemapping,0,-3);
-    // Android 代码里这个是 
-    // 改了之后部分图片数据精度发生变化 ，比如 字母精度有了，但是汉字又错了
-    image_finemapping = finemapper.FineMappingHorizon(image_finemapping,2,5);
-    // 暂时不保存了
-    //cv::imwrite("res/m222222222.png",image_finemapping);
-
-    // 设置尺寸 识别
-    cv::Mat demo = image_finemapping; 
-    cv::resize(demo,demo,cv::Size(136,36));
-    //cv::imwrite("res/m333333.png",demo);
-
-    cv::Mat respones;
-    pr::PlateSegmentation plateSegmentation("/usr/platescan/src/lpr/model/Segmentation.prototxt","/usr/platescan/src/lpr/model/Segmentation.caffemodel");
-    pr::PlateInfo plate;
-    plate.setPlateImage(demo);
-    std::vector<cv::Rect> rects;
-    plateSegmentation.segmentPlatePipline(plate,1,rects);
-    plateSegmentation.ExtractRegions(plate,rects);
-
-    pr::GeneralRecognizer *recognizer = new pr::CNNRecognizer("/usr/platescan/src/lpr/model/CharacterRecognization.prototxt","/usr/platescan/src/lpr/model/CharacterRecognization.caffemodel");
-    recognizer->SegmentBasedSequenceRecognition(plate);
-    //std::cout<<plate.decodePlateNormal(chars)<<std::endl;
-    plate.decodePlateNormal(chars);
-
-    cv::String txt = plate.getPlateName();
-    // printf("res:%s\n", txt.c_str());
-
-    //
-    // 写入结果到文件
-    // FILE *fp;  
-    // fp = fopen(resSaveFile, "wb+");
-    // fprintf(fp, "%s", txt.c_str());  
-    // fclose(fp);
-    //
-    
-    delete(recognizer);
-    return txt;
 }
 
-Php::Value  myFunction(Php::Parameters &params) {
 
-   std::string str = params[0]; 
-   const char *str_c = str.c_str();
+Php::Value funcWrapper(Php::Parameters &params) {
+    // 图片路径
+    std::string img = params[0]; 
+    // 模型路径（文件夹）
+    std::string model = params[1]; 
+    // 可信度要求
+    double confidence = 0.75;
 
-   cv::String res = scan(str_c);
-   return res.c_str();
+    if (params.size() == 3){
+        confidence = (double)params[2];
+    }
+
+    cv::String res = scan(img, model, confidence);
+    return res.c_str();
 }
 
 
@@ -113,7 +95,11 @@ extern "C" {
         static Php::Extension extension("platescan", "1.0");
         
         // @todo    add your own functions, classes, namespaces to the extension
-        extension.add<myFunction>("platescan", {Php::ByRef("string", Php::Type::String)});       
+        extension.add<funcWrapper>("platescan", {
+            Php::ByVal("imgpath", Php::Type::String, true),
+            Php::ByVal("modelpath", Php::Type::String, true),
+            Php::ByVal("confidence", Php::Type::Float, false)
+        });       
  
         // return the extension
         return extension;
