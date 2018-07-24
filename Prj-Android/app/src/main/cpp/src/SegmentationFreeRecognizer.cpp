@@ -80,6 +80,7 @@ namespace pr {
 
     }
 
+
     std::string decodeResults(cv::Mat code_table,std::vector<std::string> mapping_table)
     {
         cv::MatSize mtsize = code_table.size;

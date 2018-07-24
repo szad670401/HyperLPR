@@ -49,10 +49,8 @@ Java_pr_platerecognization_PlateRecognition_InitPlateRecognizer(
 
     pr::PipelinePR *PR = new pr::PipelinePR(detector_path,
                                             finemapping_prototxt_path, finemapping_caffemodel_path,
-                                            segmentation_prototxt_path,
-                                            segmentation_caffemodel_path,
-                                            charRecognization_proto_path,
-                                            charRecognization_caffemodel_path);
+                                            segmentation_prototxt_path, segmentation_caffemodel_path,
+                                            charRecognization_proto_path, charRecognization_caffemodel_path);
 
     return (jlong) PR;
 }
@@ -65,10 +63,14 @@ Java_pr_platerecognization_PlateRecognition_SimpleRecognization(
     pr::PipelinePR *PR = (pr::PipelinePR *) object_pr;
     cv::Mat &mRgb = *(cv::Mat *) matPtr;
     cv::Mat rgb;
+//    cv::cvtColor(mRgb,rgb,cv::COLOR_RGBA2GRAY);
     cv::cvtColor(mRgb,rgb,cv::COLOR_RGBA2BGR);
-    cv::imwrite("/sdcard/demo.jpg",rgb);
 
-    std::vector<pr::PlateInfo> list_res= PR->RunPiplineAsImage(rgb);
+//    cv::imwrite("/sdcard/demo.jpg",rgb);
+
+    //1表示SEGMENTATION_BASED_METHOD在方法里有说明
+    std::vector<pr::PlateInfo> list_res= PR->RunPiplineAsImage(rgb,1);
+//    std::vector<pr::PlateInfo> list_res= PR->RunPiplineAsImage(rgb,1);
     std::string concat_results;
     for(auto one:list_res)
     {
@@ -80,13 +82,14 @@ Java_pr_platerecognization_PlateRecognition_SimpleRecognization(
     return env->NewStringUTF(concat_results.c_str());
 
 }
-JNIEXPORT jstring JNICALL
+JNIEXPORT void JNICALL
 Java_pr_platerecognization_PlateRecognition_ReleasePlateRecognizer(
         JNIEnv *env, jobject obj,
         jlong object_re) {
 //    std::string hello = "Hello from C++";
     pr::PipelinePR *PR = (pr::PipelinePR *) object_re;
     delete PR;
+
 }
 }
 

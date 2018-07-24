@@ -13,13 +13,13 @@ namespace pr {
     PipelinePR::PipelinePR(std::string detector_filename,
                            std::string finemapping_prototxt, std::string finemapping_caffemodel,
                            std::string segmentation_prototxt, std::string segmentation_caffemodel,
-                           std::string charRecognization_proto, std::string charRecognization_caffemodel,
-                           std::string segmentationfree_proto,std::string segmentationfree_caffemodel) {
+                           std::string charRecognization_proto, std::string charRecognization_caffemodel){
+//                           std::string segmentationfree_proto,std::string segmentationfree_caffemodel) {
         plateDetection = new PlateDetection(detector_filename);
         fineMapping = new FineMapping(finemapping_prototxt, finemapping_caffemodel);
         plateSegmentation = new PlateSegmentation(segmentation_prototxt, segmentation_caffemodel);
         generalRecognizer = new CNNRecognizer(charRecognization_proto, charRecognization_caffemodel);
-        segmentationFreeRecognizer =  new SegmentationFreeRecognizer(segmentationfree_proto,segmentationfree_caffemodel);
+//        segmentationFreeRecognizer =  new SegmentationFreeRecognizer(segmentationfree_proto,segmentationfree_caffemodel);
 
     }
 
@@ -29,7 +29,7 @@ namespace pr {
         delete fineMapping;
         delete plateSegmentation;
         delete generalRecognizer;
-        delete segmentationFreeRecognizer;
+//        delete segmentationFreeRecognizer;
 
 
     }
