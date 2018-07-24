@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="35ca437b-3a41-49a4-9246-6be487c86720" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_deps" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/.ninja_log" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeCache.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeCache.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCCompiler.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCXXCompiler.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_C.bin" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeSystem.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/CMakeOutput.log" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/CMakeFiles/TargetDirectories.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/android_gradle_build.json" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/android_gradle_build.json" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/build.ninja" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/build.ninja" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_build_command.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_build_command.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_build_output.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_build_output.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_install.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/cmake_install.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/rules.ninja" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/rules.ninja" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/javaWarpper.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/CNNRecognizer.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/FastDeskew.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/FineMapping.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/Pipeline.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/PlateDetection.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/PlateSegmentation.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/Recognizer.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/debug/armeabi-v7a/src/main/cpp/cmake_install.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/.ninja_deps" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/.ninja_log" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeCache.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeCache.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCCompiler.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeCXXCompiler.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_C.bin" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeDetermineCompilerABI_CXX.bin" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/3.6.0-rc2/CMakeSystem.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/CMakeOutput.log" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/CMakeFiles/TargetDirectories.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/android_gradle_build.json" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/android_gradle_build.json" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/build.ninja" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/build.ninja" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_build_command.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_build_command.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_build_output.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_build_output.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_install.cmake" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/cmake_install.cmake" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/rules.ninja" afterPath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/rules.ninja" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/javaWarpper.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/CNNRecognizer.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/FastDeskew.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/FineMapping.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/Pipeline.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/PlateDetection.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/PlateSegmentation.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/CMakeFiles/hyperlpr.dir/src/Recognizer.cpp.o" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.externalNativeBuild/cmake/release/armeabi-v7a/src/main/cpp/cmake_install.cmake" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/.gitignore" afterPath="$PROJECT_DIR$/Prj-Android/app/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/CMakeLists.txt" afterPath="$PROJECT_DIR$/Prj-Android/app/CMakeLists.txt" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/app.iml" afterPath="$PROJECT_DIR$/Prj-Android/app/app.iml" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/build.gradle" afterPath="$PROJECT_DIR$/Prj-Android/app/build.gradle" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/androidTest/java/pr/platerecognization/ExampleInstrumentedTest.java" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/AndroidManifest.xml" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/assets/pr/cascade.xml" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/assets/pr/cascade.xml" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/CNNRecognizer.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/CNNRecognizer.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/FastDeskew.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/FastDeskew.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/FineMapping.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/FineMapping.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/Pipeline.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/Pipeline.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateDetection.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateDetection.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateInfo.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateInfo.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateSegmentation.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/PlateSegmentation.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/Recognizer.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/Recognizer.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/SegmentationFreeRecognizer.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/SegmentationFreeRecognizer.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/niBlackThreshold.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/include/niBlackThreshold.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/javaWarpper.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/javaWarpper.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/FastDeskew.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/FastDeskew.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/FineMapping.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/FineMapping.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/Pipeline.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/Pipeline.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/PlateDetection.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/PlateDetection.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/PlateSegmentation.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/PlateSegmentation.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/SegmentationFreeRecognizer.cpp" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/SegmentationFreeRecognizer.cpp" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/util.h" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/cpp/src/util.h" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/pr/platerecognization/MainActivity.java" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/pr/platerecognization/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/pr/platerecognization/PlateRecognition.java" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/pr/platerecognization/PlateRecognition.java" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_core.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_dnn.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_flann.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_highgui.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_imgcodecs.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_imgproc.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_java3.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_objdetect.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_photo.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi-v7a/libopencv_shape.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_core.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_dnn.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_flann.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_highgui.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_imgcodecs.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_imgproc.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_java3.so" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_objdetect.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_photo.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/jniLibs/armeabi/libopencv_shape.a" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/drawable/demo.png" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/layout/activity_main.xml" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-hdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-mdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/values/strings.xml" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/test/java/pr/platerecognization/ExampleUnitTest.java" afterPath="" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="54" />
+    <option name="y" value="23" />
+    <option name="width" value="1401" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>AccessibilityLintAndroid</id>
+          </State>
+          <State>
+            <id>Android</id>
+          </State>
+          <State>
+            <id>Bidirectional TextInternationalizationLintAndroid</id>
+          </State>
+          <State>
+            <id>Chrome OSCorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>Class structureJava</id>
+          </State>
+          <State>
+            <id>Cloning issuesJava</id>
+          </State>
+          <State>
+            <id>CorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>IconsUsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>Inheritance issuesJava</id>
+          </State>
+          <State>
+            <id>Internationalization issuesJava</id>
+          </State>
+          <State>
+            <id>InternationalizationLintAndroid</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Javadoc issuesJava</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>LintAndroid</id>
+          </State>
+          <State>
+            <id>LintLintAndroid</id>
+          </State>
+          <State>
+            <id>MessagesCorrectnessLintAndroid</id>
+          </State>
+          <State>
+            <id>Numeric issuesJava</id>
+          </State>
+          <State>
+            <id>Performance issuesJava</id>
+          </State>
+          <State>
+            <id>PerformanceLintAndroid</id>
+          </State>
+          <State>
+            <id>Portability issuesJava</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Security issuesJava</id>
+          </State>
+          <State>
+            <id>SecurityLintAndroid</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+          <State>
+            <id>Threading issuesJava</id>
+          </State>
+          <State>
+            <id>TypographyUsabilityLintAndroid</id>
+          </State>
+          <State>
+            <id>UsabilityLintAndroid</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>AndroidLintUnusedIds</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="HyperPlate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="HyperPlate" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
+    <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
+    <property name="android.project.structure.last.selected" value="SDK Location" />
+    <property name="android.project.structure.proportion" value="0.15" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="35ca437b-3a41-49a4-9246-6be487c86720" name="Default" comment="" />
+      <created>1532420991821</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532420991821</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1401" height="877" extended-state="6" />
+    <layout>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23325975" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32938564" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="WIFI ADB ULTIMATE" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3123612" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Android WiFi ADB" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26490065" sideWeight="0.48269895" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13043478" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35075885" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23847167" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="combo" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22397892" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2649889" sideWeight="0.517301" order="11" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3237774" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32956383" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

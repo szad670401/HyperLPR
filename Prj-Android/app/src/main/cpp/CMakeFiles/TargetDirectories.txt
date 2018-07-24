@@ -1,0 +1,3 @@
+/Users/mac02/Desktop/studiospace/test/PrjAnndroid/app/src/main/cpp/CMakeFiles/rebuild_cache.dir
+/Users/mac02/Desktop/studiospace/test/PrjAnndroid/app/src/main/cpp/CMakeFiles/edit_cache.dir
+/Users/mac02/Desktop/studiospace/test/PrjAnndroid/app/src/main/cpp/CMakeFiles/hyperlpr.dir

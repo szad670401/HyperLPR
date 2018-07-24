@@ -1,0 +1,37 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:1-8:12
+	package
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:3:7-27
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+	android:versionName
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:5:7-34
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:4:7-33
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+uses-sdk
+ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:5-73
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:5-73
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:5-73
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:5-73
+INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:5-73
+	android:targetSdkVersion
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:41-70
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml:7:15-40
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
+		INJECTED from /Users/mac02/Desktop/otherspace/githubProject/HyperLPR/Prj-Android/openCVLibrary342/src/main/AndroidManifest.xml
