@@ -13,7 +13,7 @@ public class PlateRecognition {
                                            String segmentation_prototxt,String segmentation_caffemodel,
                                            String charRecognization_proto,String charRecognization_caffemodel);
 
-    static native long ReleasePlateRecognizer(long  object);
+    static native void ReleasePlateRecognizer(long  object);
     static native String SimpleRecognization(long  inputMat,long object);
 
 }

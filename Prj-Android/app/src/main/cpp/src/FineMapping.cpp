@@ -2,7 +2,7 @@
 // Created by 庾金科 on 22/09/2017.
 //
 
-#include "FineMapping.h"
+#include "../include/FineMapping.h"
 namespace pr{
 
     const int FINEMAPPING_H = 60 ;

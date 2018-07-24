@@ -16,9 +16,10 @@ namespace pr{
 
     void PlateDetection::plateDetectionRough(cv::Mat InputImage,std::vector<pr::PlateInfo>  &plateInfos,int min_w,int max_w){
 
-        cv::Mat processImage;
+        cv::Mat processImage(InputImage);
+//        cv::Mat processImage;
 
-         cv::cvtColor(InputImage,processImage,cv::COLOR_BGR2GRAY);
+//         cv::cvtColor(InputImage,processImage,cv::COLOR_BGR2GRAY);
 
 
         std::vector<cv::Rect> platesRegions;

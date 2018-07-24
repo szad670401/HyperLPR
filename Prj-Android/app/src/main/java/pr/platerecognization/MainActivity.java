@@ -58,6 +58,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
     }
 
     public Button btn;
+    public Button recogBtn;
     public TextView resbox;
     public TextView runtimebox;
 
@@ -69,6 +70,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
     private static final int REQUEST_CODE_OP = 3;
     private Uri mPath;
 
+    Bitmap latestBitmap;
 
 //    public  PlateRecognition pr;
 
@@ -261,6 +263,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
 
         float dp_asp  = dp/10.f;
         imgv.setImageBitmap(bmp);
+//        Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC1);
         Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC4);
 
         float new_w = bmp.getWidth()*dp_asp;
@@ -290,6 +293,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
             } else {
                 Log.i(TAG, "bmp [" + bmp.getWidth() + "," + bmp.getHeight());
             }
+            latestBitmap = bmp;
 
             SimpleRecog(bmp,sb.getProgress());
 //            startOilPainting(bmp, file);
@@ -304,6 +308,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
         } else if (requestCode == REQUEST_CODE_IMAGE_CAMERA && resultCode == RESULT_OK) {
             String file = getPath(mPath);
             Bitmap bmp = decodeImage(file);
+            latestBitmap = bmp;
             SimpleRecog(bmp,sb.getProgress());
 //            startOilPainting(bmp, file);
         }
@@ -326,6 +331,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
 
         }
         btn = (Button)findViewById(R.id.button);
+        recogBtn = (Button)findViewById(R.id.button_recog);
         imgv = (ImageView)findViewById(R.id.imageView);
         resbox = (TextView)findViewById(R.id.textView);
         sb = (SeekBar)findViewById(R.id.seek);
@@ -334,6 +340,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
 
         initRecognizer();
         btn.setOnClickListener(this);
+        recogBtn.setOnClickListener(this);
 //
 //        btn.setOnClickListener(new View.OnClickListener() {
 //                                   @Override
@@ -393,6 +400,11 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
                         .setTitle("打开方式")
                         .setItems(new String[]{"打开图片"}, this)
                         .show();
+                break;
+            case R.id.button_recog:
+               if(latestBitmap!=null){
+                   SimpleRecog(latestBitmap,sb.getProgress());
+               }
                 break;
         }
     }

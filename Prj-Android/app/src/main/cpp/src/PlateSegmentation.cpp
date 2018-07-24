@@ -68,7 +68,7 @@ namespace pr{
         int w = candidatePts[5] - candidatePts[4];
         int cols = plateImage.cols;
         int rows = plateImage.rows;
-        for(int i = 0 ; i < candidatePts.size()  ; i++)
+        for(int i = 0; i < candidatePts.size()  ; i++)
         {
             int left = 0;
             int right = 0 ;
@@ -84,8 +84,9 @@ namespace pr{
 
             computeSafeMargin(right,cols);
             computeSafeMargin(left,cols);
-            cv::Rect roi(left,0,right - left,rows-1);
             cv::Mat roiImage;
+//            plateImage.copyTo(roiImage);
+            cv::Rect roi(left,0,right-left,rows-1);
             plateImage(roi).copyTo(roiImage);
 
             if (i>=1)
@@ -191,7 +192,8 @@ namespace pr{
 
         }
 
-        delete filterd;
+        delete[] filterd;
+//        delete filterd;
     }
 
     void PlateSegmentation::templateMatchFinding(const cv::Mat &respones,int windowsWidth,std::pair<float,std::vector<int>> &candidatePts){
