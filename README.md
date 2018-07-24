@@ -120,7 +120,7 @@ cv2.waitKey(0)
 + 仅需要的依赖OpenCV 3.3 (需要DNN框架)
 
 ```bash
-cd Prj-Linux
+cd cpp_implementation
 mkdir build 
 cd build
 cmake ../
