@@ -13,6 +13,7 @@ project has been used by some commercial corporations. Free and open source, dep
 
 #### 相关资源 
 
++ [python配置教程](https://www.jianshu.com/p/7ab673abeaae)
 + [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
 + [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
 + [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
