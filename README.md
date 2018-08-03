@@ -41,9 +41,9 @@ project has been used by some commercial corporations. Free and open source, dep
 
 ### TODO
 
-+ 提供字符字符识别的训练代码
-+ 改进精定位方法
-+ C++版的端到端识别模型
++ 提供字符字符识别的训练代码(已提交)
++ 改进精定位方法(已提交)
++ C++版的端到端识别模型(已提交)
 
 ### 特性
 
