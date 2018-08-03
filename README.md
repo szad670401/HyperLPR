@@ -21,6 +21,7 @@ project has been used by some commercial corporations. Free and open source, dep
 
 ### 更新
 
++ 提交新的端到端识别模型，进一步提高识别准确率(2018.08.03)
 + [增加PHP车牌识别工程@coleflowers](https://github.com/zeusees/HyperLPR/tree/master/Prj-PHP) (2018.06.20)
 + 添加的新的Python 序列模型-识别率大幅提高(尤其汉字)(2018.3.12)
 + 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
