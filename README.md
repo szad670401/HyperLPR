@@ -1,4 +1,6 @@
-# HyperLPR   高性能开源中文车牌识别框架
+![logo_t](./demo_images/logo_t.png)
+
+## HyperLPR   高性能开源中文车牌识别框架
 
 #### [![1](https://badge.fury.io/py/hyperlpr.svg "title")](https://pypi.org/project/hyperlpr/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr.svg "title")](https://pypi.org/project/hyperlpr/)
 
