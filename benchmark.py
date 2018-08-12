@@ -9,13 +9,7 @@ from Levenshtein import StringMatcher as sm
 
 reload(sys)
 sys.setdefaultencoding("utf-8")
-# parent= "/Users/yujinke/车牌图片/云南车牌"
-parent= "/Users/yujinke/车牌图片/收费站_完成标注"
-
-# parent= "./cache/bad2"
-
-
-
+parent= "you folder"
 
 def comparestring(a,b):
     g = 0
@@ -24,22 +18,12 @@ def comparestring(a,b):
             if x!=y:
                 g+=1
     return g
-
-#
-# A = "赣FJ0368".decode("utf-8")
-# B = "琼WJ0368".decode("utf-8")
-
-# print "对比",comparestring(A,B)
-
 count = 0 ;
-
 count_p = 0
 count_d = 0
 count_lev = 0
 count_undetected = 0
-
 roi = [470,400,650,580]
-
 for filename in os.listdir(parent):
 
     path = os.path.join(parent,filename)
@@ -84,21 +68,8 @@ for filename in os.listdir(parent):
                 # cv2.imshow("image",image)
                 # cv2.waitKey(0)
                 # break
-
-
-
-
-
         count+=1
         print count_p / float(count),"编辑距离[1]:",count_lev/float(count),u"识出",count_p,u"总数",count,u"未识出",count_d,u"未检测出",count_undetected
-
         if count_p+count_d+count_undetected!=count:
             print dataset,len(dataset)
             # exit(0)
-
-
-        #
-        # cv2.imshow("image",image)
-        # cv2.waitKey(0)
-
-# print count_p/float(count)
