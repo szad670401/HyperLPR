@@ -1,6 +1,5 @@
 #coding=utf-8
 from flask import Flask, render_template, request
-#导入flaks 框架 渲染模板 和请求框架
 from werkzeug import secure_filename
 
 import cv2
