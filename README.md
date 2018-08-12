@@ -1,5 +1,7 @@
 # High Accuracy Chinese Plate Recognition Framework
 
+![1](https://badge.fury.io/py/hyperlpr.svg)![1](https://img.shields.io/pypi/pyversions/hyperlpr.svg)![1](https://media.readthedocs.org/static/projects/badges/unknown-flat.svg)
+
 ### 介绍
 
 This research aims at simply developping plate recognition project based on deep learning methods, with low complexity and high speed. This 
