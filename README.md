@@ -105,7 +105,7 @@ print(HyperLPR_PlateRecogntion(image))
 - 仅需要的依赖OpenCV 3.3 (需要DNN框架)
 
 ```bash
-cd cpp_implementation
+cd Prj-Linux
 mkdir build 
 cd build
 cmake ../
