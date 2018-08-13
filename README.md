@@ -1,4 +1,4 @@
-![logo_t](./demo_images/logo_t.png)
+![logo_t](./demo_images/logo.png)
 
 ## HyperLPR   高性能开源中文车牌识别框架
 
@@ -169,9 +169,9 @@ int main(){
 
 ### 测试样例
 
-![image](./demo_images/test.png)
+![image](./demo_images/demo1.png)
 
-![image](./demo_images/15.jpg)
+![image](./demo_images/demo2.jpg)
 
 #### Android示例
 
