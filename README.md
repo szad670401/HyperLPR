@@ -9,6 +9,8 @@
 `pip install hyperlpr`
 
 ###### 支持python3,支持Windows  Mac Linux 树莓派等。
+###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
+
 
 #### 快速上手
 
