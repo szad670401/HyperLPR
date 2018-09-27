@@ -99,7 +99,7 @@ print(HyperLPR_PlateRecogntion(image))
 
 ### CPP 依赖
 
-- Opencv 3.3
+- Opencv 3.3 以上版本
 
 ### Linux/Mac 编译
 
