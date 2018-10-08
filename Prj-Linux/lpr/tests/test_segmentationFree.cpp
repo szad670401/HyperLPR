@@ -39,7 +39,7 @@ int main()
 //    cv::resize(image,image,cv::Size(160,40));
     cv::imshow("xxx",image);
     cv::waitKey(0);
-    pr::SegmentationFreeRecognizer recognizr("model/SegmentFreeModel.prototxt","model/InceptionV3.caffemodel");
+    pr::SegmentationFreeRecognizer recognizr("model/SegmenationFree-Inception.prototxt","model/ISegmenationFree-Inception.caffemodel");
     std::pair<std::string,float> res = recognizr.SegmentationFreeForSinglePlate(image,pr::CH_PLATE_CODE);
     std::cout<<res.first<<" "
                   <<res.second<<std::endl;
