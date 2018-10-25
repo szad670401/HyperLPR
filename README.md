@@ -65,10 +65,10 @@ print(HyperLPR_PlateRecogntion(image))
 
 ### 特性
 
-- 速度快 720p ，单核 Intel 2.2G CPU (macbook Pro 2015)平均识别时间低于100ms
+- 速度快 720p,单核 Intel 2.2G CPU (MaBook Pro 2015)平均识别时间低于100ms
 - 基于端到端的车牌识别无需进行字符分割
-- 识别率高,仅仅针对车牌ROI在EasyPR数据集上，0-error达到 95.2%, 1-error识别率达到 97.4% (指在定位成功后的车牌识别率)
-- 轻量 总代码量不超1k行
+- 识别率高,卡口场景准确率在95%-97%左右
+- 轻量,总代码量不超1k行
 
 ### 模型资源说明
 
@@ -181,10 +181,6 @@ int main(){
 ### 识别测试APP
 
 - 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
-
-### 数据分享
-
-车牌识别框架开发时使用的数据并不是很多，有意着可以为我们提供相关车牌数据。联系邮箱 jack-yu-business@foxmail.com。
 
 #### 获取帮助
 
