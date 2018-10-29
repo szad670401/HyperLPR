@@ -57,12 +57,10 @@ print(HyperLPR_PlateRecogntion(image))
 
 ### TODO
 
-- 提供字符字符识别的训练代码(已提交)
-- 改进精定位方法(已提交)
-- C++版的端到端识别模型(已提交)
 - 支持多种车牌以及双层
 - 支持大角度车牌
-
+- deep learning based 实时检测模型
+- 轻量级识别模型
 ### 特性
 
 - 速度快 720p,单核 Intel 2.2G CPU (MaBook Pro 2015)平均识别时间低于100ms
