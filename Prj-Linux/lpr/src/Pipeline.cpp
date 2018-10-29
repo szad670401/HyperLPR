@@ -1,5 +1,5 @@
 //
-// Created by 庾金科 on 23/10/2017.
+// Created by Jack Yu on 23/10/2017.
 //
 
 #include "../include/Pipeline.h"
@@ -53,11 +53,8 @@ namespace pr {
             {
                 image_finemapping = fineMapping->FineMappingHorizon(image_finemapping, 2, HorizontalPadding);
                 cv::resize(image_finemapping, image_finemapping, cv::Size(136+HorizontalPadding, 36));
-//            cv::imshow("image_finemapping",image_finemapping);
-//            cv::waitKey(0);
                 plateinfo.setPlateImage(image_finemapping);
                 std::vector<cv::Rect> rects;
-
                 plateSegmentation->segmentPlatePipline(plateinfo, 1, rects);
                 plateSegmentation->ExtractRegions(plateinfo, rects);
                 cv::copyMakeBorder(image_finemapping, image_finemapping, 0, 0, 0, 20, cv::BORDER_REPLICATE);
@@ -69,29 +66,16 @@ namespace pr {
                 //Segmentation-free
             else if(method==SEGMENTATION_FREE_METHOD)
             {
-
                 image_finemapping = fineMapping->FineMappingHorizon(image_finemapping, 4, HorizontalPadding+3);
-
                 cv::resize(image_finemapping, image_finemapping, cv::Size(136+HorizontalPadding, 36));
-//                cv::imwrite("./test.png",image_finemapping);
-//                cv::imshow("image_finemapping",image_finemapping);
-//                cv::waitKey(0);
                 plateinfo.setPlateImage(image_finemapping);
-//                std::vector<cv::Rect> rects;
-
                 std::pair<std::string,float> res = segmentationFreeRecognizer->SegmentationFreeForSinglePlate(plateinfo.getPlateImage(),pr::CH_PLATE_CODE);
                 plateinfo.confidence = res.second;
                 plateinfo.setPlateName(res.first);
             }
-
-
-
             results.push_back(plateinfo);
         }
 
-//        for (auto str:results) {
-//            std::cout << str << std::endl;
-//        }
         return results;
 
     }//namespace pr
