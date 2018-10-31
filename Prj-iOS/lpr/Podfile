@@ -1,0 +1,8 @@
+platform :ios, '10.1'
+
+target "lpr" do
+
+pod 'OpenCV', '~> 3.4.2'
+pod 'Masonry'
+
+end
