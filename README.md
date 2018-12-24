@@ -39,10 +39,8 @@ print(HyperLPR_PlateRecogntion(image))
 
 - 可通过pip一键安装、更新的新的识别模型、倾斜车牌校正算法、定位算法。(2018.08.11)
 
-
 - 提交新的端到端识别模型，进一步提高识别准确率(2018.08.03)
 - [增加PHP车牌识别工程@coleflowers](https://github.com/zeusees/HyperLPR/tree/master/Prj-PHP) (2018.06.20)
-- 添加的新的Python 序列模型-识别率大幅提高(尤其汉字)(2018.3.12)
 - 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
 
 - 增加了端到端模型的cpp实现(Linux)(2018.1.31)
@@ -61,6 +59,7 @@ print(HyperLPR_PlateRecogntion(image))
 - 支持大角度车牌
 - deep learning based 实时检测模型
 - 轻量级识别模型
+
 ### 特性
 
 - 速度快 720p,单核 Intel 2.2G CPU (MaBook Pro 2015)平均识别时间低于100ms
@@ -83,7 +82,8 @@ print(HyperLPR_PlateRecogntion(image))
 
 - Win工程中若需要使用静态库，需单独编译
 - 本项目的C++实现和Python实现无任何关联，都为单独实现
-- 在编译C++工程的时候必须要使用OpenCV 3.3(DNN 库)，否则无法编译 
+- 在编译C++工程的时候必须要使用OpenCV 3.3以上版本 (DNN 库)，否则无法编译 
+- 安卓工程编译ndk尽量采用14b版本
 
 ### Python 依赖
 
