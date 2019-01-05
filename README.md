@@ -9,8 +9,8 @@
 `pip install hyperlpr`
 
 ###### 支持python3,支持Windows  Mac Linux 树莓派等。
-###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
 
+###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
 
 #### 快速上手
 
@@ -25,6 +25,24 @@ image = cv2.imread("demo.jpg")
 print(HyperLPR_PlateRecogntion(image))
 ```
 
+#### Q&A
+
+Q：Android识别率没有所传demo apk的识别率高？
+
+A：请使用[Prj-Linux](https://github.com/zeusees/HyperLPR/tree/master/Prj-Linux/lpr/model)下的模型，android默认包里的配置是相对较早的模型
+
+Q：车牌的训练数据来源？
+
+A：由于用于训练车牌数据涉及到法律隐私等问题，本项目无法提供。开放较为大的数据集有[CCPD](https://github.com/detectRecog/CCPD)车牌数据集。
+
+Q：训练代码的提供？
+
+A：相关资源中有提供训练代码
+
+Q：关于项目的来源？
+
+A：此项目来源于作者早期的研究和调试代码，代码缺少一定的规范，同时也欢迎PPR。
+
 #### 相关资源
 
 - [python配置教程](https://www.jianshu.com/p/7ab673abeaae)
@@ -36,19 +54,14 @@ print(HyperLPR_PlateRecogntion(image))
 ### 更新
 
 - 更新基于端到端的IOS车牌识别工程。(2018.11.13)
-
 - 可通过pip一键安装、更新的新的识别模型、倾斜车牌校正算法、定位算法。(2018.08.11)
-
 - 提交新的端到端识别模型，进一步提高识别准确率(2018.08.03)
 - [增加PHP车牌识别工程@coleflowers](https://github.com/zeusees/HyperLPR/tree/master/Prj-PHP) (2018.06.20)
 - 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
-
 - 增加了端到端模型的cpp实现(Linux)(2018.1.31)
 - 感谢 sundyCoder [Android 字符分割版本](https://github.com/sundyCoder/hyperlpr4Android) 
-
 - 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)(2018.1.)
 - 更新了Android实现，大幅提高准确率和速度 (骁龙835 (*720*x*1280*)  ~50ms )(2017.12.27)
-
 - 新增的端到端模型可以识别新能源车牌、教练车牌、白色警用车牌、武警车牌 (2017.11.17)
 - 更新Windows版本的Visual Studio 2015 工程（2017.11.15）
 - 增加cpp版本,目前仅支持标准蓝牌(需要依赖OpenCV 3.3) (2017.10.28)
@@ -150,12 +163,12 @@ int main(){
 
 ### 可识别和待支持的车牌的类型
 
-- [X] 单行蓝牌
-- [X] 单行黄牌
-- [X] 新能源车牌
-- [X] 白色警用车牌
-- [X] 使馆/港澳车牌
-- [X] 教练车牌
+- [x] 单行蓝牌
+- [x] 单行黄牌
+- [x] 新能源车牌
+- [x] 白色警用车牌
+- [x] 使馆/港澳车牌
+- [x] 教练车牌
 - [ ] 武警车牌
 - [ ] 民航车牌
 - [ ] 双层黄牌
