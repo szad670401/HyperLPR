@@ -44,10 +44,11 @@ Q：关于项目的来源？
 A：此项目来源于作者早期的研究和调试代码，代码缺少一定的规范，同时也欢迎PR。
 
 
-#### Detector Model(Deploy with opencv DNN):
-+ [MobileNet-SSD 300 0.25 7ms on CPU](https://pan.baidu.com/s/11V0Pfx6jGNaBOOTqDSVK2Q)
-+ MobileNet-SSD 608 0.25
-+ MobileNet-SSD 608 0.5
+Detector Model(Deploy with opencv DNN):
+- MobileNet-SSD 300 0.25 7ms on CPU
+- MobileNet-SSD 608 0.25
+- MobileNet-SSD 608 0.5
+
 
 
 #### 相关资源
