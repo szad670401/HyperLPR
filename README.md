@@ -146,7 +146,7 @@ int main(){
                     );
   //定义模型文件
 
-    cv::Mat image = cv::imread("/Users/yujinke/ClionProjects/cpp_ocr_demo/test.png");
+    cv::Mat image = cv::imread("test.png");
     std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(image,pr::SEGMENTATION_FREE_METHOD);
   //使用端到端模型模型进行识别 识别结果将会保存在res里面
  
