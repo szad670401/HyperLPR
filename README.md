@@ -44,18 +44,11 @@ Q：关于项目的来源？
 A：此项目来源于作者早期的研究和调试代码，代码缺少一定的规范，同时也欢迎PR。
 
 
-#### Detector Model(Deploy with opencv DNN):
-
-- [~~MobileNet-SSD 300 0.25 7ms on CPU~~](https://pan.baidu.com/s/11V0Pfx6jGNaBOOTqDSVK2Q)
-- MobileNet-SSD 608 0.25
-- MobileNet-SSD 608 0.5
-
-
-
 
 #### 相关资源
 
 - [python配置教程](https://www.jianshu.com/p/7ab673abeaae)
+- [Linux下C++配置教程](https://blog.csdn.net/lu_linux/article/details/88707421)
 - [相关技术博客](http://blog.csdn.net/relocy/article/details/78705662)(技术文章会在接下来的几个月的时间内连续更新)。
 - [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
 - [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
