@@ -1,5 +1,5 @@
 //
-// Created by 庾金科 on 23/10/2017.
+// Created by Jack Yu on 23/10/2017.
 //
 
 #include "../include/CNNRecognizer.h"
@@ -16,6 +16,7 @@ void getMaxClass(cv::Mat &probBlob, int *classId, double *classProb)
     cv::Point classNumber;
 
     cv::minMaxLoc(probBlob, NULL, classProb, NULL, &classNumber);
+
     *classId = classNumber.x;
 }
 

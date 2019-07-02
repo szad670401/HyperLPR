@@ -1,5 +1,5 @@
 //
-// Created by 庾金科 on 24/09/2017.
+// Created by Jack Yu on 24/09/2017.
 //
 
 #include "FineMapping.h"

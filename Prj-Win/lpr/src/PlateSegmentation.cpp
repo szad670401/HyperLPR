@@ -1,5 +1,5 @@
 //
-// Created by 庾金科 on 16/10/2017.
+// Created by Jack  Yu on 16/10/2017.
 //
 
 #include "../include/PlateSegmentation.h"
@@ -94,7 +94,7 @@ namespace pr{
                 cv::Mat roi_thres;
 //                cv::threshold(roiImage,roi_thres,0,255,cv::THRESH_OTSU|cv::THRESH_BINARY);
 
-                niBlackThreshold(roiImage,roi_thres,255,cv::THRESH_BINARY,15,0.3,BINARIZATION_NIBLACK);
+                niBlackThreshold(roiImage,roi_thres,255,cv::THRESH_BINARY,15,0.27,BINARIZATION_NIBLACK);
 
                 std::vector<std::vector<cv::Point>> contours;
                 cv::findContours(roi_thres,contours,cv::RETR_LIST,cv::CHAIN_APPROX_SIMPLE);
@@ -110,7 +110,7 @@ namespace pr{
                     cv::Rect bdbox = cv::boundingRect(contour);
                     cv::Point center(bdbox.x+(bdbox.width>>1),bdbox.y + (bdbox.height>>1));
                     int dist = (center.x - boxCenter.x)*(center.x - boxCenter.x);
-                    if(dist<final_dist && bdbox.height > rows>>1)
+                    if(dist<final_dist &&  bdbox.height > rows>>1)
                     {   final_dist =dist;
                         final_center = center;
                         final_bdbox = bdbox;
@@ -220,7 +220,7 @@ namespace pr{
 
 
         int cp_list[7];
-        float loss_selected = -1;
+        float loss_selected = -10;
 
         for(int start = 0 ; start < 20 ; start+=2)
             for(int  width = windowsWidth-5; width < windowsWidth+5 ; width++ ){
@@ -246,13 +246,10 @@ namespace pr{
 
                     if(cp7_p5>=cols)
                         continue;
-                    float loss = ch_prob[cp1_ch]+
-                       engNum_prob[cp2_p0] +engNum_prob[cp3_p1]+engNum_prob[cp4_p2]+engNum_prob[cp5_p3]+engNum_prob[cp6_p4] +engNum_prob[cp7_p5]
-                    + (false_prob[md2]+false_prob[md3]+false_prob[md4]+false_prob[md5]+false_prob[md5] + false_prob[md6]);
-//                    float loss = ch_prob[cp1_ch]*3 -(false_prob[cp3_p1]+false_prob[cp4_p2]+false_prob[cp5_p3]+false_prob[cp6_p4]+false_prob[cp7_p5]);
-
-
-
+//                    float loss = ch_prob[cp1_ch]+
+//                       engNum_prob[cp2_p0] +engNum_prob[cp3_p1]+engNum_prob[cp4_p2]+engNum_prob[cp5_p3]+engNum_prob[cp6_p4] +engNum_prob[cp7_p5]
+//                    + (false_prob[md2]+false_prob[md3]+false_prob[md4]+false_prob[md5]+false_prob[md5] + false_prob[md6]);
+                    float loss = ch_prob[cp1_ch]*3 -(false_prob[cp3_p1]+false_prob[cp4_p2]+false_prob[cp5_p3]+false_prob[cp6_p4]+false_prob[cp7_p5]);
 
                     if(loss>loss_selected)
                     {
@@ -284,15 +281,15 @@ namespace pr{
     void PlateSegmentation::segmentPlateBySlidingWindows(cv::Mat &plateImage,int windowsWidth,int stride,cv::Mat &respones){
 
 
-        cv::resize(plateImage,plateImage,cv::Size(136,36));
+//        cv::resize(plateImage,plateImage,cv::Size(136,36));
 
         cv::Mat plateImageGray;
         cv::cvtColor(plateImage,plateImageGray,cv::COLOR_BGR2GRAY);
-
+        int padding  =  plateImage.cols-136 ;
+//        int padding  =  0 ;
         int height = plateImage.rows - 1;
-        int width = plateImage.cols - 1;
-
-        for(int i = 0 ; i < plateImage.cols - windowsWidth +1 ; i +=stride)
+        int width = plateImage.cols - 1 - padding;
+        for(int i = 0 ; i < width - windowsWidth +1 ; i +=stride)
         {
             cv::Rect roi(i,0,windowsWidth,height);
             cv::Mat roiImage = plateImageGray(roi);
@@ -348,6 +345,11 @@ namespace pr{
         cv::Mat respones; //three response of every sub region from origin image .
         segmentPlateBySlidingWindows(plateImage,DEFAULT_WIDTH,1,respones);
         templateMatchFinding(respones,DEFAULT_WIDTH/stride,sections);
+        for(int i = 0; i < sections.second.size() ; i++)
+        {
+            sections.second[i]*=stride;
+
+        }
 
 //        std::cout<<sections<<std::endl;
 

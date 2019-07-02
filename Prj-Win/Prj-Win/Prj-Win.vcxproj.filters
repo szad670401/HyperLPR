@@ -48,6 +48,9 @@
     <ClInclude Include="..\lpr\src\util.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\lpr\include\SegmentationFreeRecognizer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\lpr\src\CNNRecognizer.cpp">
@@ -70,6 +73,12 @@
     </ClCompile>
     <ClCompile Include="..\lpr\tests\test_pipeline.cpp">
       <Filter>源文件\test</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lpr\src\Pipeline.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lpr\src\SegmentationFreeRecognizer.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

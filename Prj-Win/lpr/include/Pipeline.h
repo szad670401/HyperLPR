@@ -1,5 +1,5 @@
-ï»¿//
-// Created by ï¿½×½ï¿½ï¿½ on 22/10/2017.
+//
+// Created by â×½ğ¿Æ on 22/10/2017.
 //
 
 #ifndef SWIFTPR_PIPLINE_H
@@ -12,68 +12,43 @@
 #include "FastDeskew.h"
 #include "FineMapping.h"
 #include "Recognizer.h"
+#include "SegmentationFreeRecognizer.h"
 
 namespace pr{
+
+    const std::vector<std::string> CH_PLATE_CODE{"¾©", "»¦", "½ò", "Óå", "¼½", "½ú", "ÃÉ", "ÁÉ", "¼ª", "ºÚ", "ËÕ", "Õã", "Íî", "Ãö", "¸Ó", "Â³", "Ô¥", "¶õ", "Ïæ", "ÔÁ", "¹ğ",
+                                        "Çí", "´¨", "¹ó", "ÔÆ", "²Ø", "ÉÂ", "¸Ê", "Çà", "Äş", "ĞÂ", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A",
+                                        "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
+                                        "Y", "Z","¸Û","Ñ§","Ê¹","¾¯","°Ä","¹Ò","¾ü","±±","ÄÏ","¹ã","Éò","À¼","³É","¼Ã","º£","Ãñ","º½","¿Õ"};
+
+
+
+    const int SEGMENTATION_FREE_METHOD = 0;
+    const int SEGMENTATION_BASED_METHOD = 1;
+
     class PipelinePR{
-	    public:
+        public:
             GeneralRecognizer *generalRecognizer;
             PlateDetection *plateDetection;
             PlateSegmentation *plateSegmentation;
             FineMapping *fineMapping;
-			PipelinePR(std::string detector_filename,
-				std::string finemapping_prototxt, std::string finemapping_caffemodel,
-				std::string segmentation_prototxt, std::string segmentation_caffemodel,
-				std::string charRecognization_proto, std::string charRecognization_caffemodel
-			) {
-				plateDetection = new PlateDetection(detector_filename);
-				fineMapping = new FineMapping(finemapping_prototxt, finemapping_caffemodel);
-				plateSegmentation = new PlateSegmentation(segmentation_prototxt, segmentation_caffemodel);
-				generalRecognizer = new CNNRecognizer(charRecognization_proto, charRecognization_caffemodel); 
-			}
+            SegmentationFreeRecognizer *segmentationFreeRecognizer;
 
-			~PipelinePR() {
-
-				delete plateDetection;
-				delete fineMapping;
-				delete plateSegmentation;
-				delete generalRecognizer;
-			}
-
-			std::vector<std::string> chars_code{ "äº¬","æ²ª","æ´¥","æ¸","å†€","æ™‹","è’™","è¾½","å‰","é»‘","è‹","æµ™","çš–","é—½","èµ£","é²","è±«","é„‚","æ¹˜","ç²¤","æ¡‚","ç¼","å·","è´µ","äº‘","è—","é™•","ç”˜","é’","å®","æ–°","0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","J","K","L","M","N","P","Q","R","S","T","U","V","W","X","Y","Z" };
-
-			std::vector<std::string> plateRes;
-			std::vector<PlateInfo> RunPiplineAsImage(cv::Mat plateImage) {
-				std::vector<PlateInfo> results;
-				std::vector<pr::PlateInfo> plates;
-				plateDetection->plateDetectionRough(plateImage, plates);
-
-				for (pr::PlateInfo plateinfo : plates) {
-
-					cv::Mat image_finemapping = plateinfo.getPlateImage();
-					image_finemapping = fineMapping->FineMappingVertical(image_finemapping);
-					image_finemapping = pr::fastdeskew(image_finemapping, 5);
-					image_finemapping = fineMapping->FineMappingHorizon(image_finemapping, 2, 5);
-					cv::resize(image_finemapping, image_finemapping, cv::Size(136, 36));
-					plateinfo.setPlateImage(image_finemapping);
-					std::vector<cv::Rect> rects;
-					plateSegmentation->segmentPlatePipline(plateinfo, 1, rects);
-					plateSegmentation->ExtractRegions(plateinfo, rects);
-					cv::copyMakeBorder(image_finemapping, image_finemapping, 0, 0, 0, 20, cv::BORDER_REPLICATE);
-
-					plateinfo.setPlateImage(image_finemapping);
-					generalRecognizer->SegmentBasedSequenceRecognition(plateinfo);
-					plateinfo.decodePlateNormal(chars_code);
-					results.push_back(plateinfo);
-					std::cout << plateinfo.getPlateName() << std::endl;
+            PipelinePR(std::string detector_filename,
+                       std::string finemapping_prototxt,std::string finemapping_caffemodel,
+                       std::string segmentation_prototxt,std::string segmentation_caffemodel,
+                       std::string charRecognization_proto,std::string charRecognization_caffemodel,
+                       std::string segmentationfree_proto,std::string segmentationfree_caffemodel
+                       );
+            ~PipelinePR();
 
 
-				}
 
-				//        for (auto str:results) {
-				//            std::cout << str << std::endl;
-				//        }
-				return results;
-			}
+            std::vector<std::string> plateRes;
+            std::vector<PlateInfo> RunPiplineAsImage(cv::Mat plateImage,int method);
+
+
+
 
 
 

@@ -10,8 +10,8 @@ HorizonalFinemapping.caffemodel
 
 HorizonalFinemapping.prototxt
 
-Segmentation.caffemodel
+SegmentationFree.caffemodel
 
-Segmentation.prototxt
+SegmentationFree.prototxt
 
 放置在该目录

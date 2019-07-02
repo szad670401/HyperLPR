@@ -1,20 +1,16 @@
 //
-// Created by 庾金科 on 04/04/2017.
+// Created by Jack Yu on 04/04/2017.
 //
 
 #include <opencv2/opencv.hpp>
-
 namespace util{
-
     template <class T> void swap ( T& a, T& b )
     {
         T c(a); a=b; b=c;
     }
-
     template <class T> T min(T& a,T& b )
     {
         return a>b?b:a;
-
     }
 
     cv::Mat cropFromImage(const cv::Mat &image,cv::Rect rect){
@@ -57,23 +53,16 @@ namespace util{
         int histSize = 256;
         float range[] = {0,255};
         const float* histRange = {range};
-
         cv::calcHist( &hsv_planes[0], 1, 0, cv::Mat(), hist, 1, &histSize, &histRange,true, true);
         return hist;
-
     }
+    
     float computeSimilir(const cv::Mat &A,const cv::Mat &B)
     {
-
         cv::Mat histA,histB;
         histA = calcHist(A);
         histB = calcHist(B);
-        return cv::compareHist(histA,histB,CV_COMP_CORREL);
-
+//      return cv::compareHist(histA,histB,CV_COMP_CORREL);
+		return cv::compareHist(histA, histB, 0);
     }
-
-
-
-
-
 }//namespace util
