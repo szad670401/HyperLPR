@@ -210,3 +210,4 @@ int main(){
 - coleflowers php贡献(@coleflowers)
 - Free&Easy 资源贡献 
 - 海豚嘎嘎 LBP cascade检测器训练
+- Windows工程端到端模型 (https://github.com/SalamanderEyes)
