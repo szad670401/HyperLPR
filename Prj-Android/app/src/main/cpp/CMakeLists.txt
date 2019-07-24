@@ -38,8 +38,7 @@ add_library( # Sets the name of the library.
 
 
 #target_link_libraries( hyperlpr lib_opencv)
-target_link_libraries(hyperlpr ${OpenCV_LIBS})
-
+target_link_libraries(hyperlpr jnigraphics ${OpenCV_LIBS})
 
 #连接现成的第三方库
 #set(INC_DIR /Users/mac02/Desktop/studiospace/test/PrjAnndroid/app/src/main/cpp/OpencvNative/include)

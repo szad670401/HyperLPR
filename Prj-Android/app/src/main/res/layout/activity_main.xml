@@ -29,6 +29,15 @@
         app:layout_constraintRight_toLeftOf="@id/button"
        />
 
+    <Button
+        android:id="@+id/button_recog_now"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="实时识别"
+        app:layout_constraintTop_toTopOf="@id/button"
+        app:layout_constraintLeft_toRightOf="@id/button"
+        />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="346dp"

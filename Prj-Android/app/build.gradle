@@ -59,5 +59,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    api 'com.github.bumptech.glide:glide:3.8.0'
+    implementation 'org.greenrobot:eventbus:3.0.0'
     implementation project(':openCVLibrary342')
 }

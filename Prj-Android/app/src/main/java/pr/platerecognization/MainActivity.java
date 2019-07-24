@@ -19,7 +19,6 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,7 +26,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
@@ -74,7 +72,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
 
 //    public  PlateRecognition pr;
 
-    public long handle;
+    public static long handle;
     private final String TAG = this.getClass().toString();
 
 
@@ -138,11 +136,16 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
                 + File.separator+"CharacterRecognization.prototxt";
         String character_caffemodel=  sdcardPath
                 + File.separator+"CharacterRecognization.caffemodel";
+        String segmentationfree_prototxt =  sdcardPath
+                + File.separator+"SegmenationFree-Inception.prototxt";
+        String segmentationfree_caffemodel=  sdcardPath
+                + File.separator+"SegmenationFree-Inception.caffemodel";
         handle  =  PlateRecognition.InitPlateRecognizer(
                 cascade_filename,
                 finemapping_prototxt,finemapping_caffemodel,
                 segmentation_prototxt,segmentation_caffemodel,
-                character_prototxt,character_caffemodel
+                character_prototxt,character_caffemodel,
+                segmentationfree_prototxt,segmentationfree_caffemodel
         );
 
 
@@ -175,8 +178,9 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
                 return cursor.getString(index);
             }
         } finally {
-            if (cursor != null)
+            if (cursor != null) {
                 cursor.close();
+            }
         }
         return null;
     }
@@ -258,12 +262,11 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
         return null;
     }
 
-    public  void SimpleRecog(Bitmap bmp,int dp)
+    public void SimpleRecog(Bitmap bmp,int dp)
     {
 
         float dp_asp  = dp/10.f;
-        imgv.setImageBitmap(bmp);
-//        Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC1);
+//        imgv.setImageBitmap(bmp);
         Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC4);
 
         float new_w = bmp.getWidth()*dp_asp;
@@ -272,14 +275,41 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
         Utils.bitmapToMat(bmp, mat_src);
         Imgproc.resize(mat_src,mat_src,sz);
         long currentTime1 = System.currentTimeMillis();
-        String res = PlateRecognition.SimpleRecognization(mat_src.getNativeObjAddr(),handle);
+//        String res = PlateRecognition.SimpleRecognization(mat_src.getNativeObjAddr(),handle);
+//        resbox.setText("识别结果:"+res);
+
+        PlateInfo plateInfo = PlateRecognition.PlateInfoRecognization(mat_src.getNativeObjAddr(),handle);
+        imgv.setImageBitmap(plateInfo.bitmap);
+        resbox.setText("识别结果:"+plateInfo.plateName);
         long diff = System.currentTimeMillis() - currentTime1;
-        resbox.setText("识别结果:"+res);
+
         runtimebox.setText(String.valueOf(diff)+"ms");
 
 
 
     }
+
+    public  static PlateInfo simpleRecog(Bitmap bmp,int dp)
+    {
+
+        float dp_asp  = dp/10.f;
+//        imgv.setImageBitmap(bmp);
+        Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC4);
+
+        float new_w = bmp.getWidth()*dp_asp;
+        float new_h = bmp.getHeight()*dp_asp;
+        Size sz = new Size(new_w,new_h);
+        Utils.bitmapToMat(bmp, mat_src);
+        Imgproc.resize(mat_src,mat_src,sz);
+        long currentTime1 = System.currentTimeMillis();
+//        String res = PlateRecognition.SimpleRecognization(mat_src.getNativeObjAddr(),handle);
+//        resbox.setText("识别结果:"+res);
+
+        PlateInfo plateInfo = PlateRecognition.PlateInfoRecognization(mat_src.getNativeObjAddr(),handle);
+        return plateInfo;
+
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -296,7 +326,6 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
             latestBitmap = bmp;
 
             SimpleRecog(bmp,sb.getProgress());
-//            startOilPainting(bmp, file);
         } else if (requestCode == REQUEST_CODE_OP) {
             Log.i(TAG, "RESULT =" + resultCode);
             if (data == null) {
@@ -332,6 +361,7 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
         }
         btn = (Button)findViewById(R.id.button);
         recogBtn = (Button)findViewById(R.id.button_recog);
+        findViewById(R.id.button_recog_now).setOnClickListener(this);
         imgv = (ImageView)findViewById(R.id.imageView);
         resbox = (TextView)findViewById(R.id.textView);
         sb = (SeekBar)findViewById(R.id.seek);
@@ -341,29 +371,6 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
         initRecognizer();
         btn.setOnClickListener(this);
         recogBtn.setOnClickListener(this);
-//
-//        btn.setOnClickListener(new View.OnClickListener() {
-//                                   @Override
-//                                   public void onClick(View view)
-//                                   {
-//
-//
-//                                       Bitmap bmp  = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
-////                                       Bitmap bmp = imgv.setImageBitmap();
-//                                       imgv.setImageBitmap(bmp);
-//                                       Mat mat_src = new Mat(bmp.getWidth(), bmp.getHeight(), CvType.CV_8UC4);
-//
-//                                       Size sz = new Size(720,682);
-//                                       Utils.bitmapToMat(bmp, mat_src);
-//                                       Imgproc.resize(mat_src,mat_src,sz);
-//                                       String res = PlateRecognition.SimpleRecognization(mat_src.getNativeObjAddr(),handle);
-//                                       resbox.setText("识别结果:"+res);
-//
-//                                   }
-//                               }
-//        );
-        // Example of a call to a native method
-//        TextView tv = (TextView) findViewById(R.id);
 
     }
 
@@ -405,6 +412,12 @@ public class MainActivity extends Activity implements AlertDialog.OnClickListene
                if(latestBitmap!=null){
                    SimpleRecog(latestBitmap,sb.getProgress());
                }
+                break;
+            case R.id.button_recog_now:
+                Intent intent = new Intent(this, CameraActivity.class);
+                startActivity(intent);
+                break;
+            default:
                 break;
         }
     }

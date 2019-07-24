@@ -21,8 +21,6 @@ namespace pr{
                                                  "B", "C", "D", "E", "F", "G", "H", "J", "K", "L", "M", "N", "P", "Q", "R", "S", "T", "U", "V", "W", "X",
                                                  "Y", "Z","港","学","使","警","澳","挂","军","北","南","广","沈","兰","成","济","海","民","航","空"};
 
-
-
     const int SEGMENTATION_FREE_METHOD = 0;
     const int SEGMENTATION_BASED_METHOD = 1;
 
@@ -37,24 +35,14 @@ namespace pr{
         PipelinePR(std::string detector_filename,
                    std::string finemapping_prototxt,std::string finemapping_caffemodel,
                    std::string segmentation_prototxt,std::string segmentation_caffemodel,
-                   std::string charRecognization_proto,std::string charRecognization_caffemodel);
-//                   std::string segmentationfree_proto,std::string segmentationfree_caffemodel
-//        );
+                   std::string charRecognization_proto,std::string charRecognization_caffemodel,
+                   std::string segmentationfree_proto,std::string segmentationfree_caffemodel
+        );
         ~PipelinePR();
-
-
 
         std::vector<std::string> plateRes;
         std::vector<PlateInfo> RunPiplineAsImage(cv::Mat plateImage,int method);
 
-
-
-
-
-
-
     };
-
-
 }
 #endif //SWIFTPR_PIPLINE_H
