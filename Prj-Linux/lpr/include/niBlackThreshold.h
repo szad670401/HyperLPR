@@ -68,10 +68,6 @@ void niBlackThreshold( InputArray _src, OutputArray _dst, double maxValue,
         thresh.convertTo(thresh, src.depth());
 
         thresh.convertTo(test, src.depth());
-//
-//        cv::imshow("imagex",test);
-//        cv::waitKey(0);
-
     }
     // Prepare output image
     _dst.create(src.size(), src.type());

@@ -6,13 +6,9 @@
 #define SWIFTPR_PLATEINFO_H
 #include <opencv2/opencv.hpp>
 namespace pr {
-
     typedef std::vector<cv::Mat> Character;
-
     enum PlateColor { BLUE, YELLOW, WHITE, GREEN, BLACK,UNKNOWN};
     enum CharType {CHINESE,LETTER,LETTER_NUMS,INVALID};
-
-
     class PlateInfo {
         public:
             std::vector<std::pair<CharType,cv::Mat>> plateChars;
@@ -72,10 +68,6 @@ namespace pr {
                 plateCoding.push_back(charProb);
             }
 
-    //        cv::Mat getPlateChars(int id) {
-    //            if(id<PlateChars.size())
-    //                return PlateChars[id];
-    //        }
             std::string decodePlateNormal(std::vector<std::string> mappingTable) {
                 std::string decode;
                 for(auto plate:plateCoding) {
@@ -84,10 +76,6 @@ namespace pr {
 
                         decode += mappingTable[std::max_element(prob,prob+31) - prob];
                         confidence+=*std::max_element(prob,prob+31);
-
-
-//                        std::cout<<*std::max_element(prob,prob+31)<<std::endl;
-
                     }
 
                     else if(plate.first == LETTER) {
@@ -98,22 +86,16 @@ namespace pr {
                     else if(plate.first == LETTER_NUMS) {
                         decode += mappingTable[std::max_element(prob+31,prob+65)- prob];
                         confidence+=*std::max_element(prob+31,prob+65);
-//                        std::cout<<*std::max_element(prob+31,prob+65)<<std::endl;
-
                     }
                     else if(plate.first == INVALID)
                     {
                         decode+='*';
                     }
-
                 }
                 name = decode;
-
                 confidence/=7;
-
                 return decode;
             }
-
     private:
         cv::Mat licensePlate;
         cv::Rect ROI;

@@ -17,14 +17,10 @@ app = Flask(__name__)
 
 def recognize(filename):
     image = cv2.imread(filename)
-    #通过文件名读入一张图片 放到 image中
-    return pipline.RecognizePlateJson(image)
-    #识别一张图片并返回json结果
-
-#识别函数
+    return HyperLPR_plate_recognition(image)
+    #return pipline.RecognizePlateJson(image)
 
 import base64
-
 
 def recognizeBase64(base64_code):
     file_bytes = np.asarray(bytearray(base64.b64decode(base64_code)),dtype=np.uint8)
@@ -46,7 +42,6 @@ def upload_file():
         print "识别时间",time.time() - t0
         return res
         #返回识别结果
-
         # return 'file uploaded successfully'
     return render_template('upload.html')
 

@@ -1,6 +1,5 @@
 #include "FineMapping.h"
 namespace pr{
-
     const int FINEMAPPING_H = 60 ;
     const int FINEMAPPING_W = 140;
     const int PADDING_UP_DOWN = 30;
@@ -14,17 +13,12 @@ namespace pr{
 
     FineMapping::FineMapping(std::string prototxt,std::string caffemodel) {
          net = cv::dnn::readNetFromCaffe(prototxt, caffemodel);
-
     }
 
     cv::Mat FineMapping::FineMappingHorizon(cv::Mat FinedVertical,int leftPadding,int rightPadding)
     {
-
-//        if(FinedVertical.channels()==1)
-//            cv::cvtColor(FinedVertical,FinedVertical,cv::COLOR_GRAY2BGR);
         cv::Mat inputBlob = cv::dnn::blobFromImage(FinedVertical, 1/255.0, cv::Size(66,16),
                                       cv::Scalar(0,0,0),false);
-
         net.setInput(inputBlob,"data");
         cv::Mat prob = net.forward();
         int front = static_cast<int>(prob.at<float>(0,0)*FinedVertical.cols);
@@ -35,9 +29,8 @@ namespace pr{
         if(back>FinedVertical.cols-1) back=FinedVertical.cols - 1;
         cv::Mat cropped  = FinedVertical.colRange(front,back).clone();
         return  cropped;
-
-
     }
+
     std::pair<int,int> FitLineRansac(std::vector<cv::Point> pts,int zeroadd = 0 )
     {
         std::pair<int,int> res;

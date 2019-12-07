@@ -17,8 +17,8 @@ bot = Bot(console_qr=True, cache_path=True)
 def pr_msg(msg):
     image_name = msg.file_name
     friend = msg.chat
-    print msg.chat
-    print '接收图片'
+    print(msg.chat)
+    print('接收图片')
     # face(image_name)
     msg.get_file('' + msg.file_name)
     json_text = recognize(image_name)

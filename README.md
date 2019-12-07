@@ -15,14 +15,14 @@
 #### 快速上手
 
 ```python
-#导入包
+#导入hyperlpr
 from hyperlpr import *
 #导入OpenCV库
 import cv2
 #读入图片
 image = cv2.imread("demo.jpg")
 #识别结果
-print(HyperLPR_PlateRecogntion(image))
+print(HyperLPR_plate_recognition(image))
 ```
 
 #### Q&A
@@ -194,7 +194,7 @@ int main(){
 
 #### 获取帮助
 
-- HyperLPR讨论QQ群1: 673071218, 群2: 746123554(已满) ,加前请备注HyperLPR交流。
+- HyperLPR讨论QQ群1: 673071218, 群2: 746123554(已满) ,加前请备注HyperLPR交流,高精度版本商务合作可在群内联系。
 
 ### 作者和贡献者信息：
 

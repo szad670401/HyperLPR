@@ -8,17 +8,11 @@ include_directories( ${OpenCV_INCLUDE_DIRS})
 include_directories(include)
 
 set(SRC_DETECTION src/PlateDetection.cpp  src/util.h include/PlateDetection.h)
-
 set(SRC_FINEMAPPING src/FineMapping.cpp )
-
 set(SRC_FASTDESKEW src/FastDeskew.cpp )
-
 set(SRC_SEGMENTATION src/PlateSegmentation.cpp )
-
 set(SRC_RECOGNIZE src/Recognizer.cpp src/CNNRecognizer.cpp)
-
 set(SRC_PIPLINE src/Pipeline.cpp)
-
 set(SRC_SEGMENTATIONFREE src/SegmentationFreeRecognizer.cpp )
 
 #set(SOURCE_FILES main.cpp)

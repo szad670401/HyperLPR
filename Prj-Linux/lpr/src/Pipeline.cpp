@@ -7,8 +7,6 @@
 
 namespace pr {
 
-
-
     const int HorizontalPadding = 4;
     PipelinePR::PipelinePR(std::string detector_filename,
                            std::string finemapping_prototxt, std::string finemapping_caffemodel,
@@ -20,35 +18,26 @@ namespace pr {
         plateSegmentation = new PlateSegmentation(segmentation_prototxt, segmentation_caffemodel);
         generalRecognizer = new CNNRecognizer(charRecognization_proto, charRecognization_caffemodel);
         segmentationFreeRecognizer =  new SegmentationFreeRecognizer(segmentationfree_proto,segmentationfree_caffemodel);
-
     }
 
     PipelinePR::~PipelinePR() {
-
         delete plateDetection;
         delete fineMapping;
         delete plateSegmentation;
         delete generalRecognizer;
         delete segmentationFreeRecognizer;
-
-
     }
 
     std::vector<PlateInfo> PipelinePR:: RunPiplineAsImage(cv::Mat plateImage,int method) {
         std::vector<PlateInfo> results;
         std::vector<pr::PlateInfo> plates;
         plateDetection->plateDetectionRough(plateImage,plates,36,700);
-
         for (pr::PlateInfo plateinfo:plates) {
 
             cv::Mat image_finemapping = plateinfo.getPlateImage();
             image_finemapping = fineMapping->FineMappingVertical(image_finemapping);
             image_finemapping = pr::fastdeskew(image_finemapping, 5);
-
-
-
             //Segmentation-based
-
             if(method==SEGMENTATION_BASED_METHOD)
             {
                 image_finemapping = fineMapping->FineMappingHorizon(image_finemapping, 2, HorizontalPadding);
