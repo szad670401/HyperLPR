@@ -11,6 +11,8 @@ namespace pr{
         std::vector<cv::Rect> platesRegions;
         cv::Size minSize(min_w,min_w/4);
         cv::Size maxSize(max_w,max_w/4);
+        if (&processImage == NULL)
+            return;
         cascade.detectMultiScale( processImage, platesRegions,
                                   1.1, 3, cv::CASCADE_SCALE_IMAGE,minSize,maxSize);
         for(auto plate:platesRegions)
