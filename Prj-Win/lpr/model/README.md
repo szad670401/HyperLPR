@@ -1,17 +1,11 @@
-将/Prj-Linux/lpr/model目录下的
+将/hyperlpr_pip_pkg/hyperlpr/models/dnn/目录下的
 
-cascade.xml
+mininet_ssd_v1.caffemodel
+mininet_ssd_v1.prototxt
+refinenet.caffemodel
+refinenet.prototxt
+SegmenationFree-Inception.caffemodel
+SegmenationFree-Inception.prototxt
 
-CharacterRecognization.caffemodel
-
-CharacterRecognization.prototxt
-
-HorizonalFinemapping.caffemodel
-
-HorizonalFinemapping.prototxt
-
-SegmentationFree.caffemodel
-
-SegmentationFree.prototxt
 
 放置在该目录

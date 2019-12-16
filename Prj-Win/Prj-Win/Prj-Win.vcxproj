@@ -34,7 +34,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
@@ -82,6 +82,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>D:\opencv-3.4.2\build\install\include\opencv2;D:\opencv-3.4.2\build\install\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\opencv-3.4.2\build\install\x86\vc14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -131,6 +133,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opencv_aruco342.lib;opencv_aruco342d.lib;opencv_bgsegm342.lib;opencv_bgsegm342d.lib;opencv_bioinspired342.lib;opencv_bioinspired342d.lib;opencv_calib3d342.lib;opencv_calib3d342d.lib;opencv_ccalib342.lib;opencv_ccalib342d.lib;opencv_core342.lib;opencv_core342d.lib;opencv_datasets342.lib;opencv_datasets342d.lib;opencv_dnn342.lib;opencv_dnn342d.lib;opencv_dnn_objdetect342.lib;opencv_dnn_objdetect342d.lib;opencv_dpm342.lib;opencv_dpm342d.lib;opencv_face342.lib;opencv_face342d.lib;opencv_features2d342.lib;opencv_features2d342d.lib;opencv_flann342.lib;opencv_flann342d.lib;opencv_fuzzy342.lib;opencv_fuzzy342d.lib;opencv_hfs342.lib;opencv_hfs342d.lib;opencv_highgui342.lib;opencv_highgui342d.lib;opencv_imgcodecs342.lib;opencv_imgcodecs342d.lib;opencv_imgproc342.lib;opencv_imgproc342d.lib;opencv_img_hash342.lib;opencv_img_hash342d.lib;opencv_line_descriptor342.lib;opencv_line_descriptor342d.lib;opencv_ml342.lib;opencv_ml342d.lib;opencv_objdetect342.lib;opencv_objdetect342d.lib;opencv_optflow342.lib;opencv_optflow342d.lib;opencv_phase_unwrapping342.lib;opencv_phase_unwrapping342d.lib;opencv_photo342.lib;opencv_photo342d.lib;opencv_plot342.lib;opencv_plot342d.lib;opencv_reg342.lib;opencv_reg342d.lib;opencv_rgbd342.lib;opencv_rgbd342d.lib;opencv_saliency342.lib;opencv_saliency342d.lib;opencv_shape342.lib;opencv_shape342d.lib;opencv_stereo342.lib;opencv_stereo342d.lib;opencv_stitching342.lib;opencv_stitching342d.lib;opencv_structured_light342.lib;opencv_structured_light342d.lib;opencv_superres342.lib;opencv_superres342d.lib;opencv_surface_matching342.lib;opencv_surface_matching342d.lib;opencv_text342.lib;opencv_text342d.lib;opencv_tracking342.lib;opencv_tracking342d.lib;opencv_video342.lib;opencv_video342d.lib;opencv_videoio342.lib;opencv_videoio342d.lib;opencv_videostab342.lib;opencv_videostab342d.lib;opencv_xfeatures2d342.lib;opencv_xfeatures2d342d.lib;opencv_ximgproc342.lib;opencv_ximgproc342d.lib;opencv_xobjdetect342.lib;opencv_xobjdetect342d.lib;opencv_xphoto342.lib;opencv_xphoto342d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -152,28 +155,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\lpr\include\CNNRecognizer.h" />
-    <ClInclude Include="..\lpr\include\FastDeskew.h" />
-    <ClInclude Include="..\lpr\include\FineMapping.h" />
-    <ClInclude Include="..\lpr\include\niBlackThreshold.h" />
+    <ClInclude Include="..\lpr\include\Finetune.h" />
     <ClInclude Include="..\lpr\include\Pipeline.h" />
-    <ClInclude Include="..\lpr\include\PlateDetection.h" />
+    <ClInclude Include="..\lpr\include\Platedetect.h" />
     <ClInclude Include="..\lpr\include\PlateInfo.h" />
-    <ClInclude Include="..\lpr\include\PlateSegmentation.h" />
-    <ClInclude Include="..\lpr\include\Recognizer.h" />
-    <ClInclude Include="..\lpr\include\SegmentationFreeRecognizer.h" />
-    <ClInclude Include="..\lpr\src\util.h" />
+    <ClInclude Include="..\lpr\include\PlateRecognation.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\lpr\src\CNNRecognizer.cpp" />
-    <ClCompile Include="..\lpr\src\FastDeskew.cpp" />
-    <ClCompile Include="..\lpr\src\FineMapping.cpp" />
+    <ClCompile Include="..\lpr\src\FineTune.cpp" />
     <ClCompile Include="..\lpr\src\Pipeline.cpp" />
     <ClCompile Include="..\lpr\src\PlateDetection.cpp" />
-    <ClCompile Include="..\lpr\src\PlateSegmentation.cpp" />
-    <ClCompile Include="..\lpr\src\Recognizer.cpp" />
-    <ClCompile Include="..\lpr\src\SegmentationFreeRecognizer.cpp" />
-    <ClCompile Include="..\lpr\tests\test_pipeline.cpp" />
+    <ClCompile Include="..\lpr\src\PlateRecognation.cpp" />
+    <ClCompile Include="..\lpr\tests\testPipeLine.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

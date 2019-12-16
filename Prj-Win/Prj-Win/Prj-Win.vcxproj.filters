@@ -18,67 +18,37 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\lpr\include\CNNRecognizer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\include\FastDeskew.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\include\FineMapping.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\include\niBlackThreshold.h">
+    <ClInclude Include="..\lpr\include\Finetune.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\lpr\include\Pipeline.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\lpr\include\PlateDetection.h">
+    <ClInclude Include="..\lpr\include\Platedetect.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\lpr\include\PlateInfo.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="..\lpr\include\PlateSegmentation.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\include\Recognizer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\src\util.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\lpr\include\SegmentationFreeRecognizer.h">
+    <ClInclude Include="..\lpr\include\PlateRecognation.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\lpr\src\CNNRecognizer.cpp">
+    <ClCompile Include="..\lpr\src\FineTune.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\lpr\src\FastDeskew.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lpr\src\FineMapping.cpp">
+    <ClCompile Include="..\lpr\src\Pipeline.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\lpr\src\PlateDetection.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\lpr\src\PlateSegmentation.cpp">
+    <ClCompile Include="..\lpr\src\PlateRecognation.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\lpr\src\Recognizer.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lpr\tests\test_pipeline.cpp">
+    <ClCompile Include="..\lpr\tests\testPipeLine.cpp">
       <Filter>源文件\test</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lpr\src\Pipeline.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="..\lpr\src\SegmentationFreeRecognizer.cpp">
-      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
