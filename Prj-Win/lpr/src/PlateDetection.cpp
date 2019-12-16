@@ -16,7 +16,7 @@ namespace pr {
 		img.convertTo(in, CV_32F);
 		Mat input(img.size(), CV_32FC3);
 		Mat inputblob1 = input.reshape(1, { 1, 3,rows,cols });
-		Mat input_blob = dnn::blobFromImages(in, 0.0175, Size(), Scalar(103.53, 116.28, 123.675), false);
+		Mat input_blob = dnn::blobFromImages(in, 0.225, Size(), Scalar(103.53, 116.28, 123.675), false);
 		float *blobdata = input_blob.ptr<float>();
 		float *blobdata2 = inputblob1.ptr<float>();
 		{
