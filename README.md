@@ -6,7 +6,7 @@
 
 ### 一键安装
 
-`pip install hyperlpr`
+`python -m pip install hyperlpr`
 
 ###### 支持python3,支持Windows  Mac Linux 树莓派等。
 
