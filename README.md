@@ -201,6 +201,7 @@ int main(){
 ##### 作者昵称不分前后
 
 - Jack Yu 作者(jack-yu-business@foxmail.com / https://github.com/szad670401)
+- AlanNewImage v2版win工程、python双层完善 (https://github.com/AlanNewImage)
 - lsy17096535 整理(https://github.com/lsy17096535)
 - xiaojun123456 IOS贡献(https://github.com/xiaojun123456)
 - sundyCoder Android第三方贡献(https://github.com/sundyCoder)
