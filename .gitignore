@@ -7,3 +7,4 @@ Prj-Linux/lpr/TEST_*
 Prj-Linux/*build*/
 *.pyc
 /Prj-PHP/build
+*.idea*
