@@ -19,12 +19,14 @@ class LPR():
 
         charLocPath= os.path.join(folder,"cascade/char/char_single.xml")
         detectorPath = os.path.join(folder,"cascade/detector/detector_ch.xml")
+        detectorPathDB = os.path.join(folder,"cascade/detector/cascade_double.xml")
         modelRecognitionPath = [os.path.join(folder,"dnn/SegmenationFree-Inception.prototxt"),os.path.join(folder,"dnn/SegmenationFree-Inception.caffemodel")]
         modelFineMappingPath= [os.path.join(folder,"dnn/HorizonalFinemapping.prototxt"),os.path.join(folder,"dnn/HorizonalFinemapping.caffemodel")]
         mini_ssd_path= [os.path.join(folder,"dnn/mininet_ssd_v1.prototxt"),os.path.join(folder,"dnn/mininet_ssd_v1.caffemodel")]
         refine_net_path = [os.path.join(folder,"dnn/refinenet.prototxt"),os.path.join(folder,"dnn/refinenet.caffemodel")]
 
         self.detector = cv2.CascadeClassifier(detectorPath)
+        self.detectorDB = cv2.CascadeClassifier(detectorPathDB)
         self.charLoc = cv2.CascadeClassifier(charLocPath)
         self.modelRecognition = cv2.dnn.readNetFromCaffe(*modelRecognitionPath)
         self.ssd_detection = cv2.dnn.readNetFromCaffe(*mini_ssd_path)
@@ -64,7 +66,7 @@ class LPR():
                 cropped_images.append([cropped ,[x1,y1,x2,y2]])
         return cropped_images
 
-    def detect_traditional(self,image_gray,resize_h = 720,en_scale =1.1,minSize = 30):
+    def detect_traditional(self,image_gray,resize_h = 720,en_scale =1.1,minSize = 30,DB=True):
         """
         Detect the approximate location of plate via opencv build-in cascade detection.
         :param image_gray:  input single channel image (gray) .
@@ -73,7 +75,10 @@ class LPR():
         :param minSize:  minSize of plate increase this parameter can increase the speed of detection.
         :return:   the results.
         """
-        watches = self.detector.detectMultiScale(image_gray, en_scale, 3, minSize=(minSize*4, minSize))
+        if DB:
+            watches = self.detectorDB.detectMultiScale(image_gray, en_scale, 3, minSize=(minSize*4, minSize))
+        else:
+            watches = self.detector.detectMultiScale(image_gray, en_scale, 3, minSize=(minSize*4, minSize))
         cropped_images = []
         for (x, y, w, h) in watches:
             x -= w * 0.14
@@ -283,7 +288,7 @@ class LPR():
         return self.decode_ctc(y_pred)
 
 
-    def plate_recognition(self,image,minSize=30,charSelectionDeskew=True,mode='ssd'):
+    def plate_recognition(self,image,minSize=30,charSelectionDeskew=True,DB = True, mode='ssd'):
         """
         the simple pipline consists of detection . deskew , fine mapping alignment, recognition.
         :param image: the input BGR image from imread used by opencv
@@ -301,14 +306,29 @@ class LPR():
             image  = cv2.imread("tests/image")
             print(pr.plateRecognition(image))
         """
-
-        images = self.detect_ssd(image)
+        if DB:
+            image_gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+            images = self.detect_traditional(image_gray)
+        else:
+            images = self.detect_ssd(image)
         res_set = []
         for j,plate in enumerate(images):
             plate,[left,top,right,bottom] = plate
-            print(left,top,right,bottom)
-            cropped = self.loose_crop(image, [left, top, right, bottom], 120 / 48)
-            cropped_finetuned = self.finetune(cropped)
+            print(left, top, right, bottom)
+            if DB:
+                w, h = right - left, bottom - top
+                plate = image[top:bottom,left:right,:]
+                crop_up = plate[int(h * 0.05):int((h) * 0.4), int(w * 0.2):int(w * 0.75)]
+                crop_down = plate[int((h) * 0.4):int(h), int(w * 0.05):w]
+                crop_up = cv2.resize(crop_up, (64, 40))
+                crop_down = cv2.resize(crop_down, (96, 40))
+                cropped_finetuned = np.concatenate([crop_up, crop_down], 1)
+                # cv2.imshow("crop",plate)
+                # cv2.waitKey(0)
+            else:
+
+                cropped = self.loose_crop(image, [left, top, right, bottom], 120 / 48)
+                cropped_finetuned = self.finetune(cropped)
             res, confidence = self.segmentation_free_recognition(cropped_finetuned)
             res_set.append([res,confidence,[left,top,right,bottom ]])
         return res_set
