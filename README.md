@@ -132,7 +132,7 @@ int main(){
                       "model/HorizonalFinemapping.prototxt","model/HorizonalFinemapping.caffemodel",
                       "model/Segmentation.prototxt","model/Segmentation.caffemodel",
                       "model/CharacterRecognization.prototxt","model/CharacterRecognization.caffemodel",
-                       "model/SegmentationFree.prototxt","model/SegmentationFree.caffemodel"
+                       "model/SegmenationFree-Inception.prototxt","model/SegmenationFree-Inception.caffemodel"
                     );
   //定义模型文件
 
