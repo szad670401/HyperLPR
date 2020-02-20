@@ -37,7 +37,7 @@ void TEST_CAM()
 		"../lpr/model/HorizonalFinemapping.prototxt", "../lpr/model/HorizonalFinemapping.caffemodel",
 		"../lpr/model/Segmentation.prototxt", "../lpr/model/Segmentation.caffemodel",
 		"../lpr/model/CharacterRecognization.prototxt", "../lpr/model/CharacterRecognization.caffemodel",
-		"../lpr/model/SegmentationFree.prototxt", "../lpr/model/SegmentationFree.caffemodel"
+		"../lpr/model/SegmenationFree-Inception.prototxt", "../lpr/model/SegmenationFree-Inception.caffemodel"
 	);
 	while (1) {
 		//读取下一帧
@@ -75,7 +75,7 @@ void TEST_ACC() {
 		"../lpr/model/HorizonalFinemapping.prototxt", "../lpr/model/HorizonalFinemapping.caffemodel",
 		"../lpr/model/Segmentation.prototxt", "../lpr/model/Segmentation.caffemodel",
 		"../lpr/model/CharacterRecognization.prototxt", "../lpr/model/CharacterRecognization.caffemodel",
-		"../lpr/model/SegmentationFree.prototxt", "../lpr/model/SegmentationFree.caffemodel"
+		"../lpr/model/SegmenationFree-Inception.prototxt", "../lpr/model/SegmenationFree-Inception.caffemodel"
 	);
 
 	ifstream file;
@@ -172,51 +172,6 @@ void TEST_PIPELINE() {
 	cv::waitKey(0);
 
 }
-
-
-
-
-/*void TEST_CAM()
-{
-
-	cv::VideoCapture capture("test1.mp4");
-	cv::Mat frame;
-
-	pr::PipelinePR prc("../lpr/model/cascade.xml",
-		"../lpr/model/HorizonalFinemapping.prototxt", "../lpr/model/HorizonalFinemapping.caffemodel",
-		"../lpr/model/Segmentation.prototxt", "../lpr/model/Segmentation.caffemodel",
-		"../lpr/model/CharacterRecognization.prototxt", "../lpr/model/CharacterRecognization.caffemodel",
-		"../lpr/model/SegmentationFree.prototxt", "../lpr/model/SegmentationFree.caffemodel"
-	);
-	while (1) {
-		//读取下一帧
-		if (!capture.read(frame)) {
-			std::cout << "读取视频失败" << std::endl;
-			exit(1);
-		}
-		//
-		//        cv::transpose(frame,frame);
-		//        cv::flip(frame,frame,2);
-
-		//        cv::resize(frame,frame,cv::Size(frame.cols/2,frame.rows/2));
-
-
-
-		std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(frame, pr::SEGMENTATION_FREE_METHOD);
-
-		for (auto st : res) {
-			if (st.confidence > 0.75) {
-				std::cout << st.getPlateName() << " " << st.confidence << std::endl;
-				cv::Rect region = st.getPlateRect();
-
-				cv::rectangle(frame, cv::Point(region.x, region.y), cv::Point(region.x + region.width, region.y + region.height), cv::Scalar(255, 255, 0), 2);
-			}
-		}
-
-		cv::imshow("image", frame);
-		cv::waitKey(1);
-	}
-}*/
 
 
 int main()
