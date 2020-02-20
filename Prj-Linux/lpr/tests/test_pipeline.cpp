@@ -111,7 +111,7 @@ void TEST_PIPELINE(){
                       "model/HorizonalFinemapping.prototxt","model/HorizonalFinemapping.caffemodel",
                       "model/Segmentation.prototxt","model/Segmentation.caffemodel",
                       "model/CharacterRecognization.prototxt","model/CharacterRecognization.caffemodel",
-                       "model/SegmentationFree.prototxt","model/SegmentationFree.caffemodel"
+                       "model/SegmenationFree-Inception.prototxt","model/SegmenationFree-Inception.caffemodel"
                     );
 
     cv::Mat image = cv::imread("/Users/yujinke/ClionProjects/cpp_ocr_demo/test.png");
@@ -142,7 +142,7 @@ void TEST_CAM()
                        "model/HorizonalFinemapping.prototxt","model/HorizonalFinemapping.caffemodel",
                        "model/Segmentation.prototxt","model/Segmentation.caffemodel",
                        "model/CharacterRecognization.prototxt","model/CharacterRecognization.caffemodel",
-                       "model/SegmentationFree.prototxt","model/SegmentationFree.caffemodel"
+                       "model/SegmenationFree-Inception.prototxt","model/SegmenationFree-Inception.caffemodel"
     );
     while(1) {
         //读取下一帧
