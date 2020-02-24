@@ -48,7 +48,7 @@ class LPR:
         for i in range(3):
             im_tensor[0, i, :, :] = (im[:, :, 2 - i] / pixel_scale - pixel_means[2 - i]) / pixel_stds[2 - i]
         self.ssd_detection.setInput(im_tensor)
-        print(im_tensor.shape)
+        # print(im_tensor.shape)
         cropped_images = []
         cvOut = self.ssd_detection.forward()
         for detection in cvOut[0, 0, :, :]:
@@ -306,7 +306,7 @@ class LPR:
         res_set = []
         for j, plate in enumerate(images):
             plate, [left, top, right, bottom] = plate
-            print(left, top, right, bottom)
+            # print(left, top, right, bottom)
             if DB:
                 w, h = right - left, bottom - top
                 plate = image[top:bottom, left:right, :]
