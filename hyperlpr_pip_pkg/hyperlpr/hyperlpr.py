@@ -228,7 +228,10 @@ class LPR:
         ty4 = cy + ch // 2
         target_pts = np.array([[tx1, ty1], [tx2, ty2], [tx3, ty3], [tx4, ty4]]).astype(np.float32) * scale
         org_pts = np.array([[x1, y1], [x2, y2], [x3, y3], [x4, y4]]).astype(np.float32)
-        mat_ = cv2.estimateRigidTransform(org_pts, target_pts, True)
+        if cv2.__version__[0] == "4":
+            mat_, _ = cv2.estimateAffine2D(org_pts, target_pts)
+        else:
+            mat_ = cv2.estimateRigidTransform(org_pts, target_pts, True)
         dsize = (int(120 * scale), int(48 * scale))
         warped = cv2.warpAffine(image, mat_, dsize)
         return warped
@@ -299,7 +302,7 @@ class LPR:
             print(pr.plateRecognition(image))
         """
         if DB:
-            image_gray = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+            image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
             images = self.detect_traditional(image_gray)
         else:
             images = self.detect_ssd(image)
