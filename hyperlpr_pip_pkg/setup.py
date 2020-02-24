@@ -29,5 +29,4 @@ setuptools.setup(
             "models/dnn/*.*"
         ]
     },
-
 )
