@@ -190,7 +190,7 @@ int main(){
 
 ### 识别测试APP
 
-- 体验 Android APP：[https://fir.im/HyperLPR](https://fir.im/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
+- 体验 Android APP：[http://demo.zeusee.com/HyperLPR](http://demo.zeusee.com/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
 
 #### 获取帮助
 
