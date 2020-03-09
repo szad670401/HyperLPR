@@ -151,7 +151,7 @@ void TEST_PIPELINE() {
 		"../lpr/model/HorizonalFinemapping.prototxt", "../lpr/model/HorizonalFinemapping.caffemodel",
 		"../lpr/model/Segmentation.prototxt", "../lpr/model/Segmentation.caffemodel",
 		"../lpr/model/CharacterRecognization.prototxt", "../lpr/model/CharacterRecognization.caffemodel",
-		"../lpr/model/SegmentationFree.prototxt", "../lpr/model/SegmentationFree.caffemodel"
+		"../lpr/model/SegmenationFree-Inception.prototxt", "../lpr/model/SegmenationFree-Inception.caffemodel"
 	);
 
 	cv::Mat image = cv::imread("../lpr/res/test.jpg");
