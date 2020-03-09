@@ -36,7 +36,7 @@ cv::String scan(std::string imgpath, std::string modelpath, double confidence){
                         modelpath+"/HorizonalFinemapping.prototxt",modelpath+"/HorizonalFinemapping.caffemodel",
                         modelpath+"/Segmentation.prototxt",modelpath+"/Segmentation.caffemodel",
                         modelpath+"/CharacterRecognization.prototxt",modelpath+"/CharacterRecognization.caffemodel",
-                        modelpath+"/SegmentationFree.prototxt",modelpath+"/SegmentationFree.caffemodel"
+                        modelpath+"/SegmenationFree-Inception.prototxt",modelpath+"/SegmenationFree-Inception.caffemodel"
                     );
         cv::Mat image = cv::imread(imgpath);
         std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(image,pr::SEGMENTATION_FREE_METHOD);
