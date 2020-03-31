@@ -4,7 +4,7 @@ astor==0.8.1
 click==7.1.1
 cycler==0.10.0
 decorator==4.4.2
-Flask==0.12.4
+Flask==1.0
 Flask-Migrate==2.5.3
 Flask-MySQLdb==0.2.0
 Flask-Script==2.0.6
