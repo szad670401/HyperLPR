@@ -64,7 +64,7 @@ class LPR:
                 y2 = min(y2, im.shape[0]-1)
                 cropped = _im[y1:y2, x1:x2]
                 cropped_images.append([cropped, [x1, y1, x2, y2]])
-        return cropped_images
+        return  cropped_images
 
     def detect_traditional(self, image_gray, resize_h=720, en_scale=1.1, minSize=30, DB=True):
         """
