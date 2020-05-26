@@ -145,9 +145,9 @@ def RecognizePlateJson(image):
             res_json["w"] = int(rect[2])
             res_json["h"] = int(rect[3])
             jsons.append(res_json)
-    print(json.dumps(jsons,ensure_ascii=False,encoding="gb2312"))
+    print(json.dumps(jsons,ensure_ascii=False))
 
-    return json.dumps(jsons,ensure_ascii=False,encoding="gb2312")
+    return json.dumps(jsons,ensure_ascii=False)
 
 
 
