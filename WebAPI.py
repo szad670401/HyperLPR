@@ -1,13 +1,13 @@
 #coding=utf-8
 from flask import Flask, render_template, request
-from werkzeug import secure_filename
+from werkzeug.utils import secure_filename
 
 import cv2
 import numpy as np
 
 #导入opencv
 
-from hyperlpr import pipline
+from hyperlpr_py3 import pipline
 #导入车牌识别库
 
 
@@ -43,7 +43,7 @@ def upload_file():
         #保存请求上来的文件
         t0 = time.time()
         res = recognize("./images_rec/"+secure_filename(f.filename))
-        print "识别时间",time.time() - t0
+        print("识别时间",time.time() - t0)
         return res
         #返回识别结果
 
@@ -51,10 +51,8 @@ def upload_file():
     return render_template('upload.html')
 
 
-
 if __name__ == '__main__':
     #入口函数
-
-    app.run("0.0.0.0",port=8000)
+    app.run("0.0.0.0", port=8000, threaded=False, debug=False)
     #运行app 指定IP 指定端口
 
