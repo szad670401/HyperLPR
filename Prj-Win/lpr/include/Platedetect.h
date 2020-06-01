@@ -12,5 +12,12 @@ namespace pr
 	private:
 		cv::dnn::Net ssdNet;
 	};
+	class DBDetection{
+		public:
+		DBDetection(std::string cascadestring);
+		void DBDetect(cv::Mat inputImg,std::vector<pr::PlateInfo> &plateInfos,int min_w,int max_w);
+	private:
+		cv::CascadeClassifier dbcascade;
+	};
 }//namespace pr
 #endif // !_PLATEDETECT_H_
