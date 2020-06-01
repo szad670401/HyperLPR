@@ -22,18 +22,18 @@ namespace pr
 			PlateDetection *platedetection;
 			FineTune *finetune;
 			PlateRecognation *platerecognation;
-			//PlateColorClass *platecolorclass;
+			DBDetection *dbdetection;
 
 			
 
 			PipelinePR(std::string detect_prototxt, std::string detect_caffemodel,
 				std::string finetune_prototxt, std::string finetune_caffemodel,
-				std::string platerec_prototxt, std::string platerec_caffemodel/*,
-				std::string platecolor_mnn*/);
+				std::string platerec_prototxt, std::string platerec_caffemodel,
+				std::string dbstring);
 			~PipelinePR();
 
 			std::vector<std::string> plateRes;
-			std::vector<PlateInfo> RunPiplineAsImage(cv::Mat srcImage);
+			std::vector<PlateInfo> RunPiplineAsImage(cv::Mat srcImage,int IsDB);
 
 	};
 }

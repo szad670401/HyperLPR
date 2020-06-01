@@ -8,6 +8,10 @@ namespace pr {
 	{
 		ssdNet = cv::dnn::readNetFromCaffe(ssd_prototxt, ssd_caffemodel);
 	}
+	DBDetection::DBDetection(std::string cascadestring)
+	{
+		dbcascade.load(cascadestring);
+	}
 	void PlateDetection::Detectssd(cv::Mat img, std::vector<pr::PlateInfo>  &plateInfos)
 	{
 		int cols = img.cols;
@@ -57,4 +61,43 @@ namespace pr {
 			}
 		}
 	}
+    cv::Mat cropFromImage(const cv::Mat &image,cv::Rect rect){
+        int w = image.cols-1;
+        int h = image.rows-1;
+        rect.x = std::max(rect.x,0);
+        rect.y = std::max(rect.y,0);
+        rect.height = std::min(rect.height,h-rect.y);
+        rect.width = std::min(rect.width,w-rect.x);
+        cv::Mat temp(rect.size(), image.type());
+        cv::Mat cropped;
+        temp = image(rect);
+        temp.copyTo(cropped);
+        return cropped;
+    }
+	void DBDetection::DBDetect(cv::Mat InputImage,std::vector<pr::PlateInfo> &plateInfos,int min_w,int max_w)
+	{
+		cv::Mat processImage;
+        cv::cvtColor(InputImage,processImage,cv::COLOR_BGR2GRAY);
+        std::vector<cv::Rect> platesRegions;
+        cv::Size minSize(min_w,min_w/4);
+        cv::Size maxSize(max_w,max_w/4);
+        if (&processImage == NULL)
+            return;
+        dbcascade.detectMultiScale( processImage, platesRegions,
+                                  1.1, 3, cv::CASCADE_SCALE_IMAGE,minSize,maxSize);
+        for(auto plate:platesRegions)
+        {
+            int zeroadd_w  = static_cast<int>(plate.width*0.28);
+            int zeroadd_h = static_cast<int>(plate.height*0.35);
+            int zeroadd_x = static_cast<int>(plate.width*0.14);
+            int zeroadd_y = static_cast<int>(plate.height*0.15);
+            plate.x-=zeroadd_x;
+            plate.y-=zeroadd_y;
+            plate.height += zeroadd_h;
+            plate.width += zeroadd_w;
+			cv::Mat plateImage = cropFromImage(InputImage,plate);
+            PlateInfo plateInfo(plateImage,plate);
+            plateInfos.push_back(plateInfo);
+        }
+    }
 }
