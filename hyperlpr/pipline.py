@@ -185,7 +185,7 @@ def SimpleRecognizePlateByE2E(image):
         image_rgb = fv.finemappingVertical(image_rgb)
         image_rgb = fv.finemappingVertical(image_rgb)
         cache.verticalMappingToFolder(image_rgb)
-        cv2.imwrite("./"+str(j)+".jpg",image_rgb)
+        #cv2.imwrite("./"+str(j)+".jpg",image_rgb)
         res,confidence = e2e.recognizeOne(image_rgb)
         print res,confidence
         res_set.append([[],res,confidence])
