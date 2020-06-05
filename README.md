@@ -105,16 +105,7 @@ sudo make -j
 
 - HyperLPR讨论QQ群1: 673071218, 群2: 746123554(已满) ,加前请备注HyperLPR交流,高精度版本商务合作可在群内联系。
 
-### 作者和贡献者信息：
+##### 作者信息：
 
-##### 作者昵称不分前后
+- 智云视图 http://www.zeusee.com/
 
-- Jack Yu 作者(jack-yu-business@foxmail.com / https://github.com/szad670401)
-- lsy17096535 整理(https://github.com/lsy17096535)
-- xiaojun123456 IOS贡献(https://github.com/xiaojun123456)
-- sundyCoder Android第三方贡献(https://github.com/sundyCoder)
-- coleflowers php贡献(@coleflowers)
-- Free&Easy 资源贡献 
-- 海豚嘎嘎 LBP cascade检测器训练
-- Windows工程端到端模型 (https://github.com/SalamanderEyes)
-- Android实时扫描实现 (https://github.com/lxhAndSmh)
