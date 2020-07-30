@@ -196,9 +196,17 @@ int main(){
 
 - HyperLPR讨论QQ群1: 673071218(已满，邀请可进), 群2: 746123554 ,加前请备注HyperLPR交流。
 
-#### 联系方式：
+### 作者和贡献者信息：
 
-- JackYu (jackyu@zeusee.com)
+##### 作者昵称不分前后
 
-- Zeusee (contact@zeusee.com)
-
+- Jack Yu 作者(jack-yu-business@foxmail.com / https://github.com/szad670401)
+- AlanNewImage v2版win工程、python双层完善 (https://github.com/AlanNewImage)
+- lsy17096535 整理(https://github.com/lsy17096535)
+- xiaojun123456 IOS贡献(https://github.com/xiaojun123456)
+- sundyCoder Android第三方贡献(https://github.com/sundyCoder)
+- coleflowers php贡献(@coleflowers)
+- Free&Easy 资源贡献 
+- 海豚嘎嘎 LBP cascade检测器训练
+- Windows工程端到端模型 (https://github.com/SalamanderEyes)
+- Android实时扫描实现 (https://github.com/lxhAndSmh)
