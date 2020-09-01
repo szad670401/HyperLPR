@@ -29,7 +29,7 @@ print(HyperLPR_plate_recognition(image))
 
 Q：Android识别率没有所传demo apk的识别率高？
 
-A：请使用[Prj-Linux](https://github.com/zeusees/HyperLPR/tree/master/Prj-Linux/lpr/model)下的模型，android默认包里的配置是相对较早的模型
+A：我们近期会上传Android的demo。
 
 Q：车牌的训练数据来源？
 
@@ -188,13 +188,9 @@ int main(){
 
 ![android](./demo_images/android.png)
 
-### 识别测试APP
-
-- 体验 Android APP：[http://demo.zeusee.com/HyperLPR](http://demo.zeusee.com/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
-
 #### 获取帮助
 
-- HyperLPR讨论QQ群1: 673071218(已满，邀请可进), 群2: 746123554 ,加前请备注HyperLPR交流。
+- HyperAI讨论QQ群: 529385694
 
 ### 作者和贡献者信息：
 
