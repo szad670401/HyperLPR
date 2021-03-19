@@ -31,7 +31,7 @@ networkx==2.4
 numpy==1.17.4
 opencv-contrib-python==3.4.2.16
 opencv-python==3.4.2.16
-Pillow==7.0.0
+Pillow==8.1.1
 protobuf==3.11.3
 pyparsing==2.4.6
 python-dateutil==2.8.1
