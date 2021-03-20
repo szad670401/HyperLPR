@@ -15,7 +15,7 @@ grpcio==1.27.2
 h5py==2.10.0
 imageio==2.8.0
 itsdangerous==1.1.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 joblib==0.14.1
 Keras==2.1.1
 Keras-Applications==1.0.8
