@@ -37,7 +37,7 @@ pyparsing==2.4.6
 python-dateutil==2.8.1
 python-editor==1.0.4
 PyWavelets==1.1.1
-PyYAML==5.3.1
+PyYAML==5.4
 redis==3.4.1
 scikit-image==0.16.2
 scikit-learn==0.22.2.post1
