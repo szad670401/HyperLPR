@@ -29,7 +29,7 @@ mock==4.0.2
 mysqlclient==1.4.6
 networkx==2.4
 numpy==1.17.4
-opencv-contrib-python==3.4.2.16
+opencv-contrib-python==4.2.0.32
 opencv-python==3.4.2.16
 Pillow==7.0.0
 protobuf==3.11.3
