@@ -5,7 +5,7 @@ Keras==2.3.1
 Werkzeug==0.14.1
 scipy==1.2.2
 Flask==1.1.2
-Pillow==7.1.2
+Pillow==9.0.0
 PyQt5==5.15.0
 scikit_learn==0.23.1
 wxpy==0.3.9.8
