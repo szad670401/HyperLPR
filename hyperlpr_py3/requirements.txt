@@ -32,7 +32,7 @@ numpy==1.17.4
 opencv-contrib-python==3.4.2.16
 opencv-python==3.4.2.16
 Pillow==7.0.0
-protobuf==3.11.3
+protobuf==3.15.0
 pyparsing==2.4.6
 python-dateutil==2.8.1
 python-editor==1.0.4
