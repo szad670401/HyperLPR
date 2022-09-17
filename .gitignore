@@ -1,9 +1,15 @@
 # Editor
 *~
 *.swp
+.vscode
 
 # Build files
 Prj-Linux/lpr/TEST_*
 Prj-Linux/*build*/
 *.pyc
 /Prj-PHP/build
+
+/Prj-ROS/build
+/Prj-ROS/devel
+/Prj-ROS/logs
+/Prj-ROS/.catkin_tools
