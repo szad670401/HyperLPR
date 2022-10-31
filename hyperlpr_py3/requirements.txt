@@ -28,7 +28,7 @@ matplotlib==3.2.1
 mock==4.0.2
 mysqlclient==1.4.6
 networkx==2.4
-numpy==1.17.4
+numpy==1.22.0
 opencv-contrib-python==3.4.2.16
 opencv-python==3.4.2.16
 Pillow==7.0.0
