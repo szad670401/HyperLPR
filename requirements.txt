@@ -2,7 +2,7 @@ matplotlib==2.2.4
 opencv_contrib_python==3.4.3.18
 numpy==1.16.6
 Keras==2.3.1
-Werkzeug==0.14.1
+Werkzeug==0.15.5
 scipy==1.2.2
 Flask==1.1.2
 Pillow==7.1.2

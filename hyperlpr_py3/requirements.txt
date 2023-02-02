@@ -50,4 +50,4 @@ tensorflow==1.15.2
 tensorflow-estimator==1.13.0
 termcolor==1.1.0
 Theano==1.0.4
-Werkzeug==1.0.0
+Werkzeug==0.15.5
