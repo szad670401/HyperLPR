@@ -7,23 +7,17 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/release/app-release.apk" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/release/output-metadata.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/multitask_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/multitask_detect.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/recognition.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resource/models/r2_mobile/rpv3_mdict_160_r3.mnn" beforeDir="false" afterPath="$PROJECT_DIR$/resource/models/r2_mobile/rpv3_mdict_160_r3.mnn" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,17 +64,17 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource/models/r2_mobile" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource/models" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resource/models" />
       <recent name="$PROJECT_DIR$/resource/models/r2_mobile" />
       <recent name="$PROJECT_DIR$/command" />
       <recent name="$PROJECT_DIR$/cpp/samples" />
       <recent name="$PROJECT_DIR$/tools/rknn_export_repo" />
-      <recent name="$PROJECT_DIR$/resource/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Prj-Python" />
@@ -91,11 +85,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -104,6 +93,11 @@
     <configuration name="hyperlpr3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="HyperLPR3-Source" TARGET_NAME="hyperlpr3" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -131,6 +125,7 @@
       <workItem from="1677218101830" duration="1207000" />
       <workItem from="1677220611638" duration="33000" />
       <workItem from="1677457111481" duration="10241000" />
+      <workItem from="1677496149958" duration="3480000" />
     </task>
     <servers />
   </component>

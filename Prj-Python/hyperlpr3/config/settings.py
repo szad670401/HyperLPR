@@ -1,7 +1,7 @@
 import os
 import sys
 
-_MODEL_VERSION_ = "20230228"
+_MODEL_VERSION_ = "20230229"
 
 if 'win32' in sys.platform:
     _DEFAULT_FOLDER_ = os.path.join(os.environ['HOMEPATH'], ".hyperlpr3")
@@ -17,3 +17,6 @@ onnx_runtime_config = dict(
     cls_model_path=os.path.join(_MODEL_VERSION_, "onnx", "litemodel_cls_96x_r1.onnx"),
 )
 
+onnx_model_maps = ["det_model_path_320x", "det_model_path_640x", "rec_model_path", "cls_model_path"]
+
+_REMOTE_URL_ = "https://github.com/szad670401/HyperLPR/blob/master/resource/models/onnx/"

@@ -1,7 +1,8 @@
 # !/usr/bin/env python
 from setuptools import find_packages, setup
+from hyperlpr3 import __version__ as lpr3_ver
 
-__version__ = "0.1.1"
+__version__ = lpr3_ver
 
 if __name__ == "__main__":
     setup(
