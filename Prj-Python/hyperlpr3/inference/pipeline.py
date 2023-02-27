@@ -21,7 +21,7 @@ class LPRMultiTaskPipeline(object):
             score = out[4]
             land_marks = out[5:13].reshape(4, 2).astype(int)
             layer_num = int(out[13])
-            print(layer_num)
+            # print(layer_num)
             pad = get_rotate_crop_image(image, land_marks)
             if layer_num == DOUBLE:
                 # double
