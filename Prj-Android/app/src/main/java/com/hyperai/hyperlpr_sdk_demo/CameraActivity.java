@@ -48,8 +48,6 @@ public class CameraActivity extends Activity {
     private void initCamera() {
         previewFl = findViewById(R.id.preview_fl);
         plateTv = findViewById(R.id.plate_tv);
-//        regTv = findViewById(R.id.reg_tv);
-//        regTv.setOnClickListener(this);
         image = findViewById(R.id.image);
         cameraPreview = new CameraPreviews(this);
         previewFl.addView(cameraPreview);
@@ -103,10 +101,4 @@ public class CameraActivity extends Activity {
 
 //        stopPreview();
     }
-
-//    @Override
-//    public void onClick(View v) {
-//        CameraPreviews cameraPreview = new CameraPreviews(this);
-//        previewFl.addView(cameraPreview);
-//    }
 }

@@ -88,7 +88,7 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
 //        obj.color_classify = PlateColor::GREEN;
 //        obj.layers = loc.layers;
 //        LOGD("size %d", text_line.code.size());
-        if (text_line.code.size() >= 7) {
+        if (text_line.code.size() >= 8) {
             obj.text_confidence = text_line.average_score;
             auto type = PreGetPlateType(text_line.code);
             if (type == PlateType::UNKNOWN) {

@@ -41,4 +41,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     implementation 'com.github.smuyyh:ImageSelector:3.0'
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
 }

@@ -241,7 +241,9 @@ sh command/build_release_android_share.sh
 
 ### 识别测试APP（老版）
 
-- 体验 Android APP：[http://demo.zeusee.com/HyperLPR](http://demo.zeusee.com/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
+- 体验 Android APP（扫码下载）：
+
+![apk](./images/apk.png)
 
 #### 获取帮助
 

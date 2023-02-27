@@ -31,6 +31,10 @@ public class HyperLPRCore {
         return PlateRecognitionFromBuffer(ctxHandle_, buf, height, width, rotation, format);
     }
 
+    public Plate[] plateRecognitionFromImage(int[] buf, int height, int width, int rotation, int format) {
+        return PlateRecognitionFromImage(ctxHandle_, buf, height, width, rotation, format);
+    }
+
     public int release() {
         int ret = -1;
         if (isRunning_) {
@@ -50,4 +54,8 @@ public class HyperLPRCore {
     native int ReleaseRecognizerContext(long handle);
 
     native Plate[] PlateRecognitionFromBuffer(long handle, byte[] buf, int height, int width, int rotation, int format);
+
+    native Plate[] PlateRecognitionFromImage(long handle, int[] buf, int height, int width, int rotation, int format);
+
+
 }

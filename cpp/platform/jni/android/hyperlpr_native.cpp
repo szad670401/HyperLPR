@@ -90,6 +90,76 @@ JNIEXPORT int JNICALL HYPERLPR_API(core_HyperLPRCore_ReleaseRecognizerContext) (
 }
 
 
+JNIEXPORT jobjectArray JNICALL HYPERLPR_API(core_HyperLPRCore_PlateRecognitionFromImage) (
+        JNIEnv *env,
+        jobject thiz,
+        jlong handle,
+        jintArray buf,
+        jint height,
+        jint width,
+        jint rotation,
+        jint format) {
+    P_HLPR_Context ctx = (P_HLPR_Context ) handle;
+    jint *pBuf = env->GetIntArrayElements(buf, 0);
+    // create ImageData
+    HLPR_ImageData data = {0};
+    data.data = (uint8_t *)pBuf;
+    data.width = width;
+    data.height = height;
+    data.format = HLPR_ImageFormat(format);
+    data.rotation = HLPR_Rotation(rotation);
+    // create DataBuffer
+    P_HLPR_DataBuffer buffer = HLPR_CreateDataBuffer(&data);
+
+    // exec plate recognition
+    HLPR_PlateResultList results = {0};
+    cost_ = (double)cv::getTickCount();
+    HLPR_ContextUpdateStream(ctx, buffer, &results);
+    cost_ = ((double)cv::getTickCount() - cost_) / cv::getTickFrequency();
+    LOGD("cost: %f", cost_);
+
+    jobjectArray jPlateArray = nullptr;
+    jclass jPlateCls = env->FindClass("com/hyperai/hyperlpr3/bean/Plate");
+    // get object method id
+    jmethodID plateClsInitId = env->GetMethodID(jPlateCls, "<init>", "()V");
+    jmethodID setX1MethodId = env->GetMethodID(jPlateCls, "setX1", "(F)V");
+    jmethodID setY1MethodId = env->GetMethodID(jPlateCls, "setY1", "(F)V");
+    jmethodID setX2MethodId = env->GetMethodID(jPlateCls, "setX2", "(F)V");
+    jmethodID setY2MethodId = env->GetMethodID(jPlateCls, "setY2", "(F)V");
+    //    jmethodID setLayersMethodId = env->GetMethodID(jPlateCls, "setLayers", "(I)V");
+    jmethodID setTypeMethodId = env->GetMethodID(jPlateCls, "setType", "(I)V");
+    jmethodID setConfidenceMethodId = env->GetMethodID(jPlateCls, "setConfidence", "(F)V");
+    jmethodID setCodeMethodId = env->GetMethodID(jPlateCls, "setCode", "(Ljava/lang/String;)V");
+
+    int total = results.plate_size;
+    jPlateArray = env->NewObjectArray(total, jPlateCls, 0);
+    for (int i = 0; i < total; ++i) {
+        auto &plate = results.plates[i];
+        // set in location
+        jobject jPlate = env->NewObject(jPlateCls, plateClsInitId);
+        env->CallVoidMethod(jPlate, setX1MethodId, plate.x1);
+        env->CallVoidMethod(jPlate, setY1MethodId, plate.y1);
+        env->CallVoidMethod(jPlate, setX2MethodId, plate.x2);
+        env->CallVoidMethod(jPlate, setY2MethodId, plate.y2);
+        // set in types
+        //        env->CallVoidMethod(jPlate, setLayersMethodId, plate.layers);
+        env->CallVoidMethod(jPlate, setTypeMethodId, plate.type);
+        // set in text_confidence
+        env->CallVoidMethod(jPlate, setConfidenceMethodId, plate.text_confidence);
+        // set in plate code
+        //        env->CallObjectMethod(jPlate, setCodeMethodId, stringTojstring(env, plate.code));
+        env->CallObjectMethod(jPlate, setCodeMethodId, env->NewStringUTF(plate.code));
+
+        env->SetObjectArrayElement(jPlateArray, i, jPlate);
+        env->DeleteLocalRef(jPlate);
+    }
+    env->DeleteLocalRef(jPlateCls);
+
+    return jPlateArray;
+
+}
+
+
 JNIEXPORT jobjectArray JNICALL HYPERLPR_API(core_HyperLPRCore_PlateRecognitionFromBuffer) (
         JNIEnv *env,
         jobject thiz,
