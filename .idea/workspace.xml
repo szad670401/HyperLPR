@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="HyperLPR3-Source" targetName="hyperlpr3" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="c514fefb-e579-4297-b908-55de31256ade" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/benchmark.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/config.json" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr/pipline.py" afterPath="$PROJECT_DIR$/hyperlpr/pipline.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr/recognizer.py" afterPath="$PROJECT_DIR$/hyperlpr/recognizer.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr/segmentation.py" afterPath="$PROJECT_DIR$/hyperlpr/segmentation.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr/typeDistinguish.py" afterPath="$PROJECT_DIR$/hyperlpr/typeDistinguish.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr_py3/pipline.py" afterPath="$PROJECT_DIR$/hyperlpr_py3/pipline.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr_py3/recognizer.py" afterPath="$PROJECT_DIR$/hyperlpr_py3/recognizer.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr_py3/segmentation.py" afterPath="$PROJECT_DIR$/hyperlpr_py3/segmentation.py" />
-      <change beforePath="$PROJECT_DIR$/hyperlpr_py3/typeDistinguish.py" afterPath="$PROJECT_DIR$/hyperlpr_py3/typeDistinguish.py" />
-      <change beforePath="$PROJECT_DIR$/model/plate_type.h5" afterPath="$PROJECT_DIR$/model/plate_type.h5" />
+    <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/release/app-release.apk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/release/output-metadata.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/multitask_detect.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/multitask_detect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/recognition.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/inference/recognition.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resource/models/r2_mobile/rpv3_mdict_160_r3.mnn" beforeDir="false" afterPath="$PROJECT_DIR$/resource/models/r2_mobile/rpv3_mdict_160_r3.mnn" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="pipline.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hyperlpr_py3/pipline.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CMakeLists.txt" />
         <option value="Python Script" />
       </list>
     </option>
@@ -45,127 +45,108 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/demo_py3.py" />
-      </list>
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="493" />
-    <option name="y" value="84" />
-    <option name="width" value="1085" />
-    <option name="height" value="704" />
+  <component name="OCResolveContextSettings">
+    <option name="configuration" value="0-Debug-CAPISample" />
   </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="HyperLPR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HyperLPR" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="HyperLPR" type="b2602c69:ProjectViewProjectNode" />
-              <item name="HyperLPR" type="462c0819:PsiDirectoryNode" />
-              <item name="hyperlpr_py3" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+  <component name="ProjectId" id="2JZnjSwoRDsATe87YQzqJ7YkiGg" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource/models/r2_mobile" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resource/models/r2_mobile" />
+      <recent name="$PROJECT_DIR$/command" />
+      <recent name="$PROJECT_DIR$/cpp/samples" />
+      <recent name="$PROJECT_DIR$/tools/rknn_export_repo" />
+      <recent name="$PROJECT_DIR$/resource/images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Prj-Python" />
+      <recent name="$PROJECT_DIR$/cpp/src/nn_implementation_module/classification" />
+      <recent name="$PROJECT_DIR$/cpp/src/model_load" />
+      <recent name="$PROJECT_DIR$/resource/images" />
+      <recent name="$PROJECT_DIR$/cpp/src" />
+    </key>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
+  <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="hyperlpr3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="HyperLPR3-Source" TARGET_NAME="hyperlpr3" CONFIG_NAME="Debug">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c514fefb-e579-4297-b908-55de31256ade" name="Default" comment="" />
-      <created>1591067075688</created>
+      <changelist id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="" />
+      <created>1672294609542</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1591067075688</updated>
+      <updated>1672294609542</updated>
+      <workItem from="1672294615702" duration="31662000" />
+      <workItem from="1672907618661" duration="1860000" />
+      <workItem from="1675042522538" duration="41206000" />
+      <workItem from="1675382177821" duration="15919000" />
+      <workItem from="1675643323338" duration="62886000" />
+      <workItem from="1675927240890" duration="12610000" />
+      <workItem from="1676020392199" duration="521000" />
+      <workItem from="1676533389966" duration="46803000" />
+      <workItem from="1677026784456" duration="8941000" />
+      <workItem from="1677043986150" duration="4211000" />
+      <workItem from="1677050704713" duration="8926000" />
+      <workItem from="1677111778645" duration="5714000" />
+      <workItem from="1677139138915" duration="6553000" />
+      <workItem from="1677218101830" duration="1207000" />
+      <workItem from="1677220611638" duration="33000" />
+      <workItem from="1677457111481" duration="10241000" />
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1855" height="940" extended-state="6" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959569" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager />
-    <watches-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/demo_py3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" column="39" lean-forward="false" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hyperlpr_py3/pipline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="153" column="0" lean-forward="false" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

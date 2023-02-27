@@ -1,2 +1,11 @@
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "HyperLPR_SDK_Demo"
 include ':app'
-include ':openCVLibrary342'
+include ':hyperlpr3'

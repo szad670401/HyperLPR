@@ -1,7 +1,0 @@
-<launch>
-	<param name="ModelPath" value="$(find hyperlpr)/model" />
-	<param name="CameraTopic" value="/camera/color/image_raw" />
-	<node pkg="hyperlpr" type="hyperlpr_node" name="hyperlpr_node" output="screen"/>
-
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find hyperlpr)/launch/hyperlpr.rviz" />
-</launch>

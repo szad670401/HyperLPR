@@ -1,35 +1,60 @@
-![logo_t](./demo_images/logo.png)
+![logo_t](./images/logo.png)
 
-## HyperLPR   高性能开源中文车牌识别框架
+## HyperLPR3   高性能开源中文车牌识别框架
 
-#### [![1](https://badge.fury.io/py/hyperlpr.svg "title")](https://pypi.org/project/hyperlpr/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr.svg "title")](https://pypi.org/project/hyperlpr/)
+#### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/)
 
 ### 一键安装
 
-`python -m pip install hyperlpr`
+`python -m pip install hyperlpr3`
 
-###### 支持python3,支持Windows  Mac Linux 树莓派等。
+###### 支持python3, 支持Windows  Mac Linux 树莓派等。
+
 
 ###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
+
+#### 快速体验
+
+```bash
+# 使用命令行测试 - 图像url地址
+lpr3 sample -src https://tunm.oss-cn-hangzhou.aliyuncs.com/hyperlpr3/test_folder/plate_test.png
+
+# 使用命令行测试 - 本地图像路径
+lpr3 sample -src images/test_img.jpg -det high
+```
 
 #### 快速上手
 
 ```python
-#导入包
-from hyperlpr import *
-#导入OpenCV库
+# 导入opencv库
 import cv2
-#读入图片
-image = cv2.imread("demo.jpg")
-#识别结果
-print(HyperLPR_plate_recognition(image))
+# 导入依赖包
+import hyperlpr3 as lpr3
+
+# 实例化识别对象
+catcher = lpr3.LicensePlateCatcher()
+# 读取图片
+image = cv2.imread("images/test_img.jpg")
+# 识别结果
+print(catcher(image))
+
+``` 
+#### 启动WebApi服务
+
+```bash
+# 启动服务
+lpr3 rest --port 8715 --host 0.0.0.0
 ```
+启动后可打开SwaggerUI的路径：[http://localhost:8715/api/v1/docs](http://localhost:8715/api/v1/docs) 查看和测试在线识别API服务:
+
+![swagger_ui](./images/swagger-ui.png)
+
 
 #### Q&A
 
 Q：Android识别率没有所传demo apk的识别率高？
 
-A：请使用[Prj-Linux](https://github.com/zeusees/HyperLPR/tree/master/Prj-Linux/lpr/model)下的模型，android默认包里的配置是相对较早的模型
+A：请自行编译或从release中下载安卓动态库放置于Prj-Android中进行测试。
 
 Q：车牌的训练数据来源？
 
@@ -37,7 +62,7 @@ A：由于用于训练车牌数据涉及到法律隐私等问题，本项目无�
 
 Q：训练代码的提供？
 
-A：相关资源中有提供训练代码
+A：相关资源中有提供老版的训练代码，HyperLPR3的训练方法会陆续整理并给出。
 
 Q：关于项目的来源？
 
@@ -46,134 +71,166 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 
 #### 相关资源
 
-- [Android配置教程](https://www.jianshu.com/p/94784c3bf2c1)
-- [python配置教程](https://www.jianshu.com/p/7ab673abeaae)
-- [Linux下C++配置教程](https://blog.csdn.net/lu_linux/article/details/88707421)
-- [ROS包配置教程](./Prj-ROS/README.md)
-- [带UI界面的工程](https://pan.baidu.com/s/1cNWpK6)(感谢群内小伙伴的工作)。
-- [端到端(多标签分类)训练代码](https://github.com/LCorleone/hyperlpr-train_e2e)(感谢群内小伙伴的工作)。
-- [端到端(CTC)训练代码](https://github.com/armaab/hyperlpr-train)(感谢群内小伙伴工作)。
+- [HyperLPRv1版](https://github.com/szad670401/HyperLPR/tree/v1)
 
-### 更新
-
-- [增加了ROS包](
-https://github.com/BSSNBSSN/HyperLPR-ROS) (2022.09.17)
-- 更新了Android实现，增加实时扫描接口 (2019.07.24)
-- 更新Windows版本的Visual Studio 2015 工程至端到端模型（2019.07.03）
-- 更新基于端到端的IOS车牌识别工程。(2018.11.13)
-- 可通过pip一键安装、更新的新的识别模型、倾斜车牌校正算法、定位算法。(2018.08.11)
-- 提交新的端到端识别模型，进一步提高识别准确率(2018.08.03)
-- [增加PHP车牌识别工程@coleflowers](https://github.com/zeusees/HyperLPR/tree/master/Prj-PHP) (2018.06.20)
-- 添加了HyperLPR Lite 仅仅需160 行代码即可实现车牌识别(2018.3.12)
-- 感谢 sundyCoder [Android 字符分割版本](https://github.com/sundyCoder/hyperlpr4Android) 
-- 增加字符分割[训练代码和字符分割介绍](https://github.com/zeusees/HyperLPR-Training)(2018.1.)
-
+- [HyperLPRv2版](https://github.com/szad670401/HyperLPR/tree/v2)
 
 ### TODO
 
+- 支持快速部署WebApi服务
 - 支持多种车牌以及双层
 - 支持大角度车牌
 - 轻量级识别模型
+
 
 ### 特性
 
 - 速度快 720p,单核 Intel 2.2G CPU (MaBook Pro 2015)平均识别时间低于100ms
 - 基于端到端的车牌识别无需进行字符分割
 - 识别率高,卡口场景准确率在95%-97%左右
-- 轻量,总代码量不超1k行
-
-### 模型资源说明
-
-- cascade.xml  检测模型 - 目前效果最好的cascade检测模型
-- cascade_lbp.xml  召回率效果较好，但其错检太多
-- char_chi_sim.h5 Keras模型-可识别34类数字和大写英文字  使用14W样本训练 
-- char_rec.h5 Keras模型-可识别34类数字和大写英文字  使用7W样本训练 
-- ocr_plate_all_w_rnn_2.h5 基于CNN的序列模型
-- ocr_plate_all_gru.h5 基于GRU的序列模型从OCR模型修改，效果目前最好但速度较慢，需要20ms。
-- plate_type.h5 用于车牌颜色判断的模型
-- model12.h5 左右边界回归模型
+- 支持跨平台编译和快速部署
 
 ### 注意事项:
 
-- Win工程中若需要使用静态库，需单独编译
 - 本项目的C++实现和Python实现无任何关联，都为单独实现
-- 在编译C++工程的时候必须要使用OpenCV 3.3以上版本 (DNN 库)，否则无法编译 
-- 安卓工程编译ndk尽量采用14b版本
+- 在编译C++工程的时候必须要使用OpenCV 4.0和MNN 2.0以上版本，否则无法编译 
+- 安卓工程编译ndk尽量采用21版本
 
 ### Python 依赖
-
-- Keras (>2.0.0)
-- Theano(>0.9) or Tensorflow(>1.1.x)
-- Numpy (>1.10)
-- Scipy (0.19.1)
-- OpenCV(>3.0)
-- Scikit-image (0.13.0)
-- PIL
+- opencv-python (>3.3)
+- onnxruntime (>1.8.1)
+- fastapi (0.92.0)
+- uvicorn (0.20.0)
+- loguru (0.6.0)
+- python-multipart
+- tqdm
+- requests 
 
 ### CPP 依赖
 
-- Opencv 3.4 以上版本
+- Opencv 4.0 以上版本
+- MNN 2.0 以上版本
 
-### Linux/Mac 编译
+### C/C++编译依赖库
 
-- 仅需要的依赖OpenCV 3.4 (需要DNN框架)
+编译C/C++工程需要使用第三方依赖库，将库下载后解压，并将其通过拷贝或软链接放入根目录(与CMakeLists.txt同级)即可，依赖的库下载地址：[百度网盘](https://pan.baidu.com/s/1hLzumPbrrnuI__CYv_ognA) code: kdae
+
+### Linux/Mac动态链接库编译
+
+- 需要将依赖库放置或链接在项目根目录下(与CMakeLists.txt同级)
 
 ```bash
-cd Prj-Linux
-mkdir build 
-cd build
-cmake ../
-sudo make -j 
+# 执行编译脚本
+sh command/build_release_linux_share.sh
+
 ```
+编译后的相关物料放置于根目录下**build/linux/install/hyperlpr3**中，其中包含：
+- include 头文件
+- lib 动态库路径
+- resource 包含测试图片与模型等静态资源
 
-### CPP demo
+按需取走需要的文件即可
 
-```cpp
-#include "../include/Pipeline.h"
-int main(){
-    pr::PipelinePR prc("model/cascade.xml",
-                      "model/HorizonalFinemapping.prototxt","model/HorizonalFinemapping.caffemodel",
-                      "model/Segmentation.prototxt","model/Segmentation.caffemodel",
-                      "model/CharacterRecognization.prototxt","model/CharacterRecognization.caffemodel",
-                       "model/SegmenationFree-Inception.prototxt","model/SegmenationFree-Inception.caffemodel"
-                    );
-  //定义模型文件
+### Linux/Mac编译Demo
 
-    cv::Mat image = cv::imread("test.png");
-    std::vector<pr::PlateInfo> res = prc.RunPiplineAsImage(image,pr::SEGMENTATION_FREE_METHOD);
-  //使用端到端模型模型进行识别 识别结果将会保存在res里面
- 
-    for(auto st:res) {
-        if(st.confidence>0.75) {
-            std::cout << st.getPlateName() << " " << st.confidence << std::endl;
-          //输出识别结果 、识别置信度
-            cv::Rect region = st.getPlateRect();
-          //获取车牌位置
- cv::rectangle(image,cv::Point(region.x,region.y),cv::Point(region.x+region.width,region.y+region.height),cv::Scalar(255,255,0),2);
-          //画出车牌位置
-          
-        }
+- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中
+- 需要从根目录中进入到子工程**Prj-Linux**文件夹中进行操作
+```bash
+# 进入到子工程demo
+cd Prj-Linux
+# 创建build文件夹并进入
+mkdir build & cd build
+# 开始编译
+cmake .. & make -j
+```
+编译完成后生成可执行程序**PlateRecDemo**，执行运行测试
+```bash
+# 传入模型文件夹路径和需要预测的图像执行程序
+./PlateRecDemo ../hyperlpr3/resource/models/r2_mobile ../hyperlpr3/resource/images/test_img.jpg
+```
+### Linux/Mac快速使用SDK代码示例
+```C
+// 读取图像
+cv::Mat image = cv::imread(image_path);
+// 创建ImageData
+HLPR_ImageData data = {0};
+data.data = image.ptr<uint8_t>(0);      // 设置图像数据流
+data.width = image.cols;                   // 设置图像宽
+data.height = image.rows;                  // 设置图像高
+data.format = STREAM_BGR;                  // 设置当前图像编码格式
+data.rotation = CAMERA_ROTATION_0;         // 设置当前图像转角
+// 创建数据Buffer
+P_HLPR_DataBuffer buffer = HLPR_CreateDataBuffer(&data);
+
+// 配置车牌识别参数
+HLPR_ContextConfiguration configuration = {0};
+configuration.models_path = model_path;         // 模型文件夹路径
+configuration.max_num = 5;                      // 最大识别车牌数量
+configuration.det_level = DETECT_LEVEL_LOW;     // 检测器等级
+configuration.use_half = false;
+configuration.nms_threshold = 0.5f;             // 非极大值抑制置信度阈值
+configuration.rec_confidence_threshold = 0.5f;  // 车牌号文本阈值
+configuration.box_conf_threshold = 0.30f;       // 检测器阈值
+configuration.threads = 1;
+// 实例化车牌识别算法Context
+P_HLPR_Context ctx = HLPR_CreateContext(&configuration);
+// 查询实例化状态
+HREESULT ret = HLPR_ContextQueryStatus(ctx);
+if (ret != HResultCode::Ok) {
+    printf("create error.\n");
+    return -1;
+}
+HLPR_PlateResultList results = {0};
+// 执行车牌识别算法
+HLPR_ContextUpdateStream(ctx, buffer, &results);
+
+for (int i = 0; i < results.plate_size; ++i) {
+	// 解析识别后的数据
+    std::string type;
+    if (results.plates[i].type == HLPR_PlateType::PLATE_TYPE_UNKNOWN) {
+        type = "未知";
+    } else {
+        type = TYPES[results.plates[i].type];
     }
 
-    cv::imshow("image",image);
-    cv::waitKey(0);
-    return 0 ;
+    printf("<%d> %s, %s, %f\n", i + 1, type.c_str(),
+           results.plates[i].code, results.plates[i].text_confidence);
 }
+
+// 销毁Buffer
+HLPR_ReleaseDataBuffer(buffer);
+// 销毁Context
+HLPR_ReleaseContext(ctx);
 ```
+
+### Android编译动态链接库
+- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中
+```bash
+# 执行编译脚本
+sh command/build_release_android_share.sh
+```
+编译完成后android的动态库会放置于**build/release_android/**，其中包含：
+- arm64-v8a 64位的动态库
+- armeabi-v7a 32位的动态库
+
+完成Android的动态库编译后，将**arm64-v8a**和**armeabi-v7a**文件夹放置于子项目路径**Prj-Android/hyperlpr3/libs**中，再编译android项目即可使用。**Prj-Android**项目中已内置hyperlpr3的SDK与使用demo。
 
 ###  
 
 ### 可识别和待支持的车牌的类型
 
+#### 支持
 - [x] 单行蓝牌
 - [x] 单行黄牌
 - [x] 新能源车牌
+- [x] 教练车牌
+#### 有限支持
 - [x] 白色警用车牌
 - [x] 使馆/港澳车牌
-- [x] 教练车牌
-- [ ] 武警车牌
-- [ ] 民航车牌
 - [x] 双层黄牌
+- [x] 武警车牌
+#### 待支持
+- [ ] 民航车牌
 - [ ] 双层武警
 - [ ] 双层军牌
 - [ ] 双层农用车牌
@@ -181,36 +238,12 @@ int main(){
 
 ###### Note:由于训练的时候样本存在一些不均衡的问题,一些特殊车牌存在一定识别率低下的问题，如(使馆/港澳车牌)，会在后续的版本进行改进。
 
-### 测试样例
 
-![image](./demo_images/demo1.png)
-
-![image](./demo_images/demo2.jpg)
-
-#### Android示例
-
-![android](./demo_images/android.png)
-
-### 识别测试APP
+### 识别测试APP（老版）
 
 - 体验 Android APP：[http://demo.zeusee.com/HyperLPR](http://demo.zeusee.com/HyperLPR) (根据图片尺寸调整程序中的尺度，提高准确率)
 
 #### 获取帮助
 
-- HyperAI讨论QQ群: 529385694
+- HyperAI讨论QQ群: 529385694，加前请备注HyperLPR交流
 
-### 作者和贡献者信息：
-
-##### 作者昵称不分前后
-
-- Jack Yu 作者(jack-yu-business@foxmail.com / https://github.com/szad670401)
-- 肖潇 (xiaoxiao@xidian.edu.cn)
-- AlanNewImage v2版win工程、python双层完善 (https://github.com/AlanNewImage)
-- lsy17096535 整理(https://github.com/lsy17096535)
-- xiaojun123456 IOS贡献(https://github.com/xiaojun123456)
-- sundyCoder Android第三方贡献(https://github.com/sundyCoder)
-- coleflowers php贡献(@coleflowers)
-- Free&Easy 资源贡献 
-- 海豚嘎嘎 LBP cascade检测器训练
-- Windows工程端到端模型 (https://github.com/SalamanderEyes)
-- Android实时扫描实现 (https://github.com/lxhAndSmh)
