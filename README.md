@@ -113,7 +113,7 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 
 ### C/C++编译依赖库
 
-编译C/C++工程需要使用第三方依赖库，将库下载后解压，并将其通过拷贝或软链接放入根目录(与CMakeLists.txt同级)即可，依赖的库下载地址：[百度网盘](https://pan.baidu.com/s/1hLzumPbrrnuI__CYv_ognA) code: kdae
+编译C/C++工程需要使用第三方依赖库，将库下载后解压，并将其通过拷贝或软链接放入根目录(与CMakeLists.txt同级)即可，依赖的库下载地址：[百度网盘](https://pan.baidu.com/s/138O2bSlPN0H81OYP6zc3yQ) code: 5duf
 
 ### Linux/Mac动态链接库编译
 
