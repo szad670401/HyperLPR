@@ -13,6 +13,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/hyperlpr3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/hyperlpr3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +26,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -120,7 +125,7 @@
       <workItem from="1677220611638" duration="33000" />
       <workItem from="1677457111481" duration="10241000" />
       <workItem from="1677496149958" duration="6514000" />
-      <workItem from="1677562836387" duration="3000" />
+      <workItem from="1677562836387" duration="1469000" />
     </task>
     <servers />
   </component>

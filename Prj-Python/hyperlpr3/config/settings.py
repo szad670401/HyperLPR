@@ -8,7 +8,7 @@ if 'win32' in sys.platform:
 else:
     _DEFAULT_FOLDER_ = os.path.join(os.environ['HOME'], ".hyperlpr3")
 
-_ONLINE_URL_ = "https://tunm.oss-cn-hangzhou.aliyuncs.com/hyperlpr3/"
+_ONLINE_URL_ = "http://hyperlpr.tunm.top/raw/"
 
 onnx_runtime_config = dict(
     det_model_path_320x=os.path.join(_MODEL_VERSION_, "onnx", "y5fu_320x_sim.onnx"),

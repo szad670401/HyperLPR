@@ -3,7 +3,10 @@ from .inference.pipeline import LPRMultiTaskPipeline
 from .common.typedef import *
 from os.path import join
 from .config.settings import _DEFAULT_FOLDER_
+from .config.configuration import initialization
 
+
+initialization()
 
 class LicensePlateCatcher(object):
 

@@ -42,17 +42,22 @@ def down_model_zip(url, save_path, is_unzip=False):
         os.remove(name)
 
 
+# def initialization(re_download=False):
+#     models_dir = os.path.join(_DEFAULT_FOLDER_, _MODEL_VERSION_, "onnx")
+#     os.makedirs(models_dir, exist_ok=True)
+#     for model_key in onnx_model_maps:
+#         save_path = onnx_runtime_config[model_key]
+#         basename = os.path.basename(save_path)
+#         remote_url = os.path.join(_REMOTE_URL_, basename + "?raw=true")
+#         down_path = os.path.join(models_dir, basename)
+#         if not os.path.exists(down_path) or re_download:
+#             down_model_file(remote_url, down_path)
+
 def initialization(re_download=False):
-    models_dir = os.path.join(_DEFAULT_FOLDER_, _MODEL_VERSION_, "onnx")
-    os.makedirs(models_dir, exist_ok=True)
-    for model_key in onnx_model_maps:
-        save_path = onnx_runtime_config[model_key]
-        basename = os.path.basename(save_path)
-        remote_url = os.path.join(_REMOTE_URL_, basename + "?raw=true")
-        down_path = os.path.join(models_dir, basename)
-        if not os.path.exists(down_path) or re_download:
-            down_model_file(remote_url, down_path)
+    os.makedirs(_DEFAULT_FOLDER_, exist_ok=True)
+    models_dir = os.path.join(_DEFAULT_FOLDER_, _MODEL_VERSION_)
     # print(models_dir)
-    # if not os.path.exists(models_dir) or re_download:
-    #     target_url = os.path.join(_ONLINE_URL_, _MODEL_VERSION_) + '.zip'
-    #     down_model_zip(target_url, _DEFAULT_FOLDER_, True)
+    if not os.path.exists(models_dir) or re_download:
+        target_url = os.path.join(_ONLINE_URL_, _MODEL_VERSION_) + '.zip'
+        down_model_zip(target_url, _DEFAULT_FOLDER_, True)
+
