@@ -139,9 +139,9 @@ sh command/build_release_linux_share.sh
 # 进入到子工程demo
 cd Prj-Linux
 # 创建build文件夹并进入
-mkdir build & cd build
+mkdir build && cd build
 # 开始编译
-cmake .. & make -j
+cmake .. && make -j
 ```
 编译完成后生成可执行程序**PlateRecDemo**，执行运行测试
 ```bash
