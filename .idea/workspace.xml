@@ -12,11 +12,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/Prj-Python/demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resource/font/platech.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/config/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Python/hyperlpr3/hyperlpr3.py" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Python/hyperlpr3/hyperlpr3.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,17 +61,17 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resource/font" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resource/font" />
       <recent name="$PROJECT_DIR$/images" />
       <recent name="$PROJECT_DIR$/resource/models" />
       <recent name="$PROJECT_DIR$/resource/models/r2_mobile" />
       <recent name="$PROJECT_DIR$/command" />
-      <recent name="$PROJECT_DIR$/cpp/samples" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Prj-Python" />
@@ -125,7 +123,7 @@
       <workItem from="1677220611638" duration="33000" />
       <workItem from="1677457111481" duration="10241000" />
       <workItem from="1677496149958" duration="6514000" />
-      <workItem from="1677562836387" duration="1469000" />
+      <workItem from="1677562836387" duration="5926000" />
     </task>
     <servers />
   </component>
