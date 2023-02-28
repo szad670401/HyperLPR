@@ -7,31 +7,12 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/values/themes.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/AndroidManifest.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/assets/r2_mobile/rpv3_mdict_160_r3.mnn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/images/apk.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/CameraActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/CameraActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/java/com/hyperai/hyperlpr_sdk_demo/MainActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/app/src/main/res/values/strings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/hyperlpr3/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/assets/r2_mobile/rpv3_mdict_160h.mnn" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/HyperLPR3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/HyperLPR3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/api/APIDefine.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/api/APIDefine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/core/HyperLPRCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/hyperlpr3/src/main/java/com/hyperai/hyperlpr3/core/HyperLPRCore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Prj-Android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/Prj-Android/settings.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpp/platform/jni/android/hyperlpr_native.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cpp/platform/jni/android/hyperlpr_native.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cpp/src/context_module/hyper_lpr_context.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +22,6 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -78,7 +58,7 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -99,9 +79,9 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
     <configuration name="hyperlpr3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="HyperLPR3-Source" TARGET_NAME="hyperlpr3" CONFIG_NAME="Debug">
@@ -140,6 +120,7 @@
       <workItem from="1677220611638" duration="33000" />
       <workItem from="1677457111481" duration="10241000" />
       <workItem from="1677496149958" duration="6514000" />
+      <workItem from="1677562836387" duration="3000" />
     </task>
     <servers />
   </component>

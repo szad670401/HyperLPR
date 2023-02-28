@@ -241,9 +241,7 @@ sh command/build_release_android_share.sh
 
 ### 识别测试APP
 
-- 体验 Android APP（扫码下载）：
-
-![apk](./images/apk.png)
+- 体验 Android APP：[APK下载](https://github.com/szad670401/HyperLPR/blob/master/apk/hyperlpr3-demo.apk?raw=true)
 
 #### 获取帮助
 
