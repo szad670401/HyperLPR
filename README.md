@@ -239,7 +239,7 @@ sh command/build_release_android_share.sh
 ###### Note:由于训练的时候样本存在一些不均衡的问题,一些特殊车牌存在一定识别率低下的问题，如(使馆/港澳车牌)，会在后续的版本进行改进。
 
 
-### 识别测试APP（老版）
+### 识别测试APP
 
 - 体验 Android APP（扫码下载）：
 
