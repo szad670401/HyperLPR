@@ -17,7 +17,7 @@
 
 ```bash
 # 使用命令行测试 - 图像url地址
-lpr3 sample -src https://tunm.oss-cn-hangzhou.aliyuncs.com/hyperlpr3/test_folder/plate_test.png
+lpr3 sample -src https://koss.iyong.com/swift/v1/iyong_public/iyong_2596631159095872/image/20190221/1550713902741045679.jpg
 
 # 使用命令行测试 - 本地图像路径
 lpr3 sample -src images/test_img.jpg -det high

@@ -12,9 +12,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4be586f9-7a61-4585-994f-eaa32375497d" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/Prj-Python/demo.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resource/font/platech.ttf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,7 @@
       <workItem from="1677220611638" duration="33000" />
       <workItem from="1677457111481" duration="10241000" />
       <workItem from="1677496149958" duration="6514000" />
-      <workItem from="1677562836387" duration="5926000" />
+      <workItem from="1677562836387" duration="7087000" />
     </task>
     <servers />
   </component>
