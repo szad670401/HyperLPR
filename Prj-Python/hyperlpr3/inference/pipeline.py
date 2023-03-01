@@ -6,10 +6,11 @@ from hyperlpr3.common.tools_process import *
 
 class LPRMultiTaskPipeline(object):
 
-    def __init__(self, detector, recognizer, classifier):
+    def __init__(self, detector, recognizer, classifier, full_result=False):
         self.detector = detector
         self.recognizer = recognizer
         self.classifier = classifier
+        self.full_result = full_result
 
     def run(self, image: np.ndarray) -> list:
         result = list()
@@ -56,7 +57,10 @@ class LPRMultiTaskPipeline(object):
                         plate_type = GREEN
                 plate = Plate(vertex=land_marks, plate_code=plate_code, det_bound_box=np.asarray(rect),
                               rec_confidence=rec_confidence, dex_bound_confidence=score, plate_type=plate_type)
-                result.append(plate.to_result())
+                if self.full_result:
+                    result.append(plate.to_full_result())
+                else:
+                    result.append(plate.to_result())
 
         return result
 

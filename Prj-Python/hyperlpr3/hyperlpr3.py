@@ -14,7 +14,8 @@ class LicensePlateCatcher(object):
                  inference: int = INFER_ONNX_RUNTIME,
                  folder: str = _DEFAULT_FOLDER_,
                  detect_level: int = DETECT_LEVEL_LOW,
-                 logger_level: int = 3):
+                 logger_level: int = 3,
+                 full_result: bool = False):
         if inference == INFER_ONNX_RUNTIME:
             from hyperlpr3.inference.multitask_detect import MultiTaskDetectorORT
             from hyperlpr3.inference.recognition import PPRCNNRecognitionORT
@@ -31,7 +32,7 @@ class LicensePlateCatcher(object):
                 raise NotImplemented
             rec = PPRCNNRecognitionORT(join(folder, ort_cfg['rec_model_path']), input_size=(48, 160))
             cls = ClassificationORT(join(folder, ort_cfg['cls_model_path']), input_size=(96, 96))
-            self.pipeline = LPRMultiTaskPipeline(detector=det, recognizer=rec, classifier=cls)
+            self.pipeline = LPRMultiTaskPipeline(detector=det, recognizer=rec, classifier=cls, full_result=full_result)
         else:
             raise NotImplemented
 

@@ -72,6 +72,9 @@ class Plate(object):
     def to_result(self):
         return [self.plate_code, self.rec_confidence, self.plate_type, self.det_bound_box.tolist(),]
 
+    def to_full_result(self):
+        return [self.plate_code, self.rec_confidence, self.plate_type, self.det_bound_box.tolist(), self.vertex.tolist()]
+
     def __dict__(self):
         return self.to_dict()
 
