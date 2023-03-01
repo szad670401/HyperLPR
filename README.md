@@ -113,7 +113,7 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 - MacOS: x86
 - Android: arm64-v8a、armeabi-v7a
   
-#### 开发板
+### 开发板
 - Rockchip: rv1109rv1126(RKNPU)
 
 ### CPP 依赖
