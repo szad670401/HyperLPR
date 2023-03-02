@@ -1,110 +1,107 @@
 ![logo_t](./images/logo.png)
 
-## HyperLPR3   高性能开源中文车牌识别框架
+## HyperLPR3 - High Performance License Plate Recognition Framework.
 
-#### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/)
+#### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/) 
+[中文文档](README_CH.md)
 
-### 一键安装
+### Fast Install
 
 `python -m pip install hyperlpr3`
 
-###### 支持python3, 支持Windows  Mac Linux 树莓派等。
+###### support：python3, Windows, Mac, Linux, Raspberry Pi。
 
 
 ###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
 
-#### 快速体验
+#### Fast Test
 
 ```bash
-# 使用命令行测试 - 图像url地址
+# image url
 lpr3 sample -src https://koss.iyong.com/swift/v1/iyong_public/iyong_2596631159095872/image/20190221/1550713902741045679.jpg
 
-# 使用命令行测试 - 本地图像路径
+# image path
 lpr3 sample -src images/test_img.jpg -det high
 ```
 
-#### 快速上手
+#### Fast Use
 
 ```python
-# 导入opencv库
+# import opencv
 import cv2
-# 导入依赖包
+# import hyperlpr3
 import hyperlpr3 as lpr3
 
-# 实例化识别对象
+# Instantiate object
 catcher = lpr3.LicensePlateCatcher()
-# 读取图片
+# load image
 image = cv2.imread("images/test_img.jpg")
-# 识别结果
+# print result
 print(catcher(image))
 
 ``` 
-#### 启动WebApi服务
+#### Start the WebAPI service
 
 ```bash
-# 启动服务
+# start server
 lpr3 rest --port 8715 --host 0.0.0.0
 ```
-启动后可打开SwaggerUI的路径：[http://localhost:8715/api/v1/docs](http://localhost:8715/api/v1/docs) 查看和测试在线识别API服务:
+Path to open SwaggerUI after startup：[http://localhost:8715/api/v1/docs](http://localhost:8715/api/v1/docs) View and test the online Identification API service:
 
 ![swagger_ui](./images/swagger-ui.png)
 
 
 #### Q&A
 
-Q：Android识别率没有所传demo apk的识别率高？
+Q：Whether the accuracy of android in the project is consistent with that of apk-demo？
 
-A：请自行编译或从release中下载安卓动态库放置于Prj-Android中进行测试。
+A：Please compile or download the Android shared library from the release and copy it to Prj-Android for testing。
 
-Q：车牌的训练数据来源？
+Q：Source of training data for license plates？
 
-A：由于用于训练车牌数据涉及到法律隐私等问题，本项目无法提供。开放较为大的数据集有[CCPD](https://github.com/detectRecog/CCPD)车牌数据集。
+A：Since the license plate data used for training involves legal privacy and other issues, it cannot be provided in this project. Open more big data sets [CCPD](https://github.com/detectRecog/CCPD) registration dataset。
 
-Q：训练代码的提供？
+Q：Provision of training code？
 
-A：相关资源中有提供老版的训练代码，HyperLPR3的训练方法会陆续整理并给出。
-
-Q：关于项目的来源？
-
-A：此项目来源于作者早期的研究和调试代码，代码缺少一定的规范，同时也欢迎PR。
+A：The resources provide the old training code, and the training methods for HyperLPR3 will be sorted out and presented later。
 
 
-#### 相关资源
+#### Resources
 
 - [五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
 
 - [Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
 
-- 待补充...欢迎投稿
+- To be added... Contributions welcome
 
-#### 其他版本
+#### Other versions
 
-- [HyperLPRv1版](https://github.com/szad670401/HyperLPR/tree/v1)
+- [HyperLPRv1](https://github.com/szad670401/HyperLPR/tree/v1)
 
-- [HyperLPRv2版](https://github.com/szad670401/HyperLPR/tree/v2)
+- [HyperLPRv2](https://github.com/szad670401/HyperLPR/tree/v2)
 
 ### TODO
 
-- 支持快速部署WebApi服务
-- 支持多种车牌以及双层
-- 支持大角度车牌
-- 轻量级识别模型
+- Support for rapid deployment of WebApi services
+- Support multiple license plates and double layers
+- Support large Angle license plate
+- Lightweight recognition model
 
 
-### 特性
+### Specialty
 
-- 速度快 720p,单核 Intel 2.2G CPU (MaBook Pro 2015)平均识别时间低于100ms
-- 基于端到端的车牌识别无需进行字符分割
-- 识别率高,卡口场景准确率在95%-97%左右
-- 支持跨平台编译和快速部署
+- 720p faster, single core Intel 2.2G CPU (MaBook Pro 2015) average recognition time is less than 100ms
+- End-to-end license plate recognition does not require character segmentation
+- The recognition rate is high, and the accuracy of the entrance and exit scene is about 95%-97%
+- Support cross-platform compilation and rapid deployment
 
-### 注意事项:
+### Matters Need Attention:
 
-- 本项目的C++实现和Python实现无任何关联，都为单独实现
-- 在编译C++工程的时候必须要使用OpenCV 4.0和MNN 2.0以上版本，否则无法编译 
-- 安卓工程编译ndk尽量采用21版本
+- The C++ and Python implementations of this project are separate
+- When compiling C++ projects, OpenCV 4.0 and MNN 2.0 must be used, otherwise it will not compile
+- Android project compilation ndk as far as possible to use version 21
 
-### Python 依赖
+### Python Dependency
 - opencv-python (>3.3)
 - onnxruntime (>1.8.1)
 - fastapi (0.92.0)
@@ -114,99 +111,99 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 - tqdm
 - requests 
 
-### 跨平台支持
+### Cross-platform support
 
-#### 平台
+#### Platform
 - Linux: x86、Armv7、Armv8
 - MacOS: x86
 - Android: arm64-v8a、armeabi-v7a
   
-#### 开发板
+#### Embedded Development Board
 - Rockchip: rv1109rv1126(RKNPU)
 
-### CPP 依赖
+### CPP Dependency
 
-- Opencv 4.0 以上版本
-- MNN 2.0 以上版本
+- Opencv 4.0 above
+- MNN 2.0 above
 
-### C/C++编译依赖库
+### C/C++ Compiling dependencies
 
-编译C/C++工程需要使用第三方依赖库，将库下载后解压，并将其通过拷贝或软链接放入根目录(与CMakeLists.txt同级)即可，依赖的库下载地址：[百度网盘](https://pan.baidu.com/s/138O2bSlPN0H81OYP6zc3yQ) code: 5duf
+Compiling C/C++ projects requires the use of third-party dependency libraries. After downloading the library, unzip it, and put it into the root directory (the same level as CMakeLists.txt) by copying or soft linking.[baidu drive](https://pan.baidu.com/s/138O2bSlPN0H81OYP6zc3yQ) code: 5duf
 
-### Linux/Mac动态链接库编译
+### Linux/Mac Shared Library Compilation
 
-- 需要将依赖库放置或链接在项目根目录下(与CMakeLists.txt同级)
+- Need to place or link dependencies in the project root (same level as CMakeLists.txt)
 
 ```bash
-# 执行编译脚本
+# execute the script
 sh command/build_release_linux_share.sh
 
 ```
-编译后的相关物料放置于根目录下**build/linux/install/hyperlpr3**中，其中包含：
-- include 头文件
-- lib 动态库路径
-- resource 包含测试图片与模型等静态资源
+Compiled to the **build/linux/install/hyperlpr3** dir，Which contains：
+- include - header file
+- lib - shared dir
+- resource - test-images and models dir
 
-按需取走需要的文件即可
+Copy the files you need into your project
 
-### Linux/Mac编译Demo
+### Linux/Mac Compiling the Demo
 
-- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中
-- 需要从根目录中进入到子工程**Prj-Linux**文件夹中进行操作
+- You need to complete the compilation action of the previous step，And ensure that the compilation is successful and the compiled file is placed in the root directory: **build/linux/install/hyperlpr3**
+- Go to the **Prj-Linux** folder
 ```bash
-# 进入到子工程demo
+# go to Prj-linux
 cd Prj-Linux
-# 创建build文件夹并进入
+# make build and enter
 mkdir build && cd build
-# 开始编译
+# Start compiling
 cmake .. && make -j
 ```
-编译完成后生成可执行程序**PlateRecDemo**，执行运行测试
+The executable program is generated after compilation: **PlateRecDemo**，and Run the program
 ```bash
-# 传入模型文件夹路径和需要预测的图像执行程序
+# first param models dir, second param image path
 ./PlateRecDemo ../hyperlpr3/resource/models/r2_mobile ../hyperlpr3/resource/images/test_img.jpg
 ```
-### Linux/Mac快速使用SDK代码示例
+### Linux/Mac Quick use SDK code example
 ```C
-// 读取图像
+// Load image
 cv::Mat image = cv::imread(image_path);
-// 创建ImageData
+// Create a ImageData
 HLPR_ImageData data = {0};
-data.data = image.ptr<uint8_t>(0);      // 设置图像数据流
-data.width = image.cols;                   // 设置图像宽
-data.height = image.rows;                  // 设置图像高
-data.format = STREAM_BGR;                  // 设置当前图像编码格式
-data.rotation = CAMERA_ROTATION_0;         // 设置当前图像转角
-// 创建数据Buffer
+data.data = image.ptr<uint8_t>(0);         // Setting the image data flow
+data.width = image.cols;                   // Setting the image width
+data.height = image.rows;                  // Setting the image height
+data.format = STREAM_BGR;                  // Setting the current image encoding format
+data.rotation = CAMERA_ROTATION_0;         // Setting the current image corner
+// Create a Buffer
 P_HLPR_DataBuffer buffer = HLPR_CreateDataBuffer(&data);
 
-// 配置车牌识别参数
+// Configure license plate recognition parameters
 HLPR_ContextConfiguration configuration = {0};
-configuration.models_path = model_path;         // 模型文件夹路径
-configuration.max_num = 5;                      // 最大识别车牌数量
-configuration.det_level = DETECT_LEVEL_LOW;     // 检测器等级
+configuration.models_path = model_path;         // Model folder path
+configuration.max_num = 5;                      // Maximum number of license plates
+configuration.det_level = DETECT_LEVEL_LOW;     // Level of detector
 configuration.use_half = false;
-configuration.nms_threshold = 0.5f;             // 非极大值抑制置信度阈值
-configuration.rec_confidence_threshold = 0.5f;  // 车牌号文本阈值
-configuration.box_conf_threshold = 0.30f;       // 检测器阈值
+configuration.nms_threshold = 0.5f;             // Non-maxima suppress the confidence threshold
+configuration.rec_confidence_threshold = 0.5f;  // License plate number text threshold
+configuration.box_conf_threshold = 0.30f;       // Detector threshold
 configuration.threads = 1;
-// 实例化车牌识别算法Context
+// Instantiating a Context
 P_HLPR_Context ctx = HLPR_CreateContext(&configuration);
-// 查询实例化状态
+// Query the Context state
 HREESULT ret = HLPR_ContextQueryStatus(ctx);
 if (ret != HResultCode::Ok) {
     printf("create error.\n");
     return -1;
 }
 HLPR_PlateResultList results = {0};
-// 执行车牌识别算法
+// Execute LPR
 HLPR_ContextUpdateStream(ctx, buffer, &results);
 
 for (int i = 0; i < results.plate_size; ++i) {
-	// 解析识别后的数据
+	// Getting results
     std::string type;
     if (results.plates[i].type == HLPR_PlateType::PLATE_TYPE_UNKNOWN) {
-        type = "未知";
+        type = “Unknown";
     } else {
         type = TYPES[results.plates[i].type];
     }
@@ -215,27 +212,27 @@ for (int i = 0; i < results.plate_size; ++i) {
            results.plates[i].code, results.plates[i].text_confidence);
 }
 
-// 销毁Buffer
+// Release Buffer
 HLPR_ReleaseDataBuffer(buffer);
-// 销毁Context
+// Release Context
 HLPR_ReleaseContext(ctx);
 ```
 
-### Android编译动态链接库
-- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中
+### Android: Compile the Shared Library
+- The first step is to install third-party dependencies
 ```bash
-# 执行编译脚本
+# execute the script
 sh command/build_release_android_share.sh
 ```
-编译完成后android的动态库会放置于**build/release_android/**，其中包含：
-- arm64-v8a 64位的动态库
-- armeabi-v7a 32位的动态库
+Compiled to the: **build/release_android/**，Which contains：
+- arm64-v8a - 64bit shard library
+- armeabi-v7a - 32bit shard library
 
-完成Android的动态库编译后，将**arm64-v8a**和**armeabi-v7a**文件夹放置于子项目路径**Prj-Android/hyperlpr3/libs**中，再编译android项目即可使用。**Prj-Android**项目中已内置hyperlpr3的SDK与使用demo。
+After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hyperlpr3/libs**，And compile the **Prj-Android** project to use.
 
 ###  
 
-### 可识别和待支持的车牌的类型
+### License plate type is supported(Chinese)
 
 #### 支持
 - [x] 单行蓝牌
@@ -253,15 +250,16 @@ sh command/build_release_android_share.sh
 - [ ] 双层军牌
 - [ ] 双层农用车牌
 - [ ] 双层个性化车牌
+- [ ] License plates from more countries
 
-###### Note:由于训练的时候样本存在一些不均衡的问题,一些特殊车牌存在一定识别率低下的问题，如(使馆/港澳车牌)，会在后续的版本进行改进。
+###### Note:Due to some imbalanced samples during training, some special license plates have low recognition rates, such as (Embassy/Hong Kong and Macao license plates), which will be improved in the subsequent versions.
 
 
-### 识别测试APP
+### Demo APP Install
 
-- 体验 Android APP：[扫码下载](http://fir.tunm.top/hyperlpr)
+- Android APP：[Scan Code](http://fir.tunm.top/hyperlpr)
 
-#### 获取帮助
+#### Help
 
-- HyperAI讨论QQ群: 529385694，加前请备注HyperLPR交流
+- HyperAI QQ Group: 529385694
 
