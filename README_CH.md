@@ -264,5 +264,5 @@ sh command/build_release_android_share.sh
 
 #### 获取帮助
 
-- HyperAI讨论QQ群: 529385694，加前请备注HyperLPR交流
+- HyperInspire讨论QQ群: 529385694，加前请备注HyperLPR交流
 

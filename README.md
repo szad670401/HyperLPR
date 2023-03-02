@@ -261,5 +261,5 @@ After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hype
 
 #### Help
 
-- HyperAI QQ Group: 529385694
+- HyperInspire QQ Group: 529385694
 
