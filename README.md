@@ -77,7 +77,7 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 
 - 待补充...欢迎投稿
 
-#### 老版本
+#### 其他版本
 
 - [HyperLPRv1版](https://github.com/szad670401/HyperLPR/tree/v1)
 
