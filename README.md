@@ -71,9 +71,9 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 
 #### 相关资源
 
-- [五分钟搞定: 中文车牌识别光速部署与使用](https://mp.csdn.net/mp_blog/creation/editor/new/129258107)
+- [五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
 
-- [Linux/MacOS使用：C/C++库编译](https://mp.csdn.net/mp_blog/creation/editor/new/129295679)
+- [Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
 
 - 待补充...欢迎投稿
 
