@@ -5,7 +5,7 @@
 #### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/) 
 [中文文档](README_CH.md)
 
-### Fast Install
+### Quick installation
 
 `python -m pip install hyperlpr3`
 
@@ -14,7 +14,7 @@
 
 ###### 720p cpu real-time (st on MBP r15 2.2GHz haswell).
 
-#### Fast Test
+#### Quick Test
 
 ```bash
 # image url
@@ -24,7 +24,7 @@ lpr3 sample -src https://koss.iyong.com/swift/v1/iyong_public/iyong_259663115909
 lpr3 sample -src images/test_img.jpg -det high
 ```
 
-#### Fast Use
+#### How to Use
 
 ```python
 # import opencv
@@ -74,7 +74,7 @@ A：The resources provide the old training code, and the training methods for Hy
 
 - To be added... Contributions welcome
 
-#### Other versions
+#### Other Versions
 
 - [HyperLPRv1](https://github.com/szad670401/HyperLPR/tree/v1)
 
@@ -126,7 +126,7 @@ A：The resources provide the old training code, and the training methods for Hy
 - Opencv 4.0 above
 - MNN 2.0 above
 
-### C/C++ Compiling dependencies
+### C/C++ Compiling Dependencies
 
 Compiling C/C++ projects requires the use of third-party dependency libraries. After downloading the library, unzip it, and put it into the root directory (the same level as CMakeLists.txt) by copying or soft linking.[baidu drive](https://pan.baidu.com/s/138O2bSlPN0H81OYP6zc3yQ) code: 5duf
 
@@ -163,7 +163,7 @@ The executable program is generated after compilation: **PlateRecDemo**，and Ru
 # first param models dir, second param image path
 ./PlateRecDemo ../hyperlpr3/resource/models/r2_mobile ../hyperlpr3/resource/images/test_img.jpg
 ```
-### Linux/Mac Quick use SDK code example
+### Linux/Mac Quick Use SDK Code Example
 ```C
 // Load image
 cv::Mat image = cv::imread(image_path);
@@ -232,7 +232,7 @@ After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hype
 
 ###  
 
-### License plate type is supported(Chinese)
+### License Plate Type is Supported(Chinese)
 
 #### 支持
 - [x] 单行蓝牌
