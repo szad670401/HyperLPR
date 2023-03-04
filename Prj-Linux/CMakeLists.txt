@@ -3,7 +3,14 @@ project(HyperLPR3-LinuxDemo)
 
 set(CMAKE_CXX_STANDARD 11)
 
+if (APPLE)
+    set(PLAT darwin)
+else()
+    set(PLAT linux)
+endif ()
+
 # use opencv
+set(OpenCV_DIR ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty_hyper_inspire_op/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
