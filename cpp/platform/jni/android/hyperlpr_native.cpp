@@ -148,7 +148,7 @@ JNIEXPORT jobjectArray JNICALL HYPERLPR_API(core_HyperLPRCore_PlateRecognitionFr
         env->CallVoidMethod(jPlate, setConfidenceMethodId, plate.text_confidence);
         // set in plate code
         //        env->CallObjectMethod(jPlate, setCodeMethodId, stringTojstring(env, plate.code));
-        env->CallObjectMethod(jPlate, setCodeMethodId, env->NewStringUTF(plate.code));
+        env->CallVoidMethod(jPlate, setCodeMethodId, env->NewStringUTF(plate.code));
 
         env->SetObjectArrayElement(jPlateArray, i, jPlate);
         env->DeleteLocalRef(jPlate);
