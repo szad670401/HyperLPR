@@ -223,6 +223,8 @@ HLPR_ReleaseContext(ctx);
 
 ### Android编译动态链接库
 - 需要完成上面的步骤：安装第三方依赖库
+- 需要提前下载NDK并配置环境变量：$ANDROID_NDK
+- 支持在Linux/MacOS下进行交叉编译
 ```bash
 # 执行编译脚本
 sh command/build_release_android_share.sh

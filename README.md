@@ -220,6 +220,8 @@ HLPR_ReleaseContext(ctx);
 
 ### Android: Compile the Shared Library
 - The first step is to install third-party dependencies
+- You need to prepare NDKS and configure environment variables: $ANDROID_NDK
+- Supports cross-compilation on Linux/MacOS
 ```bash
 # execute the script
 sh command/build_release_android_share.sh
@@ -257,7 +259,7 @@ After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hype
 
 ### Demo APP Install
 
-- Android APP：[Scan Code](http://fir.tunm.top/hyperlpr)
+- Android APP：[Scan QR Code](http://fir.tunm.top/hyperlpr)
 
 #### Help
 
