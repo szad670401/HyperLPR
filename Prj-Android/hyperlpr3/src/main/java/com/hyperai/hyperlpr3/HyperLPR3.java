@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.util.Log;
 
 import com.hyperai.hyperlpr3.api.APIDefine;
-import com.hyperai.hyperlpr3.bean.Parameter;
+import com.hyperai.hyperlpr3.bean.HyperLPRParameter;
 import com.hyperai.hyperlpr3.bean.Plate;
 import com.hyperai.hyperlpr3.core.HyperLPRCore;
 import com.hyperai.hyperlpr3.settings.TypeDefine;
@@ -14,27 +14,25 @@ import com.hyperai.hyperlpr3.utils.SDKUtils;
 
 public class HyperLPR3 extends TypeDefine implements APIDefine {
 
-    private final String TAG = "HyperLPR3";
+    private final String TAG = "HyperLPR3-SDK";
 
     private final HyperLPRCore mCore;
 
-    private final Context mContext;
+    private boolean isInitSuccess;
 
-    public HyperLPR3(Context mContext, Parameter parameter) {
-        this.mContext = mContext;
-        String mResourceFolderPath = mContext.getExternalFilesDir(null).getAbsolutePath() + "/";
-        SDKUtils.copyFilesFromAssets(mContext, SDKConfig.packDirName, mResourceFolderPath);
-        Log.i(TAG, "resource: " + mResourceFolderPath);
-        if (parameter.getModelPath() == null || "".equals(parameter.getModelPath())) {
-            parameter.setModelPath(mResourceFolderPath);
-        }
+    private HyperLPR3() {
         mCore = new HyperLPRCore();
-        mCore.createRecognizerContext(parameter);
+        isInitSuccess = false;
     }
 
-    public Context getContext() {
-        return mContext;
+    private static class LazyHolder {
+        private static final HyperLPR3 INSTANCE = new HyperLPR3();
     }
+
+    public static final HyperLPR3 getInstance() {
+        return LazyHolder.INSTANCE;
+    }
+
 
     public void release() {
         mCore.release();
@@ -44,6 +42,26 @@ public class HyperLPR3 extends TypeDefine implements APIDefine {
     protected void finalize() throws Throwable {
         super.finalize();
         release();
+    }
+
+    /**
+     * Initialize the license plate recognition algorithm SDK
+     *
+     * @param context   context
+     * @param parameter Initialization parameter
+     */
+    @Override
+    public void init(Context context, HyperLPRParameter parameter) {
+        if (!isInitSuccess) {
+            String mResourceFolderPath = context.getExternalFilesDir(null).getAbsolutePath() + "/";
+            SDKUtils.copyFilesFromAssets(context, SDKConfig.packDirName, mResourceFolderPath);
+            Log.i(TAG, "resource: " + mResourceFolderPath);
+            if (parameter.getModelPath() == null || "".equals(parameter.getModelPath())) {
+                parameter.setModelPath(mResourceFolderPath);
+            }
+            mCore.createRecognizerContext(parameter);
+            isInitSuccess = true;
+        }
     }
 
     /**
@@ -58,6 +76,10 @@ public class HyperLPR3 extends TypeDefine implements APIDefine {
      */
     @Override
     public Plate[] plateRecognition(byte[] buf, int height, int width, int rotation, int format) {
+        if (!isInitSuccess) {
+            Log.e(TAG, "HyperLPR3 is uninitialized.");
+            return new Plate[0];
+        }
         return mCore.plateRecognitionFromBuffer(buf, height, width, rotation, format);
     }
 
@@ -71,6 +93,10 @@ public class HyperLPR3 extends TypeDefine implements APIDefine {
      */
     @Override
     public Plate[] plateRecognition(Bitmap image, int rotation, int format) {
+        if (!isInitSuccess) {
+            Log.e(TAG, "HyperLPR3 is uninitialized.");
+            return new Plate[0];
+        }
         int mWidth = image.getWidth();
         int mHeight = image.getHeight();
         int[] data = new int[image.getWidth() * image.getHeight()];

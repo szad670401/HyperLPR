@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.hyperai.hyperlpr3.HyperLPR3;
-import com.hyperai.hyperlpr3.bean.Parameter;
+import com.hyperai.hyperlpr3.bean.HyperLPRParameter;
 import com.hyperai.hyperlpr3.bean.Plate;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;
@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imageView;
 
     private TextView mResult;
-
-    HyperLPR3 hyperLPR3;
 
 
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
@@ -81,8 +79,13 @@ public class MainActivity extends AppCompatActivity {
         verifyStoragePermissions(this);
 
 
-        Parameter parameter = new Parameter();
-        hyperLPR3 = new HyperLPR3(mCtx, parameter);
+        // 车牌识别算法配置参数
+        HyperLPRParameter parameter = new HyperLPRParameter()
+                .setDetLevel(HyperLPR3.DETECT_LEVEL_LOW)
+                .setMaxNum(1)
+                .setRecConfidenceThreshold(0.85f);
+        // 初始化(仅执行一次生效)
+        HyperLPR3.getInstance().init(this, parameter);
 
         ISNav.getInstance().init(new ImageLoader() {
             @Override
@@ -158,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         if (bitmap != null) {
 
             imageView.setImageBitmap(bitmap);
-            Plate[] plates = hyperLPR3.plateRecognition(bitmap, HyperLPR3.CAMERA_ROTATION_0, HyperLPR3.STREAM_BGRA);
+            Plate[] plates =  HyperLPR3.getInstance().plateRecognition(bitmap, HyperLPR3.CAMERA_ROTATION_0, HyperLPR3.STREAM_BGRA);
             for (Plate plate: plates) {
                 String type = "未知车牌";
                 if (plate.getType() != HyperLPR3.PLATE_TYPE_UNKNOWN) {

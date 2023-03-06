@@ -2,7 +2,7 @@ package com.hyperai.hyperlpr3.bean;
 
 import com.hyperai.hyperlpr3.settings.TypeDefine;
 
-public class Parameter {
+public class HyperLPRParameter {
 
     private String modelPath;
 
@@ -14,76 +14,86 @@ public class Parameter {
 
     private float nmsThreshold = 0.6f;
 
-    private float recConfidenceThreshold = 0.75f;
+    private float recConfidenceThreshold = 0.85f;
 
     private int detLevel = TypeDefine.DETECT_LEVEL_LOW;
 
     private int maxNum = 3;
 
-    public Parameter() {
+    public HyperLPRParameter() {
     }
 
     public int getMaxNum() {
         return maxNum;
     }
 
-    public void setMaxNum(int maxNum) {
+    public HyperLPRParameter setMaxNum(int maxNum) {
         this.maxNum = maxNum;
+        return this;
     }
 
     public String getModelPath() {
         return modelPath;
     }
 
-    public void setModelPath(String modelPath) {
+    public HyperLPRParameter setModelPath(String modelPath) {
         this.modelPath = modelPath;
+        return this;
     }
 
     public int getThreads() {
         return threads;
     }
 
-    public void setThreads(int threads) {
+    public HyperLPRParameter setThreads(int threads) {
         this.threads = threads;
+        return this;
     }
 
     public boolean isUseHalf() {
         return useHalf;
     }
 
-    public void setUseHalf(boolean useHalf) {
+    public HyperLPRParameter setUseHalf(boolean useHalf) {
         this.useHalf = useHalf;
+        return this;
     }
 
     public float getBoxConfThreshold() {
         return boxConfThreshold;
     }
 
-    public void setBoxConfThreshold(float boxConfThreshold) {
+    public HyperLPRParameter setBoxConfThreshold(float boxConfThreshold) {
         this.boxConfThreshold = boxConfThreshold;
+        return this;
     }
 
     public float getNmsThreshold() {
         return nmsThreshold;
     }
 
-    public void setNmsThreshold(float nmsThreshold) {
+    public HyperLPRParameter setNmsThreshold(float nmsThreshold) {
         this.nmsThreshold = nmsThreshold;
+        return this;
     }
 
     public float getRecConfidenceThreshold() {
         return recConfidenceThreshold;
     }
 
-    public void setRecConfidenceThreshold(float recConfidenceThreshold) {
+    public HyperLPRParameter setRecConfidenceThreshold(float recConfidenceThreshold) {
         this.recConfidenceThreshold = recConfidenceThreshold;
+        return this;
     }
 
     public int getDetLevel() {
         return detLevel;
     }
 
-    public void setDetLevel(int detLevel) {
+    public HyperLPRParameter setDetLevel(int detLevel) {
         this.detLevel = detLevel;
+        return this;
     }
+
+
 }

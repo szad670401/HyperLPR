@@ -1,8 +1,6 @@
 package com.hyperai.hyperlpr_sdk_demo;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.hardware.Camera;
 import android.os.Handler;
@@ -20,11 +18,10 @@ import android.view.WindowManager;
 import org.greenrobot.eventbus.EventBus;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.hyperai.hyperlpr3.HyperLPR3;
-import com.hyperai.hyperlpr3.bean.Parameter;
+import com.hyperai.hyperlpr3.bean.HyperLPRParameter;
 import com.hyperai.hyperlpr3.bean.Plate;
 
 /**
@@ -45,8 +42,6 @@ public class CameraPreviews extends SurfaceView implements SurfaceHolder.Callbac
 
     private Context mContext;
 
-    HyperLPR3 hyperLPR3;
-
     public CameraPreviews(Context context) {
         super(context);
         mContext = context;
@@ -57,8 +52,9 @@ public class CameraPreviews extends SurfaceView implements SurfaceHolder.Callbac
         mPaint.setStyle(Paint.Style.STROKE);
 //        mPaint.setColor(ContextCompat.getColor(context, R.color.colorAccent));
 
-        Parameter parameter = new Parameter();
-        hyperLPR3 = new HyperLPR3(mContext, parameter);
+        HyperLPRParameter parameter = new HyperLPRParameter();
+//        hyperLPR3 = new HyperLPR3();
+//        hyperLPR3.init(mContext, parameter);
     }
     public Camera getCameraInstance(){
         if (mCamera == null){
@@ -135,16 +131,12 @@ public class CameraPreviews extends SurfaceView implements SurfaceHolder.Callbac
         synchronized (lock){
             // 处理data
             Camera.Size previewSize = camera.getParameters().getPreviewSize();
-
-//            String save_path = mContext.getExternalFilesDir(null).getAbsolutePath() + "/" + "a.jpg";
-//            core.testBuffer(save_path, data, previewSize.height, previewSize.width, 3);
-            Plate[] plates = hyperLPR3.plateRecognition(data, previewSize.height, previewSize.width, HyperLPR3.CAMERA_ROTATION_270, HyperLPR3.STREAM_YUV_NV21);
+            Plate[] plates = HyperLPR3.getInstance().plateRecognition(data, previewSize.height, previewSize.width, HyperLPR3.CAMERA_ROTATION_270, HyperLPR3.STREAM_YUV_NV21);
             for (Plate plate : plates) {
                 Log.i(TAG,  "" + plate.toString());
             }
 
             if(!isStopReg && plates.length > 0) {
-
 //                isStopReg = true;
                 sendPlate(plates);
             }

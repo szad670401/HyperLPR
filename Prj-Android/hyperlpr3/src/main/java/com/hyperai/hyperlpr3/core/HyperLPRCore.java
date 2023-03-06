@@ -2,7 +2,7 @@ package com.hyperai.hyperlpr3.core;
 
 import android.util.Log;
 
-import com.hyperai.hyperlpr3.bean.Parameter;
+import com.hyperai.hyperlpr3.bean.HyperLPRParameter;
 import com.hyperai.hyperlpr3.bean.Plate;
 
 public class HyperLPRCore {
@@ -17,11 +17,7 @@ public class HyperLPRCore {
 
     private boolean isRunning_;
 
-//    public void testBuffer(String savePath, byte[] buf, int height, int width, int rotation) {
-//        TestBuffer(savePath, buf, height, width, rotation);
-//    }
-
-    public void createRecognizerContext(Parameter parameter) {
+    public void createRecognizerContext(HyperLPRParameter parameter) {
         ctxHandle_ = CreateRecognizerContext(parameter);
         Log.i(TAG, "HANDLE: " + ctxHandle_);
         isRunning_ = true;
@@ -49,7 +45,7 @@ public class HyperLPRCore {
 
 //    native void TestBuffer(String savePath, byte[] buf, int height, int width, int rotation);
 
-    native long CreateRecognizerContext(Parameter parameterObj);
+    native long CreateRecognizerContext(HyperLPRParameter parameterObj);
 
     native int ReleaseRecognizerContext(long handle);
 
