@@ -72,6 +72,8 @@ A：The resources provide the old training code, and the training methods for Hy
 
 - [Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
 
+- [Android使用：SDK编译与部署](https://blog.csdn.net/weixin_40193776/article/details/129354938)
+
 - To be added... Contributions welcome
 
 #### Other Versions
