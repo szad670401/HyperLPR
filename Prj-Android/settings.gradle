@@ -4,9 +4,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
-        maven { url "https://jitpack.io" }
+        maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "HyperLPR_SDK_Demo"
+rootProject.name = "HyperLPR3-Example"
 include ':app'
-include ':hyperlpr3'
