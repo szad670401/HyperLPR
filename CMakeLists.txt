@@ -2,7 +2,6 @@ cmake_minimum_required(VERSION 3.10.2)
 project(HyperLPR3-Source)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -fno-builtin")
 
 set(LIBRARY_NAME hyperlpr3)
 
@@ -86,8 +85,8 @@ else ()
             set(PLAT linux)
         endif ()
         # MNN Third party dependence
-        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}-static/include)
-        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}-static/lib)
+        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/include)
+        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/lib)
         # OpenCV Third party dependence
         set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
         set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/include/opencv4)
@@ -148,6 +147,12 @@ endif()
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR}/install/hyperlpr3)
 message(CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX})
 install(DIRECTORY resource DESTINATION ./)
+if (APPLE)
+    install(FILES ${MNN_LIBS}/libMNN.dylib DESTINATION ./lib)
+else()
+    install(FILES ${MNN_LIBS}/libMNN.so DESTINATION ./lib)
+endif ()
+
 if (BUILD_SAMPLES)
     install(TARGETS ContextSample DESTINATION ./bin)
     install(TARGETS CAPISample DESTINATION ./bin)
