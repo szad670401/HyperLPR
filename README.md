@@ -70,7 +70,7 @@ A：The resources provide the old training code, and the training methods for Hy
 
 - [HyperLPR3车牌识别-五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
 
-- [HyperLPR3车牌识别-五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
+- [HyperLPR3车牌识别-Android-SDK光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129394240)
 
 - [HyperLPR3车牌识别-Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
 
