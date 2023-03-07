@@ -71,12 +71,13 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 
 #### 相关资源
 
-- [五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
+- [HyperLPR3车牌识别-五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
 
-- [Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
+- [HyperLPR3车牌识别-五分钟搞定: 中文车牌识别光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129258107)
 
-- [Android使用：SDK编译与部署](https://blog.csdn.net/weixin_40193776/article/details/129354938)
+- [HyperLPR3车牌识别-Linux/MacOS使用：C/C++库编译](https://blog.csdn.net/weixin_40193776/article/details/129295679)
 
+- [HyperLPR3车牌识别-Android-SDK光速部署与使用](https://blog.csdn.net/weixin_40193776/article/details/129394240)
 - 待补充...欢迎投稿
 
 #### 其他版本
