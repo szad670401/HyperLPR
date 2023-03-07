@@ -19,4 +19,4 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/hyperlpr3/include)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/hyperlpr3/lib)
 
 add_executable(PlateRecDemo ${CMAKE_CURRENT_SOURCE_DIR}/plate_rec_demo.cpp)
-target_link_libraries(PlateRecDemo hyperlpr3 ${OpenCV_LIBS})
+target_link_libraries(PlateRecDemo hyperlpr3 ${OpenCV_LIBS} m)
