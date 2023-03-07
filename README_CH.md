@@ -247,7 +247,7 @@ sh command/build_release_android_share.sh
 
 - 步骤 1. 将JitPack仓库添加到构建文件中。将其添加到根构建中。在仓库末尾添加Gradle:
 
-```
+```java
 allprojects {
 	repositories {
 		...
