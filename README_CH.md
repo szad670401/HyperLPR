@@ -237,7 +237,45 @@ sh command/build_release_android_share.sh
 
 完成Android的动态库编译后，将**arm64-v8a**和**armeabi-v7a**文件夹放置于子项目路径**Prj-Android/hyperlpr3/libs**中，再编译android项目即可使用。**Prj-Android**项目中已内置hyperlpr3的SDK与使用demo。
 
-###  
+### Android-SDK示例工程
+
+我们提供了一个Android-SDK相关的Demo工程：[hyperlpr3-android-sdk](https://github.com/HyperInspire/hyperlpr3-android-sdk.git)，您可以根据需求去编译动态库使用该项目。
+
+### 在Android中快速集成HyperLPR
+
+如果你需要快速将我们的sdk集成到你自己的Android项目中，那么你可以将以下依赖添加到项目的build.gradle中:
+
+- 步骤 1. 将JitPack仓库添加到构建文件中。将其添加到根构建中。在仓库末尾添加Gradle:
+
+```bash
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+- 步骤 2. 添加以下依赖
+```bash
+dependencies {
+	        implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.2'
+	}
+```
+
+- 步骤 3. 在应用程序中使用hyperlpr
+
+```java
+// 初始化通常在程序初始化时执行，只需执行一次
+HyperLPR3.getInstance().init(this, new HyperLPRParameter());
+
+…
+
+// 识别一张图像
+Plate[] plates =  HyperLPR3.getInstance().plateRecognition(bitmap, HyperLPR3.CAMERA_ROTATION_0, HyperLPR3.STREAM_BGRA);
+```
+
+关于快速集成到安卓工程可以查看: **[Prj-Android](./Prj-Android)**
 
 ### 可识别和待支持的车牌的类型(中文)
 

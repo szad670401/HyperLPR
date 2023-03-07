@@ -234,7 +234,46 @@ Compiled to the: **build/release_android/**，Which contains：
 
 After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hyperlpr3/libs**，And compile the **Prj-Android** project to use.
 
-###  
+### Android SDK Demo
+
+We have provided a demo project from the Android SDK source: [hyperlpr3-android-sdk](https://github.com/HyperInspire/hyperlpr3-android-sdk.git)，You can compile the shared library and use the project as needed.
+
+### Quick to use in Android
+
+If you need to quickly integrate our sdk in your own Android project, then you can add the following dependency to your project's build.gradle:
+
+- Step 1. Add the JitPack repository to your build file.Add it in your root build.gradle at the end of repositories:
+
+```bash
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+- Step 2. Add the dependency
+```bash
+dependencies {
+	        implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.2'
+	}
+```
+
+- Step 3. Use hyperlpr in your application
+
+```java
+// Initialization, which can be performed only once, is usually performed at program initialization
+HyperLPR3.getInstance().init(this, new HyperLPRParameter());
+
+…
+
+// exec recognition
+Plate[] plates =  HyperLPR3.getInstance().plateRecognition(bitmap, HyperLPR3.CAMERA_ROTATION_0, HyperLPR3.STREAM_BGRA);
+```
+
+Know more about: **[Prj-Android](./Prj-Android)**
+
 
 ### License Plate Type is Supported(Chinese)
 
