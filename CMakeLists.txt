@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 3.10.2)
 project(HyperLPR3-Source)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 set(LIBRARY_NAME hyperlpr3)
 
