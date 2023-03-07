@@ -41,7 +41,7 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp/platform)
 # must use mnn
 add_definitions("-DINFERENCE_HELPER_ENABLE_MNN")
 
-set(LINK_THIRD_LIBS pthread MNN)
+set(LINK_THIRD_LIBS pthread MNN m)
 
 if (ANDROID)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
