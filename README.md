@@ -5,7 +5,11 @@
 #### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/) 
 [中文文档](README_CH.md)
 
-### Quick installation
+### Demo APP Installation
+
+- Android APP：[Scan QR Code](http://fir.tunm.top/hyperlpr)
+
+### Quick Installation
 
 `python -m pip install hyperlpr3`
 
@@ -299,10 +303,6 @@ Know more about: **[Prj-Android](./Prj-Android)**
 
 ###### Note:Due to some imbalanced samples during training, some special license plates have low recognition rates, such as (Embassy/Hong Kong and Macao license plates), which will be improved in the subsequent versions.
 
-
-### Demo APP Install
-
-- Android APP：[Scan QR Code](http://fir.tunm.top/hyperlpr)
 
 ### Example
 

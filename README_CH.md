@@ -4,6 +4,11 @@
 
 #### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/)
 
+
+### 快速体验APP
+
+- 体验 Android APP：[扫码下载](http://fir.tunm.top/hyperlpr)
+
 ### 一键安装
 
 `python -m pip install hyperlpr3`
@@ -300,10 +305,6 @@ Plate[] plates =  HyperLPR3.getInstance().plateRecognition(bitmap, HyperLPR3.CAM
 
 ###### Note:由于训练的时候样本存在一些不均衡的问题,一些特殊车牌存在一定识别率低下的问题，如(使馆/港澳车牌)，会在后续的版本进行改进。
 
-
-### 识别测试APP
-
-- 体验 Android APP：[扫码下载](http://fir.tunm.top/hyperlpr)
 
 ### 效果示例
 
