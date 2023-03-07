@@ -155,13 +155,13 @@ Copy the files you need into your project
 ```bash
 # go to Prj-linux
 cd Prj-Linux
-# make build and enter
-mkdir build && cd build
-# Start compiling
-cmake .. && make -j
+# exec sh
+sh build.sh
 ```
 The executable program is generated after compilation: **PlateRecDemo**，and Run the program
 ```bash
+# go to build
+cd build/
 # first param models dir, second param image path
 ./PlateRecDemo ../hyperlpr3/resource/models/r2_mobile ../hyperlpr3/resource/images/test_img.jpg
 ```
