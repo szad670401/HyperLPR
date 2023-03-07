@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10.2)
 project(HyperLPR3-Source)
 
 set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-builtin")
 
 set(LIBRARY_NAME hyperlpr3)
 
@@ -44,7 +45,7 @@ add_definitions("-DINFERENCE_HELPER_ENABLE_MNN")
 set(LINK_THIRD_LIBS pthread MNN m)
 
 if (ANDROID)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-builtin")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
     set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     file(GLOB_RECURSE NATIVE_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/platform/jni/android/*.cpp)
