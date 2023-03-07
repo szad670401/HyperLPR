@@ -246,7 +246,7 @@ If you need to quickly integrate our sdk in your own Android project, then you c
 
 - Step 1. Add the JitPack repository to your build file.Add it in your root build.gradle at the end of repositories:
 
-```java
+```Java
 allprojects {
     repositories {
         ...
@@ -256,7 +256,7 @@ allprojects {
 ```
 
 - Step 2. Add the dependency
-```
+```Java
 dependencies {
     implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.3'
 }
@@ -264,7 +264,7 @@ dependencies {
 
 - Step 3. Use hyperlpr in your application
 
-```
+```Java
 // Initialization, which can be performed only once, is usually performed at program initialization
 HyperLPR3.getInstance().init(this, new HyperLPRParameter());
 

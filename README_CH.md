@@ -248,7 +248,7 @@ sh command/build_release_android_share.sh
 
 - 步骤 1. 将JitPack仓库添加到构建文件中。将其添加到根构建中。在仓库末尾添加Gradle:
 
-```java
+```Java
 allprojects {
 	repositories {
 		...
@@ -258,7 +258,7 @@ allprojects {
 ```
 
 - 步骤 2. 添加以下依赖
-```
+```Java
 dependencies {
 	  implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.3'
 }
@@ -266,7 +266,7 @@ dependencies {
 
 - 步骤 3. 在应用程序中使用hyperlpr
 
-```java
+```Java
 // 初始化通常在程序初始化时执行，只需执行一次
 HyperLPR3.getInstance().init(this, new HyperLPRParameter());
 
