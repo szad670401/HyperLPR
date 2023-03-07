@@ -259,7 +259,7 @@ allprojects {
 - 步骤 2. 添加以下依赖
 ```
 dependencies {
-	  implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.2'
+	  implementation 'com.github.HyperInspire:hyperlpr3-android-sdk:1.0.3'
 }
 ```
 
