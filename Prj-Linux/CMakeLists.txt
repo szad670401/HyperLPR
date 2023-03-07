@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10.2)
 project(HyperLPR3-LinuxDemo)
 
 set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -fno-builtin")
+set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS} -fno-builtin")
 
 if (APPLE)
     set(PLAT darwin)
