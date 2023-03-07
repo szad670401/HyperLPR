@@ -302,6 +302,10 @@ Know more about: **[Prj-Android](./Prj-Android)**
 
 - Android APP：[Scan QR Code](http://fir.tunm.top/hyperlpr)
 
+### Example
+
+![demo](./images/demo.png)
+
 #### Help
 
 - HyperInspire QQ Group: 529385694

@@ -14,7 +14,7 @@ def draw_plate_on_image(img, box, text, font):
     cv2.rectangle(img, (x1, y1 - 20), (x2, y1), (139, 139, 102), -1)
     data = Image.fromarray(img)
     draw = ImageDraw.Draw(data)
-    draw.text((x1 + 1, y1 - 18), text, (255, 255, 255), font=font)
+    draw.text((x1 + 5, y1 - 20), text, (255, 255, 255), font=font)
     res = np.asarray(data)
 
     return res
@@ -26,7 +26,7 @@ font_ch = ImageFont.truetype("../resource/font/platech.ttf", 20, 0)
 # 实例化识别对象
 catcher = lpr3.LicensePlateCatcher(detect_level=lpr3.DETECT_LEVEL_HIGH)
 # 读取图片
-image = cv2.imread("/Users/tunm/datasets/boundingbox/[[359, 1292], [487, 1292], [487, 1324], [359, 1324]].jpg")
+image = cv2.imread("/Users/tunm/Downloads/tlj.webp")
 
 # 执行识别算法
 results = catcher(image)

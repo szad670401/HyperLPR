@@ -304,6 +304,11 @@ Plate[] plates =  HyperLPR3.getInstance().plateRecognition(bitmap, HyperLPR3.CAM
 
 - 体验 Android APP：[扫码下载](http://fir.tunm.top/hyperlpr)
 
+### 效果示例
+
+![demo](./images/demo.png)
+
+
 #### 获取帮助
 
 - HyperInspire讨论QQ群: 529385694，加前请备注HyperLPR交流
