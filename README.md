@@ -244,7 +244,7 @@ After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hype
 
 If you need to compile with docker, we provide a few ways to compile:
 
-#### Use the Compiled Linux-x86 Shared Library
+#### 1. Compile the Linux-x86 Shared Library using Docker
 
 You need to install docker and docker-compose，Build Image for **hyperlpr_build**:
 

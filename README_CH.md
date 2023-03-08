@@ -247,7 +247,7 @@ sh command/build_release_android_share.sh
 
 如果你需要使用docker编译，我们提供了几种编译方法:
 
-#### Use the Compiled Linux-x86 Shared Library
+#### 1. 使用docker编译Linux-x86动态库
 
 你需要提前安装好docker和docker-compose，并执行脚本构建**hyperlpr_build**的镜像:
 
