@@ -243,6 +243,26 @@ sh command/build_release_android_share.sh
 
 完成Android的动态库编译后，将**arm64-v8a**和**armeabi-v7a**文件夹放置于子项目路径**Prj-Android/hyperlpr3/libs**中，再编译android项目即可使用。**Prj-Android**项目中已内置hyperlpr3的SDK与使用demo。
 
+### 使用Docker进行构建
+
+如果你需要使用docker编译，我们提供了几种编译方法:
+
+#### Use the Compiled Linux-x86 Shared Library
+
+你需要提前安装好docker和docker-compose，并执行脚本构建**hyperlpr_build**的镜像:
+
+```Bash
+docker build -t hyperlpr_build .
+```
+
+开始编译动态库:
+
+```Bash
+docker-compose up build_linux_x86_shared_lib
+```
+
+编译目录: **build/linux**
+
 ### Android-SDK示例工程
 
 我们提供了一个Android-SDK相关的Demo工程：[hyperlpr3-android-sdk](https://github.com/HyperInspire/hyperlpr3-android-sdk.git)，您可以根据需求去编译动态库使用该项目。

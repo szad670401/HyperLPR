@@ -240,6 +240,26 @@ Compiled to the: **build/release_android/**，Which contains：
 
 After compiling，Copy**arm64-v8a**and**armeabi-v7a** dirs to **Prj-Android/hyperlpr3/libs**，And compile the **Prj-Android** project to use.
 
+### Compile with Docker
+
+If you need to compile with docker, we provide a few ways to compile:
+
+#### Use the Compiled Linux-x86 Shared Library
+
+You need to install docker and docker-compose，Build Image for **hyperlpr_build**:
+
+```Bash
+docker build -t hyperlpr_build .
+```
+
+Start compiling the shared library:
+
+```Bash
+docker-compose up build_linux_x86_shared_lib
+```
+
+Build dir: **build/linux**
+
 ### Android SDK Demo
 
 We have provided a demo project from the Android SDK source: [hyperlpr3-android-sdk](https://github.com/HyperInspire/hyperlpr3-android-sdk.git)，You can compile the shared library and use the project as needed.

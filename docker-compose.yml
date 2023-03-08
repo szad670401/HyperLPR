@@ -2,9 +2,9 @@ version: "3"
 services:
   build_linux_x86_shared_lib:
     container_name: hlpr_b_x86
-    image: ubuntu:18.04
+    image: hyperlpr_build
     volumes:
       - .:/work
     working_dir: /work
-    command: bash command/docker_build_linux_x86_shared_lib.sh
+    command: bash command/build_release_linux_share.sh
     tty: true
