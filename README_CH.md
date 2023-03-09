@@ -1,4 +1,4 @@
-![logo_t](./images/logo.png)
+![logo_t](./images/hyperlpr_logo.png)
 
 ## HyperLPR3   高性能开源中文车牌识别框架
 
