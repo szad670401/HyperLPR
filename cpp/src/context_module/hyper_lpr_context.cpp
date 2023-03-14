@@ -19,8 +19,6 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
     m_plate_detector_->Detection(process_image, true, 1.0f);
     PlateResultList().swap(m_object_results_);
     auto &detect_results = m_plate_detector_->m_results_;
-//    cv::imwrite("/storage/emulated/0/Android/data/com.hyperai.hyperlpr_sdk_demo/files/bug.jpg", process_image);
-
 //    std::sort(detect_results.begin(), detect_results.end(),
 //              [](PlateLocation a, PlateLocation b) { return xyxyArea(a.x1, a.y1, a.x2, a.y2) > xyxyArea(b.x1, b.y1, b.x2, b.y2); });
     //
