@@ -2,7 +2,7 @@
 
 ## HyperLPR3 - High Performance License Plate Recognition Framework.
 
-#### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/) 
+#### [![1](https://badge.fury.io/py/hyperlpr3.svg "title")](https://pypi.org/project/hyperlpr3/)[![1](https://img.shields.io/pypi/pyversions/hyperlpr3.svg "title")](https://pypi.org/manage/project/hyperlpr3/releases/)[![](https://jitpack.io/v/HyperInspire/hyperlpr3-android-sdk.svg)](https://jitpack.io/#HyperInspire/hyperlpr3-android-sdk)
 [中文文档](README_CH.md)
 
 ### Demo APP Installation
