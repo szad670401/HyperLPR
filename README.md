@@ -136,7 +136,7 @@ A：The resources provide the old training code, and the training methods for Hy
 
 ### C/C++ Compiling Dependencies
 
-Compiling C/C++ projects requires the use of third-party dependency libraries. After downloading the library, unzip it, and put it into the root directory (the same level as CMakeLists.txt) by copying or soft linking.[baidu drive](https://pan.baidu.com/s/138O2bSlPN0H81OYP6zc3yQ) code: 5duf
+Compiling C/C++ projects requires the use of third-party dependency libraries. After downloading the library, unzip it, and put it into the root directory (the same level as CMakeLists.txt) by copying or soft linking.[baidu drive](https://pan.baidu.com/s/1zfP2MSsG1jgxB_MjvpwZJQ) code: eu31
 
 ### Linux/Mac Shared Library Compilation
 

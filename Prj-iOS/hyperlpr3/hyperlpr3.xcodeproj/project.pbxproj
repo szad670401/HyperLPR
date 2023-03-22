@@ -1,0 +1,798 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A39EE7A529BF5ADE004973BF /* hyper_lpr_sdk.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE76C29BF5ADE004973BF /* hyper_lpr_sdk.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A39EE7A629BF5ADE004973BF /* hyper_lpr_sdk_internal.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE76D29BF5ADE004973BF /* hyper_lpr_sdk_internal.h */; };
+		A39EE7A729BF5ADE004973BF /* hyper_lpr_sdk.cc in Sources */ = {isa = PBXBuildFile; fileRef = A39EE76E29BF5ADE004973BF /* hyper_lpr_sdk.cc */; };
+		A39EE7A829BF5ADE004973BF /* utils.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77029BF5ADE004973BF /* utils.h */; };
+		A39EE7A929BF5ADE004973BF /* version.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77129BF5ADE004973BF /* version.h */; };
+		A39EE7AA29BF5ADE004973BF /* doc.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77229BF5ADE004973BF /* doc.h */; };
+		A39EE7AB29BF5ADE004973BF /* configuration.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77329BF5ADE004973BF /* configuration.h */; };
+		A39EE7AC29BF5ADE004973BF /* det_backbone.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77629BF5ADE004973BF /* det_backbone.h */; };
+		A39EE7AD29BF5ADE004973BF /* det_arch.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77729BF5ADE004973BF /* det_arch.h */; };
+		A39EE7AE29BF5ADE004973BF /* plate_det_common.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77829BF5ADE004973BF /* plate_det_common.h */; };
+		A39EE7AF29BF5ADE004973BF /* det_header.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE77929BF5ADE004973BF /* det_header.cpp */; };
+		A39EE7B029BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77A29BF5ADE004973BF /* all.h */; };
+		A39EE7B129BF5ADE004973BF /* plate_detector.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE77B29BF5ADE004973BF /* plate_detector.cpp */; };
+		A39EE7B229BF5ADE004973BF /* det_backbone.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE77C29BF5ADE004973BF /* det_backbone.cpp */; };
+		A39EE7B329BF5ADE004973BF /* plate_detector.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77D29BF5ADE004973BF /* plate_detector.h */; };
+		A39EE7B429BF5ADE004973BF /* det_arch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE77E29BF5ADE004973BF /* det_arch.cpp */; };
+		A39EE7B529BF5ADE004973BF /* det_header.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77F29BF5ADE004973BF /* det_header.h */; };
+		A39EE7B629BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78129BF5ADE004973BF /* all.h */; };
+		A39EE7B729BF5ADE004973BF /* plate_classification.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78229BF5ADE004973BF /* plate_classification.h */; };
+		A39EE7B829BF5ADE004973BF /* plate_cls_common.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78329BF5ADE004973BF /* plate_cls_common.h */; };
+		A39EE7B929BF5ADE004973BF /* classification_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE78429BF5ADE004973BF /* classification_engine.cpp */; };
+		A39EE7BA29BF5ADE004973BF /* plate_classification.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE78529BF5ADE004973BF /* plate_classification.cpp */; };
+		A39EE7BB29BF5ADE004973BF /* classification_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78629BF5ADE004973BF /* classification_engine.h */; };
+		A39EE7BC29BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78729BF5ADE004973BF /* all.h */; };
+		A39EE7BD29BF5ADE004973BF /* recognition_commom.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78929BF5ADE004973BF /* recognition_commom.h */; };
+		A39EE7BE29BF5ADE004973BF /* plate_recognition.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78A29BF5ADE004973BF /* plate_recognition.h */; };
+		A39EE7BF29BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78B29BF5ADE004973BF /* all.h */; };
+		A39EE7C029BF5ADE004973BF /* plate_recognition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE78C29BF5ADE004973BF /* plate_recognition.cpp */; };
+		A39EE7C129BF5ADE004973BF /* plate_recognition_tokenize.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78D29BF5ADE004973BF /* plate_recognition_tokenize.h */; };
+		A39EE7C229BF5ADE004973BF /* recognition_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE78E29BF5ADE004973BF /* recognition_engine.cpp */; };
+		A39EE7C329BF5ADE004973BF /* recognition_engine.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78F29BF5ADE004973BF /* recognition_engine.h */; };
+		A39EE7C429BF5ADE004973BF /* log.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79029BF5ADE004973BF /* log.h */; };
+		A39EE7C529BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79229BF5ADE004973BF /* all.h */; };
+		A39EE7C629BF5ADE004973BF /* mnn_adapter.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79329BF5ADE004973BF /* mnn_adapter.h */; };
+		A39EE7C729BF5ADE004973BF /* mnn_adapter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE79429BF5ADE004973BF /* mnn_adapter.cpp */; };
+		A39EE7C829BF5ADE004973BF /* basic_types.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79529BF5ADE004973BF /* basic_types.h */; };
+		A39EE7C929BF5ADE004973BF /* inference_helper_log.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79729BF5ADE004973BF /* inference_helper_log.h */; };
+		A39EE7CA29BF5ADE004973BF /* inference_helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE79829BF5ADE004973BF /* inference_helper.cpp */; };
+		A39EE7CB29BF5ADE004973BF /* inference_helper_mnn.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE79929BF5ADE004973BF /* inference_helper_mnn.cpp */; };
+		A39EE7CC29BF5ADE004973BF /* inference_helper.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79A29BF5ADE004973BF /* inference_helper.h */; };
+		A39EE7CD29BF5ADE004973BF /* inference_helper_mnn.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79B29BF5ADE004973BF /* inference_helper_mnn.h */; };
+		A39EE7CE29BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79D29BF5ADE004973BF /* all.h */; };
+		A39EE7CF29BF5ADE004973BF /* hyper_lpr_context.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE79E29BF5ADE004973BF /* hyper_lpr_context.cpp */; };
+		A39EE7D029BF5ADE004973BF /* hyper_lpr_common.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79F29BF5ADE004973BF /* hyper_lpr_common.h */; };
+		A39EE7D129BF5ADE004973BF /* hyper_lpr_context.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE7A029BF5ADE004973BF /* hyper_lpr_context.h */; };
+		A39EE7D229BF5ADE004973BF /* camera_buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A39EE7A229BF5ADE004973BF /* camera_buffer.cpp */; };
+		A39EE7D329BF5ADE004973BF /* all.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE7A329BF5ADE004973BF /* all.h */; };
+		A39EE7D429BF5ADE004973BF /* camera_buffer.h in Headers */ = {isa = PBXBuildFile; fileRef = A39EE7A429BF5ADE004973BF /* camera_buffer.h */; };
+		A39EE7D529BF5AF0004973BF /* hyper_lpr_sdk.cc in Headers */ = {isa = PBXBuildFile; fileRef = A39EE76E29BF5ADE004973BF /* hyper_lpr_sdk.cc */; };
+		A39EE7D629BF5AF0004973BF /* det_header.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77929BF5ADE004973BF /* det_header.cpp */; };
+		A39EE7D729BF5AF0004973BF /* plate_detector.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77B29BF5ADE004973BF /* plate_detector.cpp */; };
+		A39EE7D829BF5AF0004973BF /* det_backbone.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77C29BF5ADE004973BF /* det_backbone.cpp */; };
+		A39EE7D929BF5AF0004973BF /* det_arch.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE77E29BF5ADE004973BF /* det_arch.cpp */; };
+		A39EE7DA29BF5AF0004973BF /* classification_engine.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78429BF5ADE004973BF /* classification_engine.cpp */; };
+		A39EE7DB29BF5AF0004973BF /* plate_classification.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78529BF5ADE004973BF /* plate_classification.cpp */; };
+		A39EE7DC29BF5AF0004973BF /* plate_recognition.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78C29BF5ADE004973BF /* plate_recognition.cpp */; };
+		A39EE7DD29BF5AF0004973BF /* recognition_engine.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE78E29BF5ADE004973BF /* recognition_engine.cpp */; };
+		A39EE7DE29BF5AF0004973BF /* mnn_adapter.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79429BF5ADE004973BF /* mnn_adapter.cpp */; };
+		A39EE7DF29BF5AF0004973BF /* inference_helper.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79829BF5ADE004973BF /* inference_helper.cpp */; };
+		A39EE7E029BF5AF0004973BF /* inference_helper_mnn.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79929BF5ADE004973BF /* inference_helper_mnn.cpp */; };
+		A39EE7E129BF5AF0004973BF /* hyper_lpr_context.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE79E29BF5ADE004973BF /* hyper_lpr_context.cpp */; };
+		A39EE7E229BF5AF0004973BF /* camera_buffer.cpp in Headers */ = {isa = PBXBuildFile; fileRef = A39EE7A229BF5ADE004973BF /* camera_buffer.cpp */; };
+		A3B04F6B29BF582700D3E3A8 /* hyperlpr3.docc in Sources */ = {isa = PBXBuildFile; fileRef = A3B04F6A29BF582700D3E3A8 /* hyperlpr3.docc */; };
+		A3B04F7129BF582700D3E3A8 /* hyperlpr3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B04F6629BF582700D3E3A8 /* hyperlpr3.framework */; };
+		A3B04F7629BF582700D3E3A8 /* hyperlpr3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3B04F7529BF582700D3E3A8 /* hyperlpr3Tests.m */; };
+		A3B04FF029BF586A00D3E3A8 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B04FEF29BF586A00D3E3A8 /* Metal.framework */; };
+		A3B04FF229BF587100D3E3A8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B04FF129BF587100D3E3A8 /* UIKit.framework */; };
+		A3B04FF429BF58A200D3E3A8 /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B04FF329BF58A200D3E3A8 /* CoreML.framework */; };
+		A3B04FF629BF58AD00D3E3A8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B04FF529BF58AD00D3E3A8 /* Foundation.framework */; };
+		A3B0500729BF597500D3E3A8 /* MNN.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B0500529BF597500D3E3A8 /* MNN.framework */; };
+		A3B0500829BF597500D3E3A8 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3B0500629BF597500D3E3A8 /* opencv2.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A3B04F7229BF582700D3E3A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A3B04F5D29BF582700D3E3A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A3B04F6529BF582700D3E3A8;
+			remoteInfo = hyperlpr3;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A39EE76C29BF5ADE004973BF /* hyper_lpr_sdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hyper_lpr_sdk.h; sourceTree = "<group>"; };
+		A39EE76D29BF5ADE004973BF /* hyper_lpr_sdk_internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hyper_lpr_sdk_internal.h; sourceTree = "<group>"; };
+		A39EE76E29BF5ADE004973BF /* hyper_lpr_sdk.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hyper_lpr_sdk.cc; sourceTree = "<group>"; };
+		A39EE77029BF5ADE004973BF /* utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = utils.h; sourceTree = "<group>"; };
+		A39EE77129BF5ADE004973BF /* version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = version.h; sourceTree = "<group>"; };
+		A39EE77229BF5ADE004973BF /* doc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = doc.h; sourceTree = "<group>"; };
+		A39EE77329BF5ADE004973BF /* configuration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = configuration.h; sourceTree = "<group>"; };
+		A39EE77629BF5ADE004973BF /* det_backbone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = det_backbone.h; sourceTree = "<group>"; };
+		A39EE77729BF5ADE004973BF /* det_arch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = det_arch.h; sourceTree = "<group>"; };
+		A39EE77829BF5ADE004973BF /* plate_det_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_det_common.h; sourceTree = "<group>"; };
+		A39EE77929BF5ADE004973BF /* det_header.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = det_header.cpp; sourceTree = "<group>"; };
+		A39EE77A29BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE77B29BF5ADE004973BF /* plate_detector.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plate_detector.cpp; sourceTree = "<group>"; };
+		A39EE77C29BF5ADE004973BF /* det_backbone.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = det_backbone.cpp; sourceTree = "<group>"; };
+		A39EE77D29BF5ADE004973BF /* plate_detector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_detector.h; sourceTree = "<group>"; };
+		A39EE77E29BF5ADE004973BF /* det_arch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = det_arch.cpp; sourceTree = "<group>"; };
+		A39EE77F29BF5ADE004973BF /* det_header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = det_header.h; sourceTree = "<group>"; };
+		A39EE78129BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE78229BF5ADE004973BF /* plate_classification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_classification.h; sourceTree = "<group>"; };
+		A39EE78329BF5ADE004973BF /* plate_cls_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_cls_common.h; sourceTree = "<group>"; };
+		A39EE78429BF5ADE004973BF /* classification_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = classification_engine.cpp; sourceTree = "<group>"; };
+		A39EE78529BF5ADE004973BF /* plate_classification.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plate_classification.cpp; sourceTree = "<group>"; };
+		A39EE78629BF5ADE004973BF /* classification_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = classification_engine.h; sourceTree = "<group>"; };
+		A39EE78729BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE78929BF5ADE004973BF /* recognition_commom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recognition_commom.h; sourceTree = "<group>"; };
+		A39EE78A29BF5ADE004973BF /* plate_recognition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_recognition.h; sourceTree = "<group>"; };
+		A39EE78B29BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE78C29BF5ADE004973BF /* plate_recognition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = plate_recognition.cpp; sourceTree = "<group>"; };
+		A39EE78D29BF5ADE004973BF /* plate_recognition_tokenize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plate_recognition_tokenize.h; sourceTree = "<group>"; };
+		A39EE78E29BF5ADE004973BF /* recognition_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = recognition_engine.cpp; sourceTree = "<group>"; };
+		A39EE78F29BF5ADE004973BF /* recognition_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recognition_engine.h; sourceTree = "<group>"; };
+		A39EE79029BF5ADE004973BF /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		A39EE79229BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE79329BF5ADE004973BF /* mnn_adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mnn_adapter.h; sourceTree = "<group>"; };
+		A39EE79429BF5ADE004973BF /* mnn_adapter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mnn_adapter.cpp; sourceTree = "<group>"; };
+		A39EE79529BF5ADE004973BF /* basic_types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = basic_types.h; sourceTree = "<group>"; };
+		A39EE79729BF5ADE004973BF /* inference_helper_log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inference_helper_log.h; sourceTree = "<group>"; };
+		A39EE79829BF5ADE004973BF /* inference_helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inference_helper.cpp; sourceTree = "<group>"; };
+		A39EE79929BF5ADE004973BF /* inference_helper_mnn.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = inference_helper_mnn.cpp; sourceTree = "<group>"; };
+		A39EE79A29BF5ADE004973BF /* inference_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inference_helper.h; sourceTree = "<group>"; };
+		A39EE79B29BF5ADE004973BF /* inference_helper_mnn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = inference_helper_mnn.h; sourceTree = "<group>"; };
+		A39EE79D29BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE79E29BF5ADE004973BF /* hyper_lpr_context.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = hyper_lpr_context.cpp; sourceTree = "<group>"; };
+		A39EE79F29BF5ADE004973BF /* hyper_lpr_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hyper_lpr_common.h; sourceTree = "<group>"; };
+		A39EE7A029BF5ADE004973BF /* hyper_lpr_context.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hyper_lpr_context.h; sourceTree = "<group>"; };
+		A39EE7A229BF5ADE004973BF /* camera_buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = camera_buffer.cpp; sourceTree = "<group>"; };
+		A39EE7A329BF5ADE004973BF /* all.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = all.h; sourceTree = "<group>"; };
+		A39EE7A429BF5ADE004973BF /* camera_buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camera_buffer.h; sourceTree = "<group>"; };
+		A3B04F6629BF582700D3E3A8 /* hyperlpr3.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = hyperlpr3.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B04F6A29BF582700D3E3A8 /* hyperlpr3.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = hyperlpr3.docc; sourceTree = "<group>"; };
+		A3B04F7029BF582700D3E3A8 /* hyperlpr3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = hyperlpr3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3B04F7529BF582700D3E3A8 /* hyperlpr3Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = hyperlpr3Tests.m; sourceTree = "<group>"; };
+		A3B04FEF29BF586A00D3E3A8 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		A3B04FF129BF587100D3E3A8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/iOSSupport/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		A3B04FF329BF58A200D3E3A8 /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/CoreML.framework; sourceTree = DEVELOPER_DIR; };
+		A3B04FF529BF58AD00D3E3A8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A3B0500529BF597500D3E3A8 /* MNN.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MNN.framework; sourceTree = "<group>"; };
+		A3B0500629BF597500D3E3A8 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A3B04F6329BF582700D3E3A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B0500829BF597500D3E3A8 /* opencv2.framework in Frameworks */,
+				A3B04FF629BF58AD00D3E3A8 /* Foundation.framework in Frameworks */,
+				A3B04FF429BF58A200D3E3A8 /* CoreML.framework in Frameworks */,
+				A3B04FF229BF587100D3E3A8 /* UIKit.framework in Frameworks */,
+				A3B04FF029BF586A00D3E3A8 /* Metal.framework in Frameworks */,
+				A3B0500729BF597500D3E3A8 /* MNN.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B04F6D29BF582700D3E3A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B04F7129BF582700D3E3A8 /* hyperlpr3.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A39EE76B29BF5ADE004973BF /* c_api */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE76C29BF5ADE004973BF /* hyper_lpr_sdk.h */,
+				A39EE76D29BF5ADE004973BF /* hyper_lpr_sdk_internal.h */,
+				A39EE76E29BF5ADE004973BF /* hyper_lpr_sdk.cc */,
+			);
+			name = c_api;
+			path = ../../cpp/c_api;
+			sourceTree = "<group>";
+		};
+		A39EE76F29BF5ADE004973BF /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE77029BF5ADE004973BF /* utils.h */,
+				A39EE77129BF5ADE004973BF /* version.h */,
+				A39EE77229BF5ADE004973BF /* doc.h */,
+				A39EE77329BF5ADE004973BF /* configuration.h */,
+				A39EE77429BF5ADE004973BF /* nn_implementation_module */,
+				A39EE79029BF5ADE004973BF /* log.h */,
+				A39EE79129BF5ADE004973BF /* nn_module */,
+				A39EE79529BF5ADE004973BF /* basic_types.h */,
+				A39EE79629BF5ADE004973BF /* inference_helper_module */,
+				A39EE79C29BF5ADE004973BF /* context_module */,
+				A39EE7A129BF5ADE004973BF /* buffer_module */,
+			);
+			name = src;
+			path = ../../cpp/src;
+			sourceTree = "<group>";
+		};
+		A39EE77429BF5ADE004973BF /* nn_implementation_module */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE77529BF5ADE004973BF /* detect */,
+				A39EE78029BF5ADE004973BF /* classification */,
+				A39EE78729BF5ADE004973BF /* all.h */,
+				A39EE78829BF5ADE004973BF /* recognition */,
+			);
+			path = nn_implementation_module;
+			sourceTree = "<group>";
+		};
+		A39EE77529BF5ADE004973BF /* detect */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE77629BF5ADE004973BF /* det_backbone.h */,
+				A39EE77729BF5ADE004973BF /* det_arch.h */,
+				A39EE77829BF5ADE004973BF /* plate_det_common.h */,
+				A39EE77929BF5ADE004973BF /* det_header.cpp */,
+				A39EE77A29BF5ADE004973BF /* all.h */,
+				A39EE77B29BF5ADE004973BF /* plate_detector.cpp */,
+				A39EE77C29BF5ADE004973BF /* det_backbone.cpp */,
+				A39EE77D29BF5ADE004973BF /* plate_detector.h */,
+				A39EE77E29BF5ADE004973BF /* det_arch.cpp */,
+				A39EE77F29BF5ADE004973BF /* det_header.h */,
+			);
+			path = detect;
+			sourceTree = "<group>";
+		};
+		A39EE78029BF5ADE004973BF /* classification */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE78129BF5ADE004973BF /* all.h */,
+				A39EE78229BF5ADE004973BF /* plate_classification.h */,
+				A39EE78329BF5ADE004973BF /* plate_cls_common.h */,
+				A39EE78429BF5ADE004973BF /* classification_engine.cpp */,
+				A39EE78529BF5ADE004973BF /* plate_classification.cpp */,
+				A39EE78629BF5ADE004973BF /* classification_engine.h */,
+			);
+			path = classification;
+			sourceTree = "<group>";
+		};
+		A39EE78829BF5ADE004973BF /* recognition */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE78929BF5ADE004973BF /* recognition_commom.h */,
+				A39EE78A29BF5ADE004973BF /* plate_recognition.h */,
+				A39EE78B29BF5ADE004973BF /* all.h */,
+				A39EE78C29BF5ADE004973BF /* plate_recognition.cpp */,
+				A39EE78D29BF5ADE004973BF /* plate_recognition_tokenize.h */,
+				A39EE78E29BF5ADE004973BF /* recognition_engine.cpp */,
+				A39EE78F29BF5ADE004973BF /* recognition_engine.h */,
+			);
+			path = recognition;
+			sourceTree = "<group>";
+		};
+		A39EE79129BF5ADE004973BF /* nn_module */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE79229BF5ADE004973BF /* all.h */,
+				A39EE79329BF5ADE004973BF /* mnn_adapter.h */,
+				A39EE79429BF5ADE004973BF /* mnn_adapter.cpp */,
+			);
+			path = nn_module;
+			sourceTree = "<group>";
+		};
+		A39EE79629BF5ADE004973BF /* inference_helper_module */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE79729BF5ADE004973BF /* inference_helper_log.h */,
+				A39EE79829BF5ADE004973BF /* inference_helper.cpp */,
+				A39EE79929BF5ADE004973BF /* inference_helper_mnn.cpp */,
+				A39EE79A29BF5ADE004973BF /* inference_helper.h */,
+				A39EE79B29BF5ADE004973BF /* inference_helper_mnn.h */,
+			);
+			path = inference_helper_module;
+			sourceTree = "<group>";
+		};
+		A39EE79C29BF5ADE004973BF /* context_module */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE79D29BF5ADE004973BF /* all.h */,
+				A39EE79E29BF5ADE004973BF /* hyper_lpr_context.cpp */,
+				A39EE79F29BF5ADE004973BF /* hyper_lpr_common.h */,
+				A39EE7A029BF5ADE004973BF /* hyper_lpr_context.h */,
+			);
+			path = context_module;
+			sourceTree = "<group>";
+		};
+		A39EE7A129BF5ADE004973BF /* buffer_module */ = {
+			isa = PBXGroup;
+			children = (
+				A39EE7A229BF5ADE004973BF /* camera_buffer.cpp */,
+				A39EE7A329BF5ADE004973BF /* all.h */,
+				A39EE7A429BF5ADE004973BF /* camera_buffer.h */,
+			);
+			path = buffer_module;
+			sourceTree = "<group>";
+		};
+		A3B04F5C29BF582700D3E3A8 = {
+			isa = PBXGroup;
+			children = (
+				A39EE76B29BF5ADE004973BF /* c_api */,
+				A39EE76F29BF5ADE004973BF /* src */,
+				A3B0500529BF597500D3E3A8 /* MNN.framework */,
+				A3B0500629BF597500D3E3A8 /* opencv2.framework */,
+				A3B04F6829BF582700D3E3A8 /* hyperlpr3 */,
+				A3B04F7429BF582700D3E3A8 /* hyperlpr3Tests */,
+				A3B04F6729BF582700D3E3A8 /* Products */,
+				A3B04FEE29BF586A00D3E3A8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A3B04F6729BF582700D3E3A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A3B04F6629BF582700D3E3A8 /* hyperlpr3.framework */,
+				A3B04F7029BF582700D3E3A8 /* hyperlpr3Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A3B04F6829BF582700D3E3A8 /* hyperlpr3 */ = {
+			isa = PBXGroup;
+			children = (
+				A3B04F6A29BF582700D3E3A8 /* hyperlpr3.docc */,
+			);
+			path = hyperlpr3;
+			sourceTree = "<group>";
+		};
+		A3B04F7429BF582700D3E3A8 /* hyperlpr3Tests */ = {
+			isa = PBXGroup;
+			children = (
+				A3B04F7529BF582700D3E3A8 /* hyperlpr3Tests.m */,
+			);
+			path = hyperlpr3Tests;
+			sourceTree = "<group>";
+		};
+		A3B04FEE29BF586A00D3E3A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A3B04FF529BF58AD00D3E3A8 /* Foundation.framework */,
+				A3B04FF329BF58A200D3E3A8 /* CoreML.framework */,
+				A3B04FF129BF587100D3E3A8 /* UIKit.framework */,
+				A3B04FEF29BF586A00D3E3A8 /* Metal.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		A3B04F6129BF582700D3E3A8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A39EE7D529BF5AF0004973BF /* hyper_lpr_sdk.cc in Headers */,
+				A39EE7D629BF5AF0004973BF /* det_header.cpp in Headers */,
+				A39EE7D729BF5AF0004973BF /* plate_detector.cpp in Headers */,
+				A39EE7D829BF5AF0004973BF /* det_backbone.cpp in Headers */,
+				A39EE7D929BF5AF0004973BF /* det_arch.cpp in Headers */,
+				A39EE7DA29BF5AF0004973BF /* classification_engine.cpp in Headers */,
+				A39EE7DB29BF5AF0004973BF /* plate_classification.cpp in Headers */,
+				A39EE7DC29BF5AF0004973BF /* plate_recognition.cpp in Headers */,
+				A39EE7DD29BF5AF0004973BF /* recognition_engine.cpp in Headers */,
+				A39EE7DE29BF5AF0004973BF /* mnn_adapter.cpp in Headers */,
+				A39EE7DF29BF5AF0004973BF /* inference_helper.cpp in Headers */,
+				A39EE7E029BF5AF0004973BF /* inference_helper_mnn.cpp in Headers */,
+				A39EE7E129BF5AF0004973BF /* hyper_lpr_context.cpp in Headers */,
+				A39EE7E229BF5AF0004973BF /* camera_buffer.cpp in Headers */,
+				A39EE7D329BF5ADE004973BF /* all.h in Headers */,
+				A39EE7AA29BF5ADE004973BF /* doc.h in Headers */,
+				A39EE7C429BF5ADE004973BF /* log.h in Headers */,
+				A39EE7D129BF5ADE004973BF /* hyper_lpr_context.h in Headers */,
+				A39EE7B629BF5ADE004973BF /* all.h in Headers */,
+				A39EE7D429BF5ADE004973BF /* camera_buffer.h in Headers */,
+				A39EE7BC29BF5ADE004973BF /* all.h in Headers */,
+				A39EE7AB29BF5ADE004973BF /* configuration.h in Headers */,
+				A39EE7B729BF5ADE004973BF /* plate_classification.h in Headers */,
+				A39EE7B029BF5ADE004973BF /* all.h in Headers */,
+				A39EE7D029BF5ADE004973BF /* hyper_lpr_common.h in Headers */,
+				A39EE7C929BF5ADE004973BF /* inference_helper_log.h in Headers */,
+				A39EE7B529BF5ADE004973BF /* det_header.h in Headers */,
+				A39EE7AD29BF5ADE004973BF /* det_arch.h in Headers */,
+				A39EE7C329BF5ADE004973BF /* recognition_engine.h in Headers */,
+				A39EE7A829BF5ADE004973BF /* utils.h in Headers */,
+				A39EE7CE29BF5ADE004973BF /* all.h in Headers */,
+				A39EE7B829BF5ADE004973BF /* plate_cls_common.h in Headers */,
+				A39EE7C529BF5ADE004973BF /* all.h in Headers */,
+				A39EE7CC29BF5ADE004973BF /* inference_helper.h in Headers */,
+				A39EE7C129BF5ADE004973BF /* plate_recognition_tokenize.h in Headers */,
+				A39EE7B329BF5ADE004973BF /* plate_detector.h in Headers */,
+				A39EE7A929BF5ADE004973BF /* version.h in Headers */,
+				A39EE7C629BF5ADE004973BF /* mnn_adapter.h in Headers */,
+				A39EE7BF29BF5ADE004973BF /* all.h in Headers */,
+				A39EE7AC29BF5ADE004973BF /* det_backbone.h in Headers */,
+				A39EE7C829BF5ADE004973BF /* basic_types.h in Headers */,
+				A39EE7BE29BF5ADE004973BF /* plate_recognition.h in Headers */,
+				A39EE7A629BF5ADE004973BF /* hyper_lpr_sdk_internal.h in Headers */,
+				A39EE7CD29BF5ADE004973BF /* inference_helper_mnn.h in Headers */,
+				A39EE7A529BF5ADE004973BF /* hyper_lpr_sdk.h in Headers */,
+				A39EE7BB29BF5ADE004973BF /* classification_engine.h in Headers */,
+				A39EE7BD29BF5ADE004973BF /* recognition_commom.h in Headers */,
+				A39EE7AE29BF5ADE004973BF /* plate_det_common.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		A3B04F6529BF582700D3E3A8 /* hyperlpr3 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3B04F7A29BF582700D3E3A8 /* Build configuration list for PBXNativeTarget "hyperlpr3" */;
+			buildPhases = (
+				A3B04F6129BF582700D3E3A8 /* Headers */,
+				A3B04F6229BF582700D3E3A8 /* Sources */,
+				A3B04F6329BF582700D3E3A8 /* Frameworks */,
+				A3B04F6429BF582700D3E3A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = hyperlpr3;
+			productName = hyperlpr3;
+			productReference = A3B04F6629BF582700D3E3A8 /* hyperlpr3.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		A3B04F6F29BF582700D3E3A8 /* hyperlpr3Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A3B04F7D29BF582700D3E3A8 /* Build configuration list for PBXNativeTarget "hyperlpr3Tests" */;
+			buildPhases = (
+				A3B04F6C29BF582700D3E3A8 /* Sources */,
+				A3B04F6D29BF582700D3E3A8 /* Frameworks */,
+				A3B04F6E29BF582700D3E3A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A3B04F7329BF582700D3E3A8 /* PBXTargetDependency */,
+			);
+			name = hyperlpr3Tests;
+			productName = hyperlpr3Tests;
+			productReference = A3B04F7029BF582700D3E3A8 /* hyperlpr3Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A3B04F5D29BF582700D3E3A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					A3B04F6529BF582700D3E3A8 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					A3B04F6F29BF582700D3E3A8 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = A3B04F6029BF582700D3E3A8 /* Build configuration list for PBXProject "hyperlpr3" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A3B04F5C29BF582700D3E3A8;
+			productRefGroup = A3B04F6729BF582700D3E3A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A3B04F6529BF582700D3E3A8 /* hyperlpr3 */,
+				A3B04F6F29BF582700D3E3A8 /* hyperlpr3Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A3B04F6429BF582700D3E3A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B04F6E29BF582700D3E3A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A3B04F6229BF582700D3E3A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A39EE7B929BF5ADE004973BF /* classification_engine.cpp in Sources */,
+				A39EE7A729BF5ADE004973BF /* hyper_lpr_sdk.cc in Sources */,
+				A39EE7C729BF5ADE004973BF /* mnn_adapter.cpp in Sources */,
+				A39EE7BA29BF5ADE004973BF /* plate_classification.cpp in Sources */,
+				A39EE7CB29BF5ADE004973BF /* inference_helper_mnn.cpp in Sources */,
+				A39EE7AF29BF5ADE004973BF /* det_header.cpp in Sources */,
+				A39EE7B129BF5ADE004973BF /* plate_detector.cpp in Sources */,
+				A39EE7C029BF5ADE004973BF /* plate_recognition.cpp in Sources */,
+				A39EE7D229BF5ADE004973BF /* camera_buffer.cpp in Sources */,
+				A39EE7CA29BF5ADE004973BF /* inference_helper.cpp in Sources */,
+				A39EE7B229BF5ADE004973BF /* det_backbone.cpp in Sources */,
+				A3B04F6B29BF582700D3E3A8 /* hyperlpr3.docc in Sources */,
+				A39EE7CF29BF5ADE004973BF /* hyper_lpr_context.cpp in Sources */,
+				A39EE7B429BF5ADE004973BF /* det_arch.cpp in Sources */,
+				A39EE7C229BF5ADE004973BF /* recognition_engine.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3B04F6C29BF582700D3E3A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A3B04F7629BF582700D3E3A8 /* hyperlpr3Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A3B04F7329BF582700D3E3A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A3B04F6529BF582700D3E3A8 /* hyperlpr3 */;
+			targetProxy = A3B04F7229BF582700D3E3A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A3B04F7829BF582700D3E3A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A3B04F7929BF582700D3E3A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3B04F7B29BF582700D3E3A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8VUQMG682B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cpp/src";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperai.hyperlpr3.hyperlpr3;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3B04F7C29BF582700D3E3A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 8VUQMG682B;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../cpp/src";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperai.hyperlpr3.hyperlpr3;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A3B04F7E29BF582700D3E3A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8VUQMG682B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperai.hyperlpr3.hyperlpr3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A3B04F7F29BF582700D3E3A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8VUQMG682B;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hyperai.hyperlpr3.hyperlpr3Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A3B04F6029BF582700D3E3A8 /* Build configuration list for PBXProject "hyperlpr3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B04F7829BF582700D3E3A8 /* Debug */,
+				A3B04F7929BF582700D3E3A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3B04F7A29BF582700D3E3A8 /* Build configuration list for PBXNativeTarget "hyperlpr3" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B04F7B29BF582700D3E3A8 /* Debug */,
+				A3B04F7C29BF582700D3E3A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A3B04F7D29BF582700D3E3A8 /* Build configuration list for PBXNativeTarget "hyperlpr3Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A3B04F7E29BF582700D3E3A8 /* Debug */,
+				A3B04F7F29BF582700D3E3A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A3B04F5D29BF582700D3E3A8 /* Project object */;
+}
