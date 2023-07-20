@@ -141,6 +141,7 @@ Compiling C/C++ projects requires the use of third-party dependency libraries. A
 ### Linux/Mac Shared Library Compilation
 
 - Need to place or link dependencies in the project root (same level as CMakeLists.txt)
+- We recommend you to compile OpenCV yourself and install it into the system. This can help reduce compilation errors caused by version mismatches and compiler issues with system dependencies. However, you can also try using the pre-compiled OpenCV static library we provide for compilation. To do this, you need to enable the **LINUX_USE_3RDPARTY_OPENCV** switch.
 
 ```bash
 # execute the script
@@ -156,7 +157,7 @@ Copy the files you need into your project
 
 ### Linux/Mac Compiling the Demo
 
-- You need to complete the compilation action of the previous step，And ensure that the compilation is successful and the compiled file is placed in the root directory: **build/linux/install/hyperlpr3**
+- You need to complete the previous compilation step and ensure it's successful. The compiled files will be located in the root directory: **build/linux/install/hyperlpr3**. You will need to manually copy them to the current directory.
 - Go to the **Prj-Linux** folder
 ```bash
 # go to Prj-linux

@@ -1,13 +1,16 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.14)
 project(HyperLPR3-Source)
 
 set(CMAKE_CXX_STANDARD 11)
 
 set(LIBRARY_NAME hyperlpr3)
 
-option( BUILD_SHARE             "Build shared libs"                 ON )
-option( BUILD_SAMPLES           "Build samples demo"                OFF )
-option( BUILD_TEST              "Build unit-test exec"              OFF )
+option( LINUX_FETCH_MNN             "Fetch and build MNN from git"  ON )
+option( LINUX_USE_3RDPARTY_OPENCV   "Linux platform using pre-compiled OpenCV library from 3rdparty_hyper_inspire_op" OFF)
+option( BUILD_SHARE                 "Build shared libs"                 ON )
+option( BUILD_SAMPLES               "Build samples demo"                OFF )
+option( BUILD_TEST                  "Build unit-test exec"              OFF )
+
 
 set(PATH_3RDPARTY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty_hyper_inspire_op)
 
@@ -84,12 +87,36 @@ else ()
         else()
             set(PLAT linux)
         endif ()
-        # MNN Third party dependence
-        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/include)
-        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/lib)
-        # OpenCV Third party dependence
-        set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
-        set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/include/opencv4)
+
+        # Fetch MNN from git if the option is enabled
+        if (LINUX_FETCH_MNN)
+            # Include FetchContent module
+            include(FetchContent)
+            # Fetch MNN
+            message("Downloading MNN from https://github.com/alibaba/MNN.git, this may take a while.")
+            FetchContent_Declare(
+                    mnn
+                    GIT_REPOSITORY https://github.com/alibaba/MNN.git
+                    GIT_TAG        2.2.0
+            )
+            set(MNN_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
+            set(MNN_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
+
+            FetchContent_MakeAvailable(mnn)
+            set(MNN_INCLUDE_DIRS ${mnn_SOURCE_DIR}/include)
+            set(MNN_LIBS ${mnn_BINARY_DIR})
+        else()
+            # MNN Third party dependence
+            set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/include)
+            set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/lib)
+        endif()
+
+
+        if(LINUX_USE_3RDPARTY_OPENCV)
+            # OpenCV Third party dependence （static）
+            set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
+            set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/include/opencv4)
+        endif()
         find_package(OpenCV REQUIRED)
 
     endif()
@@ -126,8 +153,6 @@ if (NOT ANDROID)
             message([Test]Open Benchmark Test)
             add_definitions(-DENABLE_BENCHMARK_TEST)
         endif ()
-#        # catch2
-        include_directories(${PATH_3RDPARTY}/catch2)
         file(GLOB_RECURSE TEST_C_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/test/*.cpp)
         add_executable(UnitTest ${TEST_C_CPP_FILES} ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
         target_link_libraries(UnitTest ${OpenCV_LIBS} ${LINK_THIRD_LIBS})
@@ -146,22 +171,17 @@ endif()
 
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR}/install/hyperlpr3)
 message(CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX})
-install(DIRECTORY resource DESTINATION ./)
-if (APPLE)
-    install(FILES ${MNN_LIBS}/libMNN.dylib DESTINATION ./lib)
-else()
-    install(FILES ${MNN_LIBS}/libMNN.so DESTINATION ./lib)
-endif ()
 
+# Add HyperLPR3-related files and directories to the installation list
+install(TARGETS ${LIBRARY_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)
+install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/c_api/hyper_lpr_sdk.h DESTINATION ${CMAKE_INSTALL_PREFIX}/include)
+
+# Install resource file
+install(DIRECTORY resource DESTINATION ${CMAKE_INSTALL_PREFIX})
+
+# Install Resource files You can also install sample programs if they are available
 if (BUILD_SAMPLES)
-    install(TARGETS ContextSample DESTINATION ./bin)
-    install(TARGETS CAPISample DESTINATION ./bin)
-    install(TARGETS SplitDetSample DESTINATION ./bin)
+    install(TARGETS ContextSample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+    install(TARGETS CAPISample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+    install(TARGETS SplitDetSample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif()
-if (BUILD_SHARE)
-    install(TARGETS ${LIBRARY_NAME} DESTINATION ./lib)
-    install(FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/c_api/hyper_lpr_sdk.h DESTINATION ./include)
-endif ()
-if (BUILD_TEST)
-    install(TARGETS UnitTest DESTINATION test)
-endif ()

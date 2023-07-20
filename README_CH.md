@@ -144,6 +144,7 @@ A：此项目来源于作者早期的研究和调试代码，代码缺少一定�
 ### Linux/Mac动态链接库编译
 
 - 需要将依赖库放置或链接在项目根目录下(与CMakeLists.txt同级)
+- 在编译Linux相关平台时，我们推荐您自行编译opencv并安装至系统中，这样可以降低因为系统中一些依赖版本和编译器原因导致的编译错误，当然，你也可以优先尝试使用我们提供的opencv静态库进行编译，需要您把LINUX_USE_3RDPARTY_OPENCV开关打开
 
 ```bash
 # 执行编译脚本
@@ -159,7 +160,7 @@ sh command/build_release_linux_share.sh
 
 ### Linux/Mac编译Demo
 
-- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中
+- 需要完成上一步的编译动作，并保证编译成功且编译完成后的物料放置于根目录下的**build/linux/install/hyperlpr3**路径中，需要将其拷贝或链接到当前目录
 - 需要从根目录中进入到子工程**Prj-Linux**文件夹中进行操作
 ```bash
 # 进入到子工程demo

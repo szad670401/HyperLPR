@@ -109,9 +109,7 @@ void DetArch::Detection(const cv::Mat &bgr, bool is_resize, float scale) {
         cv::Mat resized_img;
         cv::resize(bgr, resized_img, cv::Size(w, h));
         cv::copyMakeBorder(resized_img, pad, 0, hpad, 0, wpad, cv::BORDER_CONSTANT, cv::Scalar(127.5, 127.5, 127.5));
-//        cv::imwrite("i.jpg", pad);
-//        cv::imshow("pad_border", pad);
-//        cv::waitKey(0);
+
     } else {
         pad = bgr;
     }

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10.2)
+cmake_minimum_required(VERSION 3.14)
 project(HyperLPR3-LinuxDemo)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -10,12 +10,11 @@ else()
     set(PLAT linux)
 endif ()
 
-# use opencv
-set(OpenCV_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../3rdparty_hyper_inspire_op/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
+# You need to link to the opencv library
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# use hyperlpr3 sdk
+# You need to compile hyperlpr3 library to use it
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/hyperlpr3/include)
 link_directories(${CMAKE_CURRENT_SOURCE_DIR}/hyperlpr3/lib)
 

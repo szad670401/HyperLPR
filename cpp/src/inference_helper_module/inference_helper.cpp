@@ -130,7 +130,7 @@ InferenceHelper* InferenceHelper::Create(const InferenceHelper::HelperType helpe
 #endif
 #ifdef INFERENCE_HELPER_ENABLE_MNN
     case kMnn:
-        PRINT("Use MNN\n");
+//        PRINT("Use MNN\n");
         p = new InferenceHelperMnn();
         break;
 #endif

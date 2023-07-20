@@ -4,7 +4,7 @@
 #pragma once
 #ifndef ZEPHYRLPR_TEST_SETTINGS_H
 #define ZEPHYRLPR_TEST_SETTINGS_H
-#include <catch2/catch.hpp>
+#include "catch2/catch.hpp"
 #include <iostream>
 
 using namespace Catch::Detail;
