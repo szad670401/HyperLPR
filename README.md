@@ -331,8 +331,8 @@ Know more about: **[Prj-Android](./Prj-Android)**
 
 ### Author
 - Jack Yu (jack-yu-business@foxmail.com / https://github.com/szad670401)
-- Xiao xiao (xiaoxiao@xidian.edu.cn)
-- Jingyu Yan (tunmxy@163.com)
+- XiaoXiao (xiaoxiao@xidian.edu.cn)
+- JingyuYan (tunmxy@163.com)
 
 #### Help
 
