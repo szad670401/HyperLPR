@@ -329,6 +329,11 @@ Know more about: **[Prj-Android](./Prj-Android)**
 
 ![demo](./images/demo.png)
 
+### Author
+- Jack Yu (jack-yu-business@foxmail.com / https://github.com/szad670401)
+- Xiao xiao (xiaoxiao@xidian.edu.cn)
+- Jingyu Yan (tunmxy@163.com)
+
 #### Help
 
 - HyperInspire QQ Group: 529385694
