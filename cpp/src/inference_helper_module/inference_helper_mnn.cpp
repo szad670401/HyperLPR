@@ -176,7 +176,12 @@ int32_t InferenceHelperMnn::Initialize(const std::string& model_filename, std::v
     }
 
     MNN::ScheduleConfig scheduleConfig;
+#ifdef IOS_CPU_FORWARD
+    PRINT("ios use cpu backend.");
+    scheduleConfig.type = MNN_FORWARD_CPU;
+#else
     scheduleConfig.type = MNN_FORWARD_AUTO;
+#endif
     scheduleConfig.numThread = num_threads_;    // it seems, setting 1 has better performance on Android
     // MNN::BackendConfig bnconfig;
     // bnconfig.power = MNN::BackendConfig::Power_High;

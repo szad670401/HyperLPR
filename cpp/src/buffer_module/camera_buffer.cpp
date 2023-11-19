@@ -43,9 +43,9 @@ void CameraBuffer::SetDataFormat(DATA_FORMAT data_format) {
     if (data_format == BGRA) {
         config_.sourceFormat = MNN::CV::BGRA;
     }
-    if (data_format == YCrCb) {
-        config_.sourceFormat = MNN::CV::YCrCb;
-    }
+//    if (data_format == YCrCb) {
+//        config_.sourceFormat = MNN::CV::YCrCb;
+//    }
 }
 
 cv::Mat CameraBuffer::GetAffineRGBImage(const cv::Mat &affine_matrix, const int width_out, const int height_out) const {

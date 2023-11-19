@@ -112,6 +112,7 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
             obj.type = type;
 
             strcpy(obj.code, text_line.code.c_str());
+//            printf("%s\n", obj.code);
 //        obj.code = text_line.code;
 
 //        cv::imshow("align_image_pad", align_image_pad);
