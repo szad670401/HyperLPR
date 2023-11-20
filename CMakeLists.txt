@@ -77,8 +77,15 @@ else ()
         set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv/opencv-linux-armhf/include/)
         find_package(OpenCV REQUIRED)
 
-    elseif (BUILD_LINUX_ARM64)
-        # TODO: Not implement
+    elseif (BUILD_LINUX_ARM_AARCH64)
+        message("[BUILD]Linux Arm AARCH64")
+        add_definitions("-DLINUX_ARM_AARCH64")
+        # MNN Third party dependence
+        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/include)
+        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/lib)
+        # OpenCV Third party dependence
+        set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64/share/OpenCV)
+        set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64/include/)
     else()
         # Local Build
         message("[BUILD]Local")
