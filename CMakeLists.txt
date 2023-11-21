@@ -84,8 +84,8 @@ else ()
         set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/include)
         set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/lib)
         # OpenCV Third party dependence
-        set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64/share/OpenCV)
-        set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64/include/)
+        set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1/lib/cmake/opencv4)
+        set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1/include/opencv4)
     else()
         # Local Build
         message("[BUILD]Local")
