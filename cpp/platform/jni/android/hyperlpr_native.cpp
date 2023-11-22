@@ -229,4 +229,6 @@ JNIEXPORT jobjectArray JNICALL HYPERLPR_API(core_HyperLPRCore_PlateRecognitionFr
     return jPlateArray;
 }
 
+
+
 } // extern
