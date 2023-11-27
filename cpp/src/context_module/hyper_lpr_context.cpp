@@ -13,6 +13,28 @@ namespace hyper {
 
 HyperLPRContext::HyperLPRContext() = default;
 
+
+void HyperLPRContext::Detect(CameraBuffer &buffer) {
+    cv::Mat process_image;
+    process_image = buffer.GetScaledImage(1.0f, true);
+    m_plate_detector_->Detection(process_image, true, 1.0f);
+    PlateResultList().swap(m_detect_results_);
+    auto &detect_results = m_plate_detector_->m_results_;
+
+    for (size_t i = 0; i < detect_results.size(); ++i) {
+        auto &loc = detect_results[i];
+        PlateResult obj;
+        obj.x1 = loc.x1;
+        obj.y1 = loc.y1;
+        obj.x2 = loc.x2;
+        obj.y2 = loc.y2;
+        obj.type = UNKNOWN;
+        obj.text_confidence = -1.0f;
+        m_detect_results_.push_back(obj);
+    }
+
+}
+
 void HyperLPRContext::operator()(CameraBuffer &buffer) {
     cv::Mat process_image;
     process_image = buffer.GetScaledImage(1.0f, true);
@@ -191,6 +213,10 @@ PlateResultList &HyperLPRContext::getMObjectResults() {
     return m_object_results_;
 }
 
+PlateResultList &HyperLPRContext::getMDetectResults() {
+    return m_detect_results_;
+}
+
 PlateType HyperLPRContext::PreGetPlateType(std::string& code) {
     PlateType type = PlateType::UNKNOWN;
     if (code[0] == 'W' && code[1] == 'J'){
@@ -215,6 +241,7 @@ PlateType HyperLPRContext::PreGetPlateType(std::string& code) {
 int32_t HyperLPRContext::getMInitStatus() const {
     return m_init_status_;
 }
+
 
 
 }

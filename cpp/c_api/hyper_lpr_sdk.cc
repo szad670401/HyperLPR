@@ -127,6 +127,15 @@ HREESULT HLPR_ContextUpdateStream(P_HLPR_Context ctx, P_HLPR_DataBuffer buffer, 
     return hyper::hRetOk;
 }
 
+HREESULT HLPR_ContextDetect(P_HLPR_Context ctx, P_HLPR_DataBuffer buffer, P_HLPR_PlateResultList results) {
+    ctx->impl.Detect(buffer->impl);
+    auto &list = ctx->impl.getMDetectResults();
+    results->plate_size = list.size();
+    results->plates = (P_HLPR_PlateResult) list.data();
+
+    return hyper::hRetOk;
+}
+
 HREESULT HLPR_ContextQueryStatus(P_HLPR_Context ctx) {
     return ctx->impl.getMInitStatus();
 }

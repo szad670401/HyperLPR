@@ -157,6 +157,9 @@ if (NOT ANDROID)
         add_executable(CAPISample ${CMAKE_CURRENT_SOURCE_DIR}/cpp/samples/sample_capi.cpp ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
         target_link_libraries(CAPISample ${OpenCV_LIBS} ${LINK_THIRD_LIBS} )
 
+        add_executable(CAPIDetectSample ${CMAKE_CURRENT_SOURCE_DIR}/cpp/samples/sample_capi_detect.cpp ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
+        target_link_libraries(CAPIDetectSample ${OpenCV_LIBS} ${LINK_THIRD_LIBS} )
+
     endif()
 
     if (BUILD_TEST)

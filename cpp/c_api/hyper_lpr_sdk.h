@@ -237,6 +237,17 @@ HYPER_CAPI_EXPORT extern HREESULT HLPR_ContextUpdateStream(
 );
 
 /************************************************************************
+* Detecting license plates.
+* 只检测车牌.
+* [out] Result Code - 返回结果码
+************************************************************************/
+HYPER_CAPI_EXPORT extern HREESULT HLPR_ContextDetect(
+        P_HLPR_Context ctx,                     // [in] Context handle - Context的指针句柄
+        P_HLPR_DataBuffer buffer,               // [in] DataBuffer handle - 数据流组件的句柄指针
+        P_HLPR_PlateResultList results          // [out] Results List - 返回结果的列表
+);
+
+/************************************************************************
 * Release Context.
 * 释放Context的实例化对象.
 * [out] Result Code - 返回结果码
