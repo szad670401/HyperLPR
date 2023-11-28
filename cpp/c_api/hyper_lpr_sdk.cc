@@ -148,9 +148,10 @@ HREESULT HLPR_ReleaseContext(P_HLPR_Context ctx) {
 }
 
 
-//HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path) {
-//    cv::Mat image = buffer->impl.GetScaledImage(1.0f, true);
-//    cv::imwrite(save_path, image);
-//
-//    return 0;
-//}
+
+HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path) {
+    cv::Mat image = buffer->impl.GetScaledImage(1.0f, true);
+    cv::imwrite(save_path, image);
+
+    return 0;
+}

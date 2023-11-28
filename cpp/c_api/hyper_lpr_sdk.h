@@ -256,7 +256,9 @@ HYPER_CAPI_EXPORT extern HREESULT HLPR_ReleaseContext(
         P_HLPR_Context ctx                     // [in] Context handle - Context的指针句柄
 );
 
-//HYPER_CAPI_EXPORT extern HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path);
+
+
+HYPER_CAPI_EXPORT extern HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path);
 
 #ifdef __cplusplus
 }
