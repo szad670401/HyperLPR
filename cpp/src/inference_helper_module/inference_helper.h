@@ -12,8 +12,8 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ==============================================================================*/
-#ifndef INFERENCE_HELPER_
-#define INFERENCE_HELPER_
+#ifndef INFERENCE_HELPER_W_
+#define INFERENCE_HELPER_W_
 
 /* for general */
 #include <cstdint>
@@ -22,6 +22,8 @@ limitations under the License.
 #include <vector>
 #include <array>
 #include <memory>
+
+//namespace hyper {
 
 class TensorInfo {
 public:
@@ -276,5 +278,7 @@ protected:
 protected:
     HelperType helper_type_;
 };
+
+//} // namespace
 
 #endif

@@ -108,7 +108,7 @@ else ()
             FetchContent_Declare(
                     mnn
                     GIT_REPOSITORY https://github.com/alibaba/MNN.git
-                    GIT_TAG        2.2.0
+                    GIT_TAG        2.7.1
             )
             set(MNN_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
             set(MNN_BUILD_TOOLS OFF CACHE BOOL "" FORCE)

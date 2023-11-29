@@ -22,6 +22,7 @@ limitations under the License.
 #include <vector>
 #include <array>
 
+//namespace hyper {
 
 #if defined(ANDROID) || defined(__ANDROID__)
 #define CV_COLOR_IS_RGB
@@ -41,5 +42,7 @@ limitations under the License.
     INFERENCE_HELPER_LOG_PRINT_("[ERR: " INFERENCE_HELPER_LOG_PRINT_TAG "][%d] ", __LINE__); \
     INFERENCE_HELPER_LOG_PRINT_(__VA_ARGS__); \
 } while(0);
+
+//} // namespace
 
 #endif

@@ -73,6 +73,7 @@ limitations under the License.
 #define PRINT(...)   INFERENCE_HELPER_LOG_PRINT(TAG, __VA_ARGS__)
 #define PRINT_E(...) INFERENCE_HELPER_LOG_PRINT_E(TAG, __VA_ARGS__)
 
+//namespace hyper {
 
 InferenceHelper* InferenceHelper::Create(const InferenceHelper::HelperType helper_type)
 {
@@ -428,3 +429,5 @@ template void InferenceHelper::PreProcessBlob<int32_t>(int32_t num_thread, const
 template void InferenceHelper::PreProcessBlob<int64_t>(int32_t num_thread, const InputTensorInfo& input_tensor_info, int64_t* dst);
 template void InferenceHelper::PreProcessBlob<uint8_t>(int32_t num_thread, const InputTensorInfo& input_tensor_info, uint8_t* dst);
 template void InferenceHelper::PreProcessBlob<int8_t>(int32_t num_thread, const InputTensorInfo& input_tensor_info, int8_t* dst);
+
+//} // namespace

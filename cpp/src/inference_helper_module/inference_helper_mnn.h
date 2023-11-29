@@ -31,6 +31,9 @@ limitations under the License.
 /* for My modules */
 #include "inference_helper.h"
 
+
+//namespace hyper {
+
 class InferenceHelperMnn : public InferenceHelper {
 public:
     InferenceHelperMnn();
@@ -49,5 +52,7 @@ private:
     std::vector<std::unique_ptr<MNN::Tensor>> out_mat_list_;
     int32_t num_threads_;
 };
+
+//} // namespace
 
 #endif

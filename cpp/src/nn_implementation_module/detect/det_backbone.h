@@ -5,9 +5,9 @@
 #ifndef ZEPHYRLPR_DET_BACKBONE_H
 #define ZEPHYRLPR_DET_BACKBONE_H
 
+#include "opencv2/opencv.hpp"
 #include "inference_helper_module/inference_helper.h"
 #include "plate_det_common.h"
-#include "opencv2/opencv.hpp"
 
 namespace hyper {
 

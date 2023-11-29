@@ -38,6 +38,8 @@ limitations under the License.
 #define PRINT(...)   INFERENCE_HELPER_LOG_PRINT(TAG, __VA_ARGS__)
 #define PRINT_E(...) INFERENCE_HELPER_LOG_PRINT_E(TAG, __VA_ARGS__)
 
+//namespace hyper {
+
 /*** Function ***/
 InferenceHelperMnn::InferenceHelperMnn()
 {
@@ -320,3 +322,5 @@ int32_t InferenceHelperMnn::Process(std::vector<OutputTensorInfo>& output_tensor
 
     return kRetOk;
 }
+
+//} // namespace
