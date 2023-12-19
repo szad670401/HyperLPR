@@ -330,7 +330,7 @@ Know more about: **[Prj-Android](./Prj-Android)**
 ![demo](./images/demo.png)
 
 ### Author
-- JingYu Yan (tunmxy@163.com)
+- Jingyu Yan (tunmxy@163.com)
 - Jack Yu (jack-yu-business@foxmail.com / https://github.com/szad670401)
 - XiaoXiao (xiaoxiao@xidian.edu.cn)
 
