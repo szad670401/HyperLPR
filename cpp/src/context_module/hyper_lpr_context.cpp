@@ -59,15 +59,17 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
 //        cv::imshow("align_image", align_image);
 //        cv::waitKey(0);
 
-
+        // Important : swap color
+        cv::Mat align_image_rgb;
+        cv::cvtColor(align_image, align_image_rgb, cv::COLOR_BGR2RGB);
         TextLine text_line;
         if (loc.layers == LayersNum::DOUBLE) {
-            int line = (int )((float )align_image.rows * 0.4f);
-            int bottom_h = align_image.rows - line;
-            cv::Rect_<int> top_rect(0, 0, align_image.cols, line);
-            cv::Rect_<int> bottom_rect(0, line, align_image.cols, bottom_h);
-            cv::Mat top_crop = align_image(top_rect);
-            cv::Mat bottom_crop = align_image(bottom_rect);
+            int line = (int )((float )align_image_rgb.rows * 0.4f);
+            int bottom_h = align_image_rgb.rows - line;
+            cv::Rect_<int> top_rect(0, 0, align_image_rgb.cols, line);
+            cv::Rect_<int> bottom_rect(0, line, align_image_rgb.cols, bottom_h);
+            cv::Mat top_crop = align_image_rgb(top_rect);
+            cv::Mat bottom_crop = align_image_rgb(bottom_rect);
 
             std::vector<cv::Mat> candidate = {top_crop, bottom_crop};
             text_line.code = "";
@@ -93,7 +95,10 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
         } else {
             cv::Mat align_image_pad;
             float wh_ratio = (float) align_image.cols / align_image.rows;
-            imagePadding(align_image, align_image_pad, wh_ratio, m_plate_recognition_->getMInputImageSize());
+            imagePadding(align_image_rgb, align_image_pad, wh_ratio, m_plate_recognition_->getMInputImageSize());
+//            cv::imwrite("align_image_pad.png", align_image_pad);
+//            cv::imwrite("align_image.png", align_image_rgb);
+//            LOGD("align_image_pad");
             m_plate_recognition_->Inference(align_image_pad, text_line);
         }
         cv::resize(align_image, align_image, m_plate_classification_->getMInputImageSize());

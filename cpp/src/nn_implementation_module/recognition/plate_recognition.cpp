@@ -23,8 +23,8 @@ int PlateRecognition::Initialize(const std::string& model_filename, cv::Size inp
     return 0;
 }
 
-TextLine PlateRecognition::Inference(const cv::Mat &bgr_pad) {
-    std::vector<float> output = m_nn_adapter_->Invoking(bgr_pad);
+TextLine PlateRecognition::Inference(const cv::Mat &rgb_pad) {
+    std::vector<float> output = m_nn_adapter_->Invoking(rgb_pad);
 //    SLOG_INFO("out: {}", output.size());
     auto line = decode(output);
     return line;

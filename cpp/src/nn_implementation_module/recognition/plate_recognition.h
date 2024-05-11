@@ -24,7 +24,7 @@ public:
     int Initialize(const std::string& model_filename, cv::Size input_size = REC_INPUT_SIZE, int threads = 1,
                    float confidence_threshold = 0.5, bool use_half = false);
 
-    TextLine Inference(const cv::Mat &bgr_pad);
+    TextLine Inference(const cv::Mat &rgb_pad);
 
     const cv::Size &getMInputImageSize() const;
 
