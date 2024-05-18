@@ -45,6 +45,7 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
 //              [](PlateLocation a, PlateLocation b) { return xyxyArea(a.x1, a.y1, a.x2, a.y2) > xyxyArea(b.x1, b.y1, b.x2, b.y2); });
     //
     auto iteration_num = detect_results.size() > m_rec_max_num_ ? m_rec_max_num_: detect_results.size();
+//    LOGD("Det: %ld", iteration_num);
     for (size_t i = 0; i < iteration_num; ++i) {
         auto &loc = detect_results[i];
         PlateResult obj;
