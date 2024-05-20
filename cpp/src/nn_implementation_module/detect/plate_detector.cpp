@@ -23,15 +23,37 @@ int PlateDetector::Initialize(const char *model_path,
     float normal[] = {0.003921568627f, 0.003921568627f, 0.003921568627f};
     m_nn_adapter_ = std::make_shared<MNNAdapterInference>(model_path, threads, mean, normal, use_half);
     m_nn_adapter_->Initialization("input", "output", m_input_size_, m_input_size_);
+    if (input_size == 320) {
+        m_grid_ = 6300;
+    } else if(input_size == 640) {
+        m_grid_ = 25200;
+    } else {
+        std::cerr << "Unsupported detector input size" << std::endl;
+    }
 
     return 0;
 }
 
-void PlateDetector::Decode(const std::vector<float> &tensor, std::vector<PlateLocation> &outputs, float scale,
+void PlateDetector::LetterBox(const cv::Mat &img, cv::Mat &output, float &r, int &left, int &top, cv::Size size) {
+    int h = img.rows;
+    int w = img.cols;
+    r = std::min(static_cast<float>(size.width) / h, static_cast<float>(size.height) / w);
+    int new_h = static_cast<int>(h * r);
+    int new_w = static_cast<int>(w * r);
+    top = (size.height - new_h) / 2;
+    left = (size.width - new_w) / 2;
+    int bottom = size.height - new_h - top;
+    int right = size.width - new_w - left;
+    cv::Mat img_resize;
+    cv::resize(img, img_resize, cv::Size(new_w, new_h));
+    cv::cvtColor(img_resize, img_resize, cv::COLOR_BGR2RGB);
+    cv::copyMakeBorder(img_resize, output, top, bottom, left, right, cv::BORDER_CONSTANT, cv::Scalar(0, 0, 0));
+}
+
+void PlateDetector::Decode(const std::vector<float> &tensor, std::vector<PlateLocation> &outputs,
                            float conf_threshold, float nms_threshold) {
-    int grid_num = 6300;
     int item_num = 15;
-    for (int index = 0; index < grid_num; ++index) {
+    for (int index = 0; index < m_grid_; ++index) {
         auto det_score = tensor[index * item_num + 4];
         if (det_score > conf_threshold) {
             PlateLocation plate;
@@ -58,47 +80,43 @@ void PlateDetector::Decode(const std::vector<float> &tensor, std::vector<PlateLo
     }
     nms(outputs, nms_threshold);
 
-    for (auto &plate : outputs) {
-        plate.x1 = plate.x1 / scale;
-        plate.y1 = plate.y1 / scale;
-        plate.x2 = plate.x2 / scale;
-        plate.y2 = plate.y2 / scale;
+//    for (auto &plate : outputs) {
+//        plate.x1 = plate.x1 / scale;
+//        plate.y1 = plate.y1 / scale;
+//        plate.x2 = plate.x2 / scale;
+//        plate.y2 = plate.y2 / scale;
+//        for (int i = 0; i < 4; ++i) {
+//            plate.kps[i * 2 + 0] = plate.kps[i * 2 + 0] / scale;
+//            plate.kps[i * 2 + 1] = plate.kps[i * 2 + 1] / scale;
+//        }
+//    }
+}
+
+void PlateDetector::RestoreBox(std::vector<PlateLocation> &boxes, float r, int left, int top) {
+    for (auto &box : boxes) {
+        box.x1 = (box.x1 - left) / r;
+        box.y1 = (box.y1 - top) / r;
+        box.x2 = (box.x2 - left) / r;
+        box.y2 = (box.y2 - top) / r;
         for (int i = 0; i < 4; ++i) {
-            plate.kps[i * 2 + 0] = plate.kps[i * 2 + 0] / scale;
-            plate.kps[i * 2 + 1] = plate.kps[i * 2 + 1] / scale;
+            box.kps[i * 2 + 0] = (box.kps[i * 2 + 0] - left) / r;
+            box.kps[i * 2 + 1] = (box.kps[i * 2 + 1] - top) / r;
         }
     }
 }
 
-void PlateDetector::Detection(const cv::Mat &bgr, bool is_resize, float scale) {
+void PlateDetector::Detection(const cv::Mat &bgr) {
     cv::Mat pad;
-    if (is_resize) {
-        int ori_w = bgr.cols;
-        int ori_h = bgr.rows;
-
-        int w, h;
-        if (ori_w > ori_h) {
-            scale = (float) m_input_size_ / ori_w;
-            w = m_input_size_;
-            h = ori_h * scale;
-        } else {
-            scale = (float) m_input_size_ / ori_h;
-            h = m_input_size_;
-            w = ori_w * scale;
-        }
-        int wpad = m_input_size_ - w;
-        int hpad = m_input_size_ - h;
-        cv::Mat resized_img;
-        cv::resize(bgr, resized_img, cv::Size(w, h));
-        cv::copyMakeBorder(resized_img, pad, 0, hpad, 0, wpad, cv::BORDER_CONSTANT, 0.0f);
-    } else {
-        pad = bgr;
-    }
+    float r;
+    int left, top;
+    LetterBox(bgr, pad, r, left, top, cv::Size(m_input_size_, m_input_size_));
+//    cv::imshow("q", pad);
+//    cv::waitKey(0);
 //    cv::imshow("a", pad);
     auto output = m_nn_adapter_->Invoking(pad);
-    std::vector<PlateLocation>().swap(m_results_);
-    Decode(output, m_results_, scale, m_box_conf_threshold_, m_nms_threshold_);
-
+    m_results_.clear();
+    Decode(output, m_results_, m_box_conf_threshold_, m_nms_threshold_);
+    RestoreBox(m_results_, r, left, top);
 
 }
 

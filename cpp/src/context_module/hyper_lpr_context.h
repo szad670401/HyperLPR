@@ -30,6 +30,8 @@ public:
 
     void operator()(CameraBuffer &buffer);
 
+    void Detect(CameraBuffer &buffer);
+
     /**
      * 手动初始化并实例化内部模型对象
      * @param models_folder_path 存放模型文件夹的路径地址
@@ -52,6 +54,8 @@ public:
 
     int32_t getMInitStatus() const;
 
+    PlateResultList &getMDetectResults();
+
 private:
     std::shared_ptr<PlateDetector> m_plate_detector_;
 
@@ -62,6 +66,8 @@ private:
     int m_pre_image_size_ = 320;
 
     PlateResultList m_object_results_;
+
+    PlateResultList m_detect_results_;
 
     int m_rec_max_num_ = 1;
 

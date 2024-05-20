@@ -84,8 +84,11 @@ def detect_pre_precessing(img, img_size):
         tuple: Preprocessed image, scale ratio, left padding, and top padding.
     """
     img, r, left, top = letter_box(img, img_size)
-    img = img[:, :, ::-1].transpose(2, 0, 1).copy().astype(np.float32)
-    img = img / 255
+    # cv2.imshow("w", img)
+    # cv2.waitKey(0)
+    cv2.imwrite("/Users/tunm/Downloads/decode.jpg", img)
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    img = img.transpose(2, 0, 1).astype(np.float32) / 255
     img = img.reshape(1, *img.shape)
     return img, r, left, top
 
@@ -189,6 +192,8 @@ class YoloMultiTaskDetector(BaseDetector):
             np.ndarray: Model inference output.
         """
         result = self.session.run([self.outputs_option[0].name], {self.input_name: data})[0]
+        print(result.reshape(-1)[:10])
+        print(result.shape)
         return result
 
     def _postprocess(self, data):

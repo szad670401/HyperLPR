@@ -127,6 +127,15 @@ HREESULT HLPR_ContextUpdateStream(P_HLPR_Context ctx, P_HLPR_DataBuffer buffer, 
     return hyper::hRetOk;
 }
 
+HREESULT HLPR_ContextDetect(P_HLPR_Context ctx, P_HLPR_DataBuffer buffer, P_HLPR_PlateResultList results) {
+    ctx->impl.Detect(buffer->impl);
+    auto &list = ctx->impl.getMDetectResults();
+    results->plate_size = list.size();
+    results->plates = (P_HLPR_PlateResult) list.data();
+
+    return hyper::hRetOk;
+}
+
 HREESULT HLPR_ContextQueryStatus(P_HLPR_Context ctx) {
     return ctx->impl.getMInitStatus();
 }
@@ -139,9 +148,9 @@ HREESULT HLPR_ReleaseContext(P_HLPR_Context ctx) {
 }
 
 
-//HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path) {
-//    cv::Mat image = buffer->impl.GetScaledImage(1.0f, true);
-//    cv::imwrite(save_path, image);
-//
-//    return 0;
-//}
+HREESULT HLPR_DataBufferTest(P_HLPR_DataBuffer buffer, const char *save_path) {
+    cv::Mat image = buffer->impl.GetScaledImage(1.0f, true);
+    cv::imwrite(save_path, image);
+
+    return 0;
+}

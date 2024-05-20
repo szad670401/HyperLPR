@@ -16,8 +16,8 @@ HyperLPRContext::HyperLPRContext() = default;
 void HyperLPRContext::operator()(CameraBuffer &buffer) {
     cv::Mat process_image;
     process_image = buffer.GetScaledImage(1.0f, true);
-    m_plate_detector_->Detection(process_image, true, 1.0f);
-    PlateResultList().swap(m_object_results_);
+    m_plate_detector_->Detection(process_image);
+    m_object_results_.clear();
     auto &detect_results = m_plate_detector_->m_results_;
 //    std::sort(detect_results.begin(), detect_results.end(),
 //              [](PlateLocation a, PlateLocation b) { return xyxyArea(a.x1, a.y1, a.x2, a.y2) > xyxyArea(b.x1, b.y1, b.x2, b.y2); });
@@ -122,6 +122,27 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
     }
 }
 
+void HyperLPRContext::Detect(CameraBuffer &buffer) {
+    cv::Mat process_image;
+    process_image = buffer.GetScaledImage(1.0f, true);
+    m_plate_detector_->Detection(process_image);
+    m_detect_results_.clear();
+    auto &detect_results = m_plate_detector_->m_results_;
+
+    for (size_t i = 0; i < detect_results.size(); ++i) {
+        auto &loc = detect_results[i];
+        PlateResult obj;
+        obj.x1 = loc.x1;
+        obj.y1 = loc.y1;
+        obj.x2 = loc.x2;
+        obj.y2 = loc.y2;
+        obj.type = UNKNOWN;
+        obj.text_confidence = -1.0f;
+        m_detect_results_.push_back(obj);
+    }
+
+}
+
 int32_t HyperLPRContext::Initialize(const std::string& models_folder_path, int max_num, DetectLevel detect_level,
                                  int threads, bool use_half, float box_conf_threshold, float nms_threshold, float rec_confidence_threshold) {
     int32_t ret;
@@ -179,6 +200,10 @@ int32_t HyperLPRContext::Initialize(const std::string& models_folder_path, int m
 
 PlateResultList &HyperLPRContext::getMObjectResults() {
     return m_object_results_;
+}
+
+PlateResultList &HyperLPRContext::getMDetectResults() {
+    return m_detect_results_;
 }
 
 PlateType HyperLPRContext::PreGetPlateType(std::string& code) {

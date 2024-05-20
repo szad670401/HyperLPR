@@ -18,13 +18,17 @@ public:
 
     explicit PlateDetector();
 
-    int Initialize(const char *model_path, int input_size = 320, int threads=1, float box_conf_threshold = 0.3, float nms_threshold = 0.6, bool use_half = false);
+    int Initialize(const char *model_path, int input_size = 320, int threads=1, float box_conf_threshold = 0.3f, float nms_threshold = 0.6, bool use_half = false);
 
-    void Detection(const cv::Mat& bgr, bool is_resize = false, float scale = 1.0f);
+    void Detection(const cv::Mat& bgr);
 
 private:
-    void Decode(const std::vector<float> &tensor, std::vector<PlateLocation> &outputs, float scale,
+    void Decode(const std::vector<float> &tensor, std::vector<PlateLocation> &outputs,
                 float conf_threshold = 0.5, float nms_threshold = 0.5);
+
+    static void LetterBox(const cv::Mat &img, cv::Mat &output, float &r, int &left, int &top, cv::Size size=cv::Size(640, 640));
+
+    void RestoreBox(std::vector<PlateLocation> &boxes, float r, int left, int top);
 
 public:
     std::vector<PlateLocation> m_results_;
@@ -36,6 +40,8 @@ private:
     float m_box_conf_threshold_{};
 
     float m_nms_threshold_{};
+
+    int m_grid_{};
 
     std::shared_ptr<MNNAdapterInference> m_nn_adapter_;
 

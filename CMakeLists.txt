@@ -1,14 +1,18 @@
 cmake_minimum_required(VERSION 3.14)
 project(HyperLPR3-Source)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} --std=c++14")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
 set(LIBRARY_NAME hyperlpr3)
 
 option( LINUX_FETCH_MNN             "Fetch and build MNN from git"  OFF )
 option( LINUX_USE_3RDPARTY_OPENCV   "Linux platform using pre-compiled OpenCV library from 3rdparty_hyper_inspire_op" OFF)
 option( BUILD_SHARE                 "Build shared libs"                 ON )
-option( BUILD_SAMPLES               "Build samples demo"                OFF )
+option( BUILD_SAMPLES               "Build samples demo"                ON )
 option( BUILD_TEST                  "Build unit-test exec"              OFF )
 
 
@@ -77,8 +81,15 @@ else ()
         set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv/opencv-linux-armhf/include/)
         find_package(OpenCV REQUIRED)
 
-    elseif (BUILD_LINUX_ARM64)
-        # TODO: Not implement
+    elseif (BUILD_LINUX_ARM_AARCH64)
+        message("[BUILD]Linux Arm AARCH64")
+        add_definitions("-DLINUX_ARM_AARCH64")
+        # MNN Third party dependence
+        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/include)
+        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/lib)
+        # OpenCV Third party dependence
+        set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1-shared/lib/cmake/opencv4)
+        set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1-shared/include/opencv4)
     else()
         # Local Build
         message("[BUILD]Local")
@@ -97,7 +108,7 @@ else ()
             FetchContent_Declare(
                     mnn
                     GIT_REPOSITORY https://github.com/alibaba/MNN.git
-                    GIT_TAG        2.2.0
+                    GIT_TAG        2.7.1
             )
             set(MNN_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
             set(MNN_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
@@ -146,6 +157,9 @@ if (NOT ANDROID)
         add_executable(CAPISample ${CMAKE_CURRENT_SOURCE_DIR}/cpp/samples/sample_capi.cpp ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
         target_link_libraries(CAPISample ${OpenCV_LIBS} ${LINK_THIRD_LIBS} )
 
+#        add_executable(CAPIDetectSample ${CMAKE_CURRENT_SOURCE_DIR}/cpp/samples/sample_capi_detect.cpp ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
+#        target_link_libraries(CAPIDetectSample ${OpenCV_LIBS} ${LINK_THIRD_LIBS} )
+
     endif()
 
     if (BUILD_TEST)
@@ -181,7 +195,7 @@ install(DIRECTORY resource DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 # Install Resource files You can also install sample programs if they are available
 if (BUILD_SAMPLES)
-    install(TARGETS ContextSample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+#    install(TARGETS ContextSample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
     install(TARGETS CAPISample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 #    install(TARGETS SplitDetSample DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 endif()
