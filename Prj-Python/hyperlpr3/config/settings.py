@@ -1,7 +1,7 @@
 import os
 import sys
 
-_MODEL_VERSION_ = "20230229"
+_MODEL_VERSION_ = "20240520"
 
 if 'win32' in sys.platform:
     _DEFAULT_FOLDER_ = os.path.join(os.environ['HOMEPATH'], ".hyperlpr3")
@@ -11,10 +11,12 @@ else:
 _ONLINE_URL_ = "http://hyperlpr.tunm.top/raw/"
 
 onnx_runtime_config = dict(
-    det_model_path_320x=os.path.join(_MODEL_VERSION_, "onnx", "y5fu_320x_sim.onnx"),
-    det_model_path_640x=os.path.join(_MODEL_VERSION_, "onnx", "y5fu_640x_sim.onnx"),
-    rec_model_path=os.path.join(_MODEL_VERSION_, "onnx", "rpv3_mdict_160_r3.onnx"),
-    cls_model_path=os.path.join(_MODEL_VERSION_, "onnx", "litemodel_cls_96x_r1.onnx"),
+    yolo_320x=os.path.join(_MODEL_VERSION_, "onnx", "y5f_m1_320.onnx"),
+    yolo_640x=os.path.join(_MODEL_VERSION_, "onnx", "y5f_m1_640.onnx"),
+    scrfd_320x=os.path.join(_MODEL_VERSION_, "onnx", "scrfd_plate_2.5g_bnkps_320x320.onnx"),
+    scrfd_640x=os.path.join(_MODEL_VERSION_, "onnx", "scrfd_plate_2.5g_bnkps_640x640.onnx"),
+    crnn_ctc=os.path.join(_MODEL_VERSION_, "onnx", "crnn_ctc_rpv3_j18_b1.onnx"),
+    simple_cls=os.path.join(_MODEL_VERSION_, "onnx", "litemodel_cls_96x_r1.onnx"),
 )
 
 onnx_model_maps = ["det_model_path_320x", "det_model_path_640x", "rec_model_path", "cls_model_path"]
