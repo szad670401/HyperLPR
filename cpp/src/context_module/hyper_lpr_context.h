@@ -53,7 +53,7 @@ public:
     int32_t getMInitStatus() const;
 
 private:
-    std::shared_ptr<DetArch> m_plate_detector_;
+    std::shared_ptr<PlateDetector> m_plate_detector_;
 
     std::shared_ptr<ClassificationEngine> m_plate_classification_;
 

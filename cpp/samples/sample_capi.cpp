@@ -26,7 +26,7 @@ int main(int argc, char **argv) {
     HLPR_ContextConfiguration configuration = {0};
     configuration.models_path = model_path;
     configuration.max_num = 5;
-    configuration.det_level = DETECT_LEVEL_LOW;
+    configuration.det_level = DETECT_LEVEL_HIGH;
     configuration.use_half = false;
     configuration.nms_threshold = 0.5f;
     configuration.rec_confidence_threshold = 0.5f;
@@ -56,7 +56,7 @@ int main(int argc, char **argv) {
         }
 
         cv::rectangle(image, cv::Point2f(results.plates[i].x1, results.plates[i].y1), cv::Point2f(results.plates[i].x2, results.plates[i].y2),
-                      cv::Scalar(100, 100, 200), 3);
+                      cv::Scalar(100, 100, 200), 1);
 
         printf("<%d> %s, %s, %f\n", i + 1, type.c_str(),
                   results.plates[i].code, results.plates[i].text_confidence);

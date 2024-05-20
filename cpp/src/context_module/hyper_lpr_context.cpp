@@ -125,31 +125,21 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
 int32_t HyperLPRContext::Initialize(const std::string& models_folder_path, int max_num, DetectLevel detect_level,
                                  int threads, bool use_half, float box_conf_threshold, float nms_threshold, float rec_confidence_threshold) {
     int32_t ret;
-    std::string det_backbone_model = models_folder_path + "/" + hyper::DETECT_LOW_BACKBONE_FILENAME;
-    if (!exists(det_backbone_model)) {
-        LOGE("file: %s does not exist.", hyper::DETECT_LOW_BACKBONE_FILENAME.c_str());
-        return hRetErr;
-    }
-    std::string det_header_model = models_folder_path + "/" + hyper::DETECT_LOW_HEAD_FILENAME;
-    if (!exists(det_header_model)) {
-        LOGE("file: %s does not exist.", hyper::DETECT_LOW_HEAD_FILENAME.c_str());
+    std::string det_model = models_folder_path + "/" + hyper::DETECT_LOW_FILENAME;
+    if (!exists(det_model)) {
+        LOGE("file: %s does not exist.", hyper::DETECT_LOW_FILENAME.c_str());
         return hRetErr;
     }
     if (detect_level == DETECT_LEVEL_HIGH) {
-        det_backbone_model = models_folder_path + "/" + hyper::DETECT_HIGH_BACKBONE_FILENAME;
-        if (!exists(det_backbone_model)) {
-            LOGE("file: %s does not exist.", hyper::DETECT_HIGH_BACKBONE_FILENAME.c_str());
-            return hRetErr;
-        }
-        det_header_model = models_folder_path + "/" + hyper::DETECT_HIGH_HEAD_FILENAME;
-        if (!exists(det_header_model)) {
-            LOGE("file: %s does not exist.", hyper::DETECT_HIGH_HEAD_FILENAME.c_str());
+        det_model = models_folder_path + "/" + hyper::DETECT_HIGH_FILENAME;
+        if (!exists(det_model)) {
+            LOGE("file: %s does not exist.", hyper::DETECT_HIGH_FILENAME.c_str());
             return hRetErr;
         }
         m_pre_image_size_ = 640;
     }
-    m_plate_detector_ = std::make_shared<DetArch>();
-    ret = m_plate_detector_->Initialize(det_backbone_model, det_header_model, m_pre_image_size_, threads, box_conf_threshold, nms_threshold,
+    m_plate_detector_ = std::make_shared<PlateDetector>();
+    ret = m_plate_detector_->Initialize(det_model.c_str(), m_pre_image_size_, threads, box_conf_threshold, nms_threshold,
                                   use_half);
     if (ret != hRetOk) {
         LOGE("Detect model loading errors.");

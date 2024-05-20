@@ -16,10 +16,10 @@ class DetectionResult:
         :param keypoints: A list of keypoints, each represented by (x, y) coordinates.
         :param layer: The layer type of license plate has two types: single layer and double layer.
         """
-        self.x1 = x1
-        self.y1 = y1
-        self.x2 = x2
-        self.y2 = y2
+        self.x1 = int(x1)
+        self.y1 = int(y1)
+        self.x2 = int(x2)
+        self.y2 = int(y2)
         self.confidence = confidence
         self.keypoints = keypoints
         self.layer = layer

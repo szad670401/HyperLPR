@@ -11,10 +11,8 @@
 
 namespace hyper {
 
-const std::string DETECT_LOW_BACKBONE_FILENAME = "b320_backbone_h.mnn";
-const std::string DETECT_LOW_HEAD_FILENAME = "b320_header_h.mnn";
-const std::string DETECT_HIGH_BACKBONE_FILENAME = "b640x_backbone_h.mnn";
-const std::string DETECT_HIGH_HEAD_FILENAME = "b640x_head_h.mnn";
+const std::string DETECT_LOW_FILENAME = "y5f_m1_320.mnn";
+const std::string DETECT_HIGH_FILENAME = "y5f_m1_640.mnn";
 const std::string CLS_MODEL_FILENAME = "litemodel_cls_96xh.mnn";
 const std::string REC_MODEL_FILENAME = "rpv3_mdict_160h.mnn";
 
