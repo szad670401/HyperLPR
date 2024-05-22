@@ -6,6 +6,8 @@ from PIL import Image
 from PIL import ImageDraw
 # 导入依赖包
 import hyperlpr3 as lpr3
+from hyperlpr3 import helper
+helper.ENABLE_PRINT_COST = True
 
 
 def draw_plate_on_image(img, box, text, font):

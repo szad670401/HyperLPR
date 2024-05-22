@@ -2,6 +2,7 @@ import numpy as np
 from .hamburger import HamburgerABC
 from abc import ABCMeta, abstractmethod
 from typing import List
+from hyperlpr3.algo.utils.image_process import hyperlpr_cost
 
 class DetectionResult:
     def __init__(self, x1, y1, x2, y2, confidence, keypoints, layer=0):
@@ -53,6 +54,7 @@ class BaseDetector(HamburgerABC, metaclass=ABCMeta):
         """
         return data
 
+    @hyperlpr_cost("PlateDetect")
     def detect(self, image: np.ndarray) -> List[DetectionResult]:
         """
         Public method to perform detection on an image.

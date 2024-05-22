@@ -1,7 +1,7 @@
 import numpy as np
-
 from .hamburger import HamburgerABC
 from abc import ABCMeta, abstractmethod
+from hyperlpr3.algo.utils.image_process import hyperlpr_cost
 
 
 class TextRecognitionResult:
@@ -57,6 +57,7 @@ class BaseTextRecognizer(HamburgerABC, metaclass=ABCMeta):
         char_confidences = data['confidences']
         return TextRecognitionResult(text, avg_confidence, char_confidences)
 
+    @hyperlpr_cost("TextRecoginize")
     def recognize(self, image: np.ndarray):
         """
         Public method to perform text recognition on an image.

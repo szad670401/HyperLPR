@@ -1,5 +1,5 @@
 import numpy as np
-
+from hyperlpr3.algo.utils.image_process import hyperlpr_cost
 from .hamburger import HamburgerABC
 from abc import ABCMeta, abstractmethod
 
@@ -75,6 +75,7 @@ class BaseClassification(HamburgerABC, metaclass=ABCMeta):
         """
         pass
 
+    @hyperlpr_cost("PlateColorClassification")
     def classify(self, image: np.ndarray) -> ClassificationResult:
         """
         Public method to perform classification on an image.

@@ -1,7 +1,10 @@
+import glob
+
 import numpy as np
 import cv2
 import time
 from functools import wraps
+from hyperlpr3 import helper
 
 def resize_bounding_box(bbox, scale_factor):
     """
@@ -86,3 +89,29 @@ def get_rotate_crop_image(img, points):
         dst_img = np.rot90(dst_img)
 
     return dst_img
+
+def hyperlpr_cost(tag=''):
+    try:
+        from loguru import logger
+        def wrapper(fn):
+            @wraps(fn)
+            def wrapper_use_time(*args, **kw):
+                if not helper.ENABLE_PRINT_COST:
+                    return fn(*args, **kw)  # If the global variable is False, just call the function
+
+                t1 = time.time()
+                try:
+                    res = fn(*args, **kw)
+                except Exception as e:
+                    logger.error(f"@use_time %s(%s) execute error" % (fn.__name__, tag))
+                    return None
+                else:
+                    t2 = time.time()
+                    logger.info(f"{tag}@UseTime: {t2 - t1}")
+                    return res
+
+            return wrapper_use_time
+
+        return wrapper
+    except Exception as err:
+        print(err)

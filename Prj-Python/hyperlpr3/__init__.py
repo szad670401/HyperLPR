@@ -1,5 +1,6 @@
 from .algo.pallet import *
 from .hyperlpr3 import LicensePlateCatcher
+from . import helper
 
 __version__ = "0.2.0"
 
