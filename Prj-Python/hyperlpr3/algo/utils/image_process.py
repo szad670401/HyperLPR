@@ -3,6 +3,36 @@ import cv2
 import time
 from functools import wraps
 
+def resize_bounding_box(bbox, scale_factor):
+    """
+    Resize a bounding box by a given scale factor, keeping the center point fixed.
+
+    Args:
+        bbox (list or tuple): The bounding box defined by [x1, y1, x2, y2].
+        scale_factor (float): The factor by which to scale the bounding box.
+
+    Returns:
+        list: The resized bounding box defined by [x1, y1, x2, y2].
+    """
+    x1, y1, x2, y2 = bbox
+    center_x = (x1 + x2) / 2
+    center_y = (y1 + y2) / 2
+    width = (x2 - x1) * scale_factor
+    height = (y2 - y1) * scale_factor
+
+    new_x1 = center_x - width / 2
+    new_y1 = center_y - height / 2
+    new_x2 = center_x + width / 2
+    new_y2 = center_y + height / 2
+
+    return [int(new_x1), int(new_y1), int(new_x2), int(new_y2)]
+
+def plate_split(img):
+    h, w, _ = img.shape
+    line = int(h * 0.4)
+    top = img[:line, :, ]
+    bottom = img[line:, :]
+    return top, bottom
 
 def plate_squeeze(img):
     height, width, channels = img.shape

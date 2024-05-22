@@ -15,7 +15,8 @@ onnx_runtime_config = dict(
     yolo_640x=os.path.join(_MODEL_VERSION_, "onnx", "y5f_m1_640.onnx"),
     scrfd_320x=os.path.join(_MODEL_VERSION_, "onnx", "scrfd_plate_2.5g_bnkps_320x320.onnx"),
     scrfd_640x=os.path.join(_MODEL_VERSION_, "onnx", "scrfd_plate_2.5g_bnkps_640x640.onnx"),
-    crnn_ctc=os.path.join(_MODEL_VERSION_, "onnx", "crnn_ctc_rpv3_j18_b1.onnx"),
+    crnn_ctc_j18=os.path.join(_MODEL_VERSION_, "onnx", "crnn_ctc_rpv3_j18_b1.onnx"),
+    crnn_ctc_rp3=os.path.join(_MODEL_VERSION_, "onnx", "crnn_ctc_rpv3p_r3.onnx"),
     simple_cls=os.path.join(_MODEL_VERSION_, "onnx", "litemodel_cls_96x_r1.onnx"),
 )
 

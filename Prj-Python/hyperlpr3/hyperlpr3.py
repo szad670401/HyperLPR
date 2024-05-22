@@ -1,5 +1,5 @@
 from .config.settings import onnx_runtime_config as ort_cfg
-from .algo.pipeline import UsualFlow
+from .algo.pipeline import UsualFlow, DevFlow
 from .algo.pallet import *
 from os.path import join
 from .config.settings import _DEFAULT_FOLDER_
@@ -24,7 +24,8 @@ class LicensePlateCatcher(object):
                  folder: str = _DEFAULT_FOLDER_,
                  detect_level: int = DETECT_LEVEL_LOW,
                  logger_level: int = 3,
-                 full_result: bool = False):
+                 full_result: bool = False,
+                 providers=['CPUExecutionProvider']):
         if scheme == ALGO_SCHEME_USUAL:
             from hyperlpr3.algo.detection.yolo import YoloMultiTaskDetector
             from hyperlpr3.algo.recognition.crnn_ctc import CRNNCTCRecognizer
@@ -33,15 +34,33 @@ class LicensePlateCatcher(object):
             ort.set_default_logger_severity(logger_level)
 
             if detect_level == DETECT_LEVEL_LOW:
-                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_320x']))
+                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_320x']), providers=providers)
             elif detect_level == DETECT_LEVEL_HIGH:
-                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_640x']))
+                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_640x']), providers=providers)
             else:
                 raise NotImplementedError("Unsupported detection level.")
 
-            rec = CRNNCTCRecognizer(join(folder, ort_cfg['crnn_ctc']))
-            cls = SimpleClassification(join(folder, ort_cfg['simple_cls']))
+            rec = CRNNCTCRecognizer(join(folder, ort_cfg['crnn_ctc_j18']), providers=providers)
+            cls = SimpleClassification(join(folder, ort_cfg['simple_cls']), providers=providers)
             self.pipeline = UsualFlow(detector=det, recognizer=rec, classifier=cls, full_result=full_result)
+
+        elif scheme == ALGO_SCHEME_DEV:
+            from hyperlpr3.algo.detection.yolo import YoloMultiTaskDetector
+            from hyperlpr3.algo.recognition.crnn_ctc import CRNNCTCRecognizer
+            from hyperlpr3.algo.classification.simple_classify import SimpleClassification
+            import onnxruntime as ort
+            ort.set_default_logger_severity(logger_level)
+
+            if detect_level == DETECT_LEVEL_LOW:
+                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_320x']), providers=providers)
+            elif detect_level == DETECT_LEVEL_HIGH:
+                det = YoloMultiTaskDetector(join(folder, ort_cfg['yolo_640x']), providers=providers)
+            else:
+                raise NotImplementedError("Unsupported detection level.")
+
+            rec = CRNNCTCRecognizer(join(folder, ort_cfg['crnn_ctc_rp3']), providers=providers)
+            cls = SimpleClassification(join(folder, ort_cfg['simple_cls']), providers=providers)
+            self.pipeline = DevFlow(detector=det, recognizer=rec, classifier=cls, full_result=full_result)
         else:
             raise NotImplementedError("Unsupported scheme.")
 
