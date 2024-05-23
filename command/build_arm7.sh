@@ -5,7 +5,7 @@ cd build/arm32
 	-DCMAKE_SYSTEM_VERSION=1 \
 	-DCMAKE_SYSTEM_PROCESSOR=armv7 \
 	-DCMAKE_C_COMPILER=$cross_compile_toolchain/bin/arm-linux-gnueabihf-gcc \
-  -DCMAKE_CXX_COMPILER=$cross_compile_toolchain/bin/arm-linux-gnueabihf-g++ \
+  	-DCMAKE_CXX_COMPILER=$cross_compile_toolchain/bin/arm-linux-gnueabihf-g++ \
 	-DBUILD_LINUX_ARM7=ON ../../
 
 make -j4

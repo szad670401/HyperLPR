@@ -5,7 +5,6 @@ cmake-build-debug/*
 3rdparty/MNN-bak/*
 build_android/*
 *.zip
-3rdparty/*
 full_models/*
 images/tmp/*
 .DS_Store

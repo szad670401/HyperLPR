@@ -7,16 +7,25 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 
+set(HYPERLPR_VERSION_MAJOR 3)
+set(HYPERLPR_VERSION_MINOR 1)
+set(HYPERLPR_VERSION_PATCH 0)
+# Converts the version number to a string
+string(CONCAT HYPERLPR_VERSION_MAJOR_STR ${HYPERLPR_VERSION_MAJOR})
+string(CONCAT HYPERLPR_VERSION_MINOR_STR ${HYPERLPR_VERSION_MINOR})
+string(CONCAT HYPERLPR_VERSION_PATCH_STR ${HYPERLPR_VERSION_PATCH})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cpp/src/version.h.in ${CMAKE_CURRENT_SOURCE_DIR}/cpp/src/version.h)
+
 set(LIBRARY_NAME hyperlpr3)
 
-option( LINUX_FETCH_MNN             "Fetch and build MNN from git"  OFF )
 option( LINUX_USE_3RDPARTY_OPENCV   "Linux platform using pre-compiled OpenCV library from 3rdparty_hyper_inspire_op" OFF)
 option( BUILD_SHARE                 "Build shared libs"                 ON )
 option( BUILD_SAMPLES               "Build samples demo"                ON )
-option( BUILD_TEST                  "Build unit-test exec"              OFF )
+option( BUILD_TEST                  "Build unit-test exec"              ON )
 
 
 set(PATH_3RDPARTY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty_hyper_inspire_op)
+set(HYPERLPR_3RDPARTY ${CMAKE_CURRENT_SOURCE_DIR}/3rdparty)
 
 # find all cpp file
 file(GLOB_RECURSE SRC_BUFFER_MODULE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/src/buffer_module/*.cpp)
@@ -45,20 +54,31 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp/c_api)
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/cpp/platform)
 
-# must use mnn
+
 add_definitions("-DINFERENCE_HELPER_ENABLE_MNN")
 
-set(LINK_THIRD_LIBS pthread MNN m)
+# must use mnn
+if(DEFINED MNN_STATIC_PATH) 
+    set(MNN_INCLUDE_DIRS "${MNN_STATIC_PATH}/include")
+    set(MNN_LIBS "${MNN_STATIC_PATH}/lib/libMNN.a")
+else ()
+    # MNN Options
+    set(MNN_BUILD_SHARED_LIBS OFF CACHE BOOL "Build MNN as a shared library")
+    add_subdirectory(${HYPERLPR_3RDPARTY}/MNN EXCLUDE_FROM_ALL)
+    set(MNN_INCLUDE_DIRS "${HYPERLPR_3RDPARTY}/MNN/include")
+    set(MNN_LIBS MNN)
+endif()
+
+include_directories(${MNN_INCLUDE_DIRS})
+
+
+set(LINK_THIRD_LIBS pthread ${MNN_LIBS} m)
 
 if (ANDROID)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 ")
     set(CMAKE_C_FLAGS "${CMAKE_CXX_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
     file(GLOB_RECURSE NATIVE_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/platform/jni/android/*.cpp)
-
-    find_package(OpenCV REQUIRED)
-    include_directories(${MNN_INCLUDE_DIRS})
-    link_directories(${MNN_LIBS})
 
     add_library(${LIBRARY_NAME} SHARED ${NATIVE_CPP_FILES} ${SRC_C_CPP_FILES} ${CAPI_CC_FILES})
     target_link_libraries(${LIBRARY_NAME} ${OpenCV_LIBS} jnigraphics log -Wl,--whole-archive MNN -Wl,--no-whole-archive)
@@ -70,80 +90,38 @@ else ()
     if (BUILD_CUDA)
         # TODO: Not implement
     elseif (BUILD_LINUX_ARM7)
-        message("[BUILD]Linux Armv7")
         add_definitions("-DLINUX_ARM7")
         set(PLAT linux-arm32)
-        # MNN Third party dependence
-        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}-static/include)
-        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}-static/lib)
         # OpenCV Third party dependence
         set(OpenCV_DIR ${PATH_3RDPARTY}/opencv/opencv-linux-armhf/share/OpenCV)
         set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv/opencv-linux-armhf/include/)
-        find_package(OpenCV REQUIRED)
 
     elseif (BUILD_LINUX_ARM_AARCH64)
-        message("[BUILD]Linux Arm AARCH64")
         add_definitions("-DLINUX_ARM_AARCH64")
-        # MNN Third party dependence
-        set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/include)
-        set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.7.1/linux-arm-aarch64/lib)
         # OpenCV Third party dependence
         set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1-shared/lib/cmake/opencv4)
         set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-linux-aarch64-4.5.1-shared/include/opencv4)
     else()
         # Local Build
-        message("[BUILD]Local")
         if (APPLE)
             set(PLAT darwin)
         else()
             set(PLAT linux)
         endif ()
 
-        # Fetch MNN from git if the option is enabled
-        if (LINUX_FETCH_MNN)
-            # Include FetchContent module
-            include(FetchContent)
-            # Fetch MNN
-            message("Downloading MNN from https://github.com/alibaba/MNN.git, this may take a while.")
-            FetchContent_Declare(
-                    mnn
-                    GIT_REPOSITORY https://github.com/alibaba/MNN.git
-                    GIT_TAG        2.7.1
-            )
-            set(MNN_BUILD_SHARED_LIBS OFF CACHE BOOL "" FORCE)
-            set(MNN_BUILD_TOOLS OFF CACHE BOOL "" FORCE)
-
-            FetchContent_MakeAvailable(mnn)
-            set(MNN_INCLUDE_DIRS ${mnn_SOURCE_DIR}/include)
-            set(MNN_LIBS ${mnn_BINARY_DIR})
-        else()
-            # MNN Third party dependence
-            set(MNN_INCLUDE_DIRS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/include)
-            set(MNN_LIBS ${PATH_3RDPARTY}/MNN-2.2.0/${PLAT}/lib)
-        endif()
-
-
         if(LINUX_USE_3RDPARTY_OPENCV)
             # OpenCV Third party dependence （static）
             set(OpenCV_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/lib/cmake/opencv4)
             set(OpenCV_STATIC_INCLUDE_DIR ${PATH_3RDPARTY}/opencv-4.5.1/${PLAT}/include/opencv4)
         endif()
-        find_package(OpenCV REQUIRED)
 
     endif()
 endif()
 
+find_package(OpenCV REQUIRED)
+
 if (NOT ANDROID)
-    # mnn
-    message(MNN_INCLUDE_DIRS=${MNN_INCLUDE_DIRS})
-    message(MNN_LIBS=${MNN_LIBS})
-    include_directories(${MNN_INCLUDE_DIRS})
-    link_directories(${MNN_LIBS})
     # opencv
-    message(OpenCV_Version: ${OpenCV_VERSION})
-    message(libraries: ${OpenCV_LIBS})
-    message(libraries path: ${OpenCV_DIR})
-    message(OpenCV_INCLUDE_DIRS=${OpenCV_STATIC_INCLUDE_DIR})
     include_directories(${OpenCV_STATIC_INCLUDE_DIR})
 
     if (BUILD_SAMPLES)
@@ -164,7 +142,6 @@ if (NOT ANDROID)
 
     if (BUILD_TEST)
         if (ENABLE_BENCHMARK_TEST)
-            message([Test]Open Benchmark Test)
             add_definitions(-DENABLE_BENCHMARK_TEST)
         endif ()
         file(GLOB_RECURSE TEST_C_CPP_FILES ${CMAKE_CURRENT_SOURCE_DIR}/cpp/test/*.cpp)
@@ -183,8 +160,21 @@ if (NOT ANDROID)
 
 endif()
 
+
 set(CMAKE_INSTALL_PREFIX ${PROJECT_BINARY_DIR}/install/hyperlpr3)
-message(CMAKE_INSTALL_PREFIX=${CMAKE_INSTALL_PREFIX})
+
+message(STATUS ">>>>>>>>>>>>>")
+message(STATUS "HyperLPR BUILD INFO:")
+message(STATUS "\tSystem: ${CMAKE_SYSTEM_NAME}")
+message(STATUS "\tProcessor: ${CMAKE_SYSTEM_PROCESSOR}")
+message(STATUS "\tVersion: ${HYPERLPR_VERSION_MAJOR}.${HYPERLPR_VERSION_MINOR}.${HYPERLPR_VERSION_PATCH}")
+message(STATUS "\tOpenCV: ${OpenCV_DIR}")
+message(STATUS "\tMNN: ${MNN_LIBS}")
+message(STATUS "\tBuild Share: ${BUILD_SHARE}")
+message(STATUS "\tBuild Sample: ${BUILD_SAMPLES}")
+message(STATUS "\tBuild Test: ${BUILD_TEST}")
+message(STATUS "\tInstall To: ${CMAKE_INSTALL_PREFIX}")
+
 
 # Add HyperLPR3-related files and directories to the installation list
 install(TARGETS ${LIBRARY_NAME} DESTINATION ${CMAKE_INSTALL_PREFIX}/lib)

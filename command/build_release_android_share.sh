@@ -8,7 +8,7 @@ OPENCV_DIR=${BUILD_3RDPARTY_PATH}/opencv-4.5.1/opencv-4.5.1-android-sdk/sdk/nati
 
 BUILD_DIR=${RELEASE_HOME}/build/release_android
 
-[[ -d ${BUILD_DIR} ]] && rm -r ${BUILD_DIR}
+# [[ -d ${BUILD_DIR} ]] && rm -r ${BUILD_DIR}
 
 build() {
     arch=$1
@@ -26,11 +26,9 @@ build() {
         -DBUILD_CUDA=OFF \
         -DBUILD_SAMPLES=OFF \
         -DBUILD_TEST=OFF \
-        -DOpenCV_DIR=${OPENCV_DIR} \
-        -DMNN_LIBS=${BUILD_3RDPARTY_PATH}/MNN-2.2.0/android-static/${arch} \
-        -DMNN_INCLUDE_DIRS=${BUILD_3RDPARTY_PATH}/MNN-2.2.0/android-static/include
+        -DOpenCV_DIR=${OPENCV_DIR} 
 #        -DNCNN_DIR=${RELEASE_HOME}/3rdparty/ncnn/android/${arch} \
-    make -j$(nproc) hyperlpr3
+    make -j2 hyperlpr3
     ls ${BUILD_DIR}/${arch}| grep -v so| xargs rm -r
     #make -j$(nproc) track_tool
     popd
