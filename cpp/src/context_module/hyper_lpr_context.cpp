@@ -36,44 +36,20 @@ void HyperLPRContext::operator()(CameraBuffer &buffer) {
 //        cv::imshow("align_image_pad", align_image_pad);
 //        cv::imshow("align_image", align_image);
 //        cv::waitKey(0);
-
-
+        cv::Mat inputPad = align_image;
         TextLine text_line;
         if (loc.layers == LayersNum::DOUBLE) {
-            int line = (int )((float )align_image.rows * 0.4f);
-            int bottom_h = align_image.rows - line;
-            cv::Rect_<int> top_rect(0, 0, align_image.cols, line);
-            cv::Rect_<int> bottom_rect(0, line, align_image.cols, bottom_h);
-            cv::Mat top_crop = align_image(top_rect);
-            cv::Mat bottom_crop = align_image(bottom_rect);
-
-            std::vector<cv::Mat> candidate = {top_crop, bottom_crop};
-            text_line.code = "";
-            text_line.average_score = 0.0f;
-            for (int j = 0; j < candidate.size(); ++j) {
-                cv::Mat &align = candidate[j];
-                cv::Mat align_pad;
-                float wh_ratio = (float) align.cols / align.rows;
-                imagePadding(align, align_pad, wh_ratio, m_plate_recognition_->getMInputImageSize());
-                TextLine candidate_text;
-//                cv::imshow("align_pad", align_pad);
-//                cv::waitKey(0);
-//                if (j == 0)
-//                    cv::imwrite("a.jpg", align_pad);
-                m_plate_recognition_->Inference(align_pad, candidate_text);
-                text_line.code += candidate_text.code;
-                text_line.average_score += candidate_text.average_score;
-            }
-            text_line.average_score /= candidate.size();
+            inputPad = plateSqueeze(align_image);
 //            cv::imshow("top_crop", top_crop);
-//            cv::imshow("bottom_crop", bottom_crop);
-//            cv::waitKey(0);
-        } else {
-            cv::Mat align_image_pad;
-            float wh_ratio = (float) align_image.cols / align_image.rows;
-            imagePadding(align_image, align_image_pad, wh_ratio, m_plate_recognition_->getMInputImageSize());
-            m_plate_recognition_->Inference(align_image_pad, text_line);
+        //    cv::imshow("cc", bottom_crop);
+        //    cv::waitKey(0);
         }
+        // Normalized size
+        cv::Mat align_image_pad;
+        float wh_ratio = (float) inputPad.cols / inputPad.rows;
+        imagePadding(inputPad, align_image_pad, wh_ratio, m_plate_recognition_->getMInputImageSize());
+        m_plate_recognition_->Inference(align_image_pad, text_line);
+
         cv::resize(align_image, align_image, m_plate_classification_->getMInputImageSize());
 //        SLOG_CRITICAL("cfg: {}", text_line.average_score);
 //        SLOG_CRITICAL("code: {}", text_line.code);

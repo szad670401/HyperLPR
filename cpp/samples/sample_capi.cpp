@@ -63,8 +63,8 @@ int main(int argc, char **argv) {
     }
 
 //    cv::imwrite("out.jpg", image);
-    cv::imshow("out", image);
-    cv::waitKey(0);
+    // cv::imshow("out", image);
+    // cv::waitKey(0);
 
     // release buffer
     HLPR_ReleaseDataBuffer(buffer);

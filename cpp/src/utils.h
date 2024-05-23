@@ -145,4 +145,24 @@ inline float boundBoxOverlap(const cv::Rect_<T> &box1, const cv::Rect_<T> &box2)
     return intersection / (area1 + area2 - intersection);
 }
 
+inline cv::Mat plateSqueeze(const cv::Mat& img) {
+    int height = img.rows;
+    int width = img.cols;
+    int channels = img.channels();
+
+    int upper_bound = static_cast<int>(0.416 * height);
+    int lower_bound = static_cast<int>(0.333 * height);
+
+    cv::Mat upper_part = img(cv::Rect(0, 0, width, upper_bound));
+    cv::Mat lower_part = img(cv::Rect(0, lower_bound, width, height - lower_bound));
+
+    cv::Mat upper_part_resized;
+    cv::resize(upper_part, upper_part_resized, cv::Size(width, lower_part.rows));
+
+    cv::Mat merged_img;
+    cv::hconcat(upper_part_resized, lower_part, merged_img);
+
+    return merged_img;
+} 
+
 #endif //ZEPHYRLPR_UTILS_H

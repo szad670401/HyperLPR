@@ -38,13 +38,13 @@ private:
     int32_t decode(const std::vector<float>& tensor, TextLine &line);
 
 private:
-    cv::Size m_input_image_size_{};                             // 输入图像宽高
+    cv::Size m_input_image_size_{};                             // Input image width and height
 
-    float m_confidence_threshold_{};                            // 置信度阈值
+    float m_confidence_threshold_{};                            // Confidence threshold
 
-    std::unique_ptr<InferenceHelper> m_nn_infer_;               // 推理模块
+    std::unique_ptr<InferenceHelper> m_nn_infer_;               // Inference module
 
-    IndexList m_ignored_tokens_ = {0, };                        // 需要被忽略的索引
+    IndexList m_ignored_tokens_ = {0, };                        // Indexes to be ignored
 
     std::vector<InputTensorInfo> m_input_tensor_info_list_;
 

@@ -28,7 +28,7 @@ font_ch = ImageFont.truetype("../resource/font/platech.ttf", 20, 0)
 # 实例化识别对象
 catcher = lpr3.LicensePlateCatcher(detect_level=lpr3.DETECT_LEVEL_LOW, )
 # 读取图片
-image = cv2.imread("/Users/tunm/Downloads/6d55788f3947c6ec-717477506696921659.png")
+image = cv2.imread("/Users/tunm/Downloads/detect_plate_datasets/val_detect/double_val/1(342).jpg")
 
 # 执行识别算法
 results = catcher(image)

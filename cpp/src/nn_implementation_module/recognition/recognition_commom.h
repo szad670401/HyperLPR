@@ -10,13 +10,13 @@
 namespace hyper {
 
 typedef struct TextLine {
-    IndexList char_index;                             ///< 索引列表
-    std::vector<float> char_scores;                   ///< 置信度列表
-    float average_score;                              ///< 平均置信度
-    std::string code;                                 ///< 车牌字符串
+    IndexList char_index;                             ///< Index list of each character
+    std::vector<float> char_scores;                   ///< Confidence list of each character
+    float average_score;                              ///< Average confidence
+    std::string code;                                 ///< License plate string
 };
 
-typedef std::vector<TextLine> TextLines;             ///< 多行文本表达
+typedef std::vector<TextLine> TextLines;             ///< Multiline text presentation
 
 }
 

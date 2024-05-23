@@ -2,8 +2,8 @@
 // Created by Tunm-Air13 on 2022/4/24.
 //
 
-#ifndef SOLEXCV_CAMERA_BUFFER_H
-#define SOLEXCV_CAMERA_BUFFER_H
+#ifndef HYPERLPR_CAMERA_BUFFER_H
+#define HYPERLPR_CAMERA_BUFFER_H
 
 #include <opencv2/opencv.hpp>
 #include <MNN/ImageProcess.hpp>
@@ -65,4 +65,4 @@ private:
 };
 
 }
-#endif //SOLEXCV_CAMERA_BUFFER_H
+#endif //HYPERLPR_CAMERA_BUFFER_H

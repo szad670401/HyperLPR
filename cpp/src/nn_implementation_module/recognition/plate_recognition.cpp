@@ -31,7 +31,8 @@ TextLine PlateRecognition::Inference(const cv::Mat &bgr_pad) {
 }
 
 TextLine PlateRecognition::decode(const std::vector<float>& tensor) {
-    int text_total_num = 24;
+    LOGD("U: %d", tensor.size());
+    int text_total_num = 20;
     int classify_num = 75;
     IndexList index_list;
     std::vector<float> max_list;

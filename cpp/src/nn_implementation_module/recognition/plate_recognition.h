@@ -36,13 +36,13 @@ private:
 
 private:
 
-    cv::Size m_input_image_size_{};                            // 输入图像宽高
+    cv::Size m_input_image_size_{};                            // Input image width and height
 
-    float m_confidence_threshold_{};                             // 置信度阈值
+    float m_confidence_threshold_{};                             // Confidence threshold
 
-    std::shared_ptr<MNNAdapterInference> m_nn_adapter_;        // 推理模块
+    std::shared_ptr<MNNAdapterInference> m_nn_adapter_;        // Inference module
 
-    IndexList m_ignored_tokens_ = {0, };                       // 需要被忽略的索引
+    IndexList m_ignored_tokens_ = {0, };                       // Indexes to be ignored
 
 };
 
