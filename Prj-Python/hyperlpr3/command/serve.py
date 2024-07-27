@@ -108,8 +108,9 @@ async def vehicle_license_plate_recognition(file: List[UploadFile] = File(...)):
         plates = catcher(img)
         results = list()
         for code, conf, plate_type, box in plates:
-            plate = dict(code=code, conf=float(conf), plate_type=type_list[plate_type], box=box)
-            results.append(plate)
+            if "nan" != f"{conf}":  # conf=nan会导致Json序列化错误
+                plate = dict(code=code, conf=float(conf), plate_type=type_list[plate_type], box=box)
+                results.append(plate)
         return BaseResponse().http_ok_response({'plate_list': results})
 
 
