@@ -186,8 +186,6 @@ PlateType HyperLPRContext::PreGetPlateType(std::string& code) {
     PlateType type = PlateType::UNKNOWN;
     if (code[0] == 'W' && code[1] == 'J'){
         type = PlateType::WHILE_SINGLE;
-    } else if (code.size() == 10) {
-        type = PlateType::GREEN;
     } else if (code.find("学") != -1) {
         type = PlateType::BLUE;
     } else if (code.find("港") != -1) {
