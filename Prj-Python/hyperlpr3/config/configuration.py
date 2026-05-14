@@ -4,9 +4,12 @@ import zipfile
 import os
 from .settings import _DEFAULT_FOLDER_, _MODEL_VERSION_, _ONLINE_URL_, _REMOTE_URL_, onnx_model_maps, onnx_runtime_config
 
+REQUEST_TIMEOUT_SECONDS = 30
+
 
 def down_model_file(url, save_path):
-    resp = requests.get(url, stream=True)
+    resp = requests.get(url, stream=True, timeout=REQUEST_TIMEOUT_SECONDS)
+    resp.raise_for_status()
     total = int(resp.headers.get('content-length', 0))
     with open(save_path, 'wb') as file, tqdm(
             desc="Pull",
@@ -21,7 +24,8 @@ def down_model_file(url, save_path):
 
 
 def down_model_zip(url, save_path, is_unzip=False):
-    resp = requests.get(url, stream=True)
+    resp = requests.get(url, stream=True, timeout=REQUEST_TIMEOUT_SECONDS)
+    resp.raise_for_status()
     total = int(resp.headers.get('content-length', 0))
     name = os.path.join(save_path, os.path.basename(url))
     with open(name, 'wb') as file, tqdm(
@@ -60,4 +64,3 @@ def initialization(re_download=False):
     if not os.path.exists(models_dir) or re_download:
         target_url = os.path.join(_ONLINE_URL_, _MODEL_VERSION_) + '.zip'
         down_model_zip(target_url, _DEFAULT_FOLDER_, True)
-

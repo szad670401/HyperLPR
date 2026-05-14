@@ -27,7 +27,7 @@ def is_http_url(s):
 
 def url_to_image(url):
     try:
-        resp = urllib.request.urlopen(url)
+        resp = urllib.request.urlopen(url, timeout=10)
         image = np.asarray(bytearray(resp.read()), dtype="uint8")
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
     except Exception as err:
