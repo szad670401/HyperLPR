@@ -5,6 +5,18 @@ import os
 from .settings import _DEFAULT_FOLDER_, _MODEL_VERSION_, _ONLINE_URL_, _REMOTE_URL_, onnx_model_maps, onnx_runtime_config
 
 
+def safe_extract_zip(zip_file, save_path):
+    root = os.path.realpath(save_path)
+    for member in zip_file.infolist():
+        target_path = os.path.realpath(os.path.join(save_path, member.filename))
+        if target_path != root and not target_path.startswith(root + os.sep):
+            raise RuntimeError(f"Blocked unsafe zip member path: {member.filename}")
+        if (member.external_attr >> 16) & 0o170000 == 0o120000:
+            raise RuntimeError(f"Blocked unsafe zip symlink: {member.filename}")
+
+    zip_file.extractall(save_path)
+
+
 def down_model_file(url, save_path):
     resp = requests.get(url, stream=True)
     total = int(resp.headers.get('content-length', 0))
@@ -36,9 +48,8 @@ def down_model_zip(url, save_path, is_unzip=False):
             bar.update(size)
 
     if is_unzip:
-        f = zipfile.ZipFile(name, "r")
-        for file in f.namelist():
-            f.extract(file, save_path)
+        with zipfile.ZipFile(name, "r") as f:
+            safe_extract_zip(f, save_path)
         os.remove(name)
 
 
@@ -60,4 +71,3 @@ def initialization(re_download=False):
     if not os.path.exists(models_dir) or re_download:
         target_url = os.path.join(_ONLINE_URL_, _MODEL_VERSION_) + '.zip'
         down_model_zip(target_url, _DEFAULT_FOLDER_, True)
-
