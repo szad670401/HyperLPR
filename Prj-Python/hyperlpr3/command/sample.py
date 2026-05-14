@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import hyperlpr3 as lpr3
 import cv2
-import urllib
+import urllib.error
+import urllib.request
 import numpy as np
 import re
 import click
@@ -27,10 +28,14 @@ def is_http_url(s):
 
 def url_to_image(url):
     try:
-        resp = urllib.request.urlopen(url)
+        resp = urllib.request.urlopen(url, timeout=10)
         image = np.asarray(bytearray(resp.read()), dtype="uint8")
         image = cv2.imdecode(image, cv2.IMREAD_COLOR)
+    except urllib.error.URLError as err:
+        logger.warning(f"Failed to fetch image from URL ({err}): {url}")
+        return None
     except Exception as err:
+        logger.warning(f"Unexpected error reading image from URL: {err}")
         return None
 
     return image
