@@ -11,16 +11,21 @@ def down_model_file(url, save_path):
     resp = requests.get(url, stream=True, timeout=REQUEST_TIMEOUT_SECONDS)
     resp.raise_for_status()
     total = int(resp.headers.get('content-length', 0))
-    with open(save_path, 'wb') as file, tqdm(
-            desc="Pull",
-            total=total,
-            unit='iB',
-            unit_scale=True,
-            unit_divisor=1024,
-    ) as bar:
-        for data in resp.iter_content(chunk_size=1024):
-            size = file.write(data)
-            bar.update(size)
+    try:
+        with open(save_path, 'wb') as file, tqdm(
+                desc="Pull",
+                total=total,
+                unit='iB',
+                unit_scale=True,
+                unit_divisor=1024,
+        ) as bar:
+            for data in resp.iter_content(chunk_size=1024):
+                size = file.write(data)
+                bar.update(size)
+    except Exception:
+        if os.path.exists(save_path):
+            os.remove(save_path)
+        raise
 
 
 def down_model_zip(url, save_path, is_unzip=False):
@@ -28,16 +33,21 @@ def down_model_zip(url, save_path, is_unzip=False):
     resp.raise_for_status()
     total = int(resp.headers.get('content-length', 0))
     name = os.path.join(save_path, os.path.basename(url))
-    with open(name, 'wb') as file, tqdm(
-            desc="Pull",
-            total=total,
-            unit='iB',
-            unit_scale=True,
-            unit_divisor=1024,
-    ) as bar:
-        for data in resp.iter_content(chunk_size=1024):
-            size = file.write(data)
-            bar.update(size)
+    try:
+        with open(name, 'wb') as file, tqdm(
+                desc="Pull",
+                total=total,
+                unit='iB',
+                unit_scale=True,
+                unit_divisor=1024,
+        ) as bar:
+            for data in resp.iter_content(chunk_size=1024):
+                size = file.write(data)
+                bar.update(size)
+    except Exception:
+        if os.path.exists(name):
+            os.remove(name)
+        raise
 
     if is_unzip:
         f = zipfile.ZipFile(name, "r")
